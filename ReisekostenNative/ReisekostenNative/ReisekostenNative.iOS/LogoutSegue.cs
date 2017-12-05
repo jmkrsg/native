@@ -15,7 +15,11 @@ namespace ReisekostenNative.iOS
 
         public override void Perform()
         {
-
+            var tabViewCtrl = SourceViewController as BelegeTableViewController;
+            if (tabViewCtrl != null)
+            {
+                tabViewCtrl.NavigationController.DismissViewController(true, null);
+            }
         }
 	}
 }
