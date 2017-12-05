@@ -38,5 +38,10 @@ namespace ReisekostenNative.UWP
             // navigate to detailPage and edit given item
             this.Frame.Navigate(typeof(BelegDetailPage), e.ClickedItem);
         }
+
+        private void AppBarToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(BelegDetailPage), null);
+        }
     }
 }

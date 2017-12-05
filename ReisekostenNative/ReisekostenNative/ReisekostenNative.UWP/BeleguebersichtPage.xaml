@@ -7,52 +7,58 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <StackPanel>
-            <TextBlock Text="Belegerfassung"/>
-            <ListView ItemsSource="{x:Bind BelegListe}" ItemClick="ListView_ItemClick" IsItemClickEnabled="True" IsSwipeEnabled="True" ShowsScrollingPlaceholders="True">
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapGrid MaximumRowsOrColumns="6" Orientation="Horizontal" />
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="local:Beleg">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="150"/>
-                                <ColumnDefinition Width="250"/>
-                                <ColumnDefinition Width="150"/>                                
-                            </Grid.ColumnDefinitions>
+    <StackPanel>
+        <CommandBar VerticalAlignment="Top" HorizontalAlignment="Right">
+            <AppBarToggleButton Icon="Add" Label="neuen Beleg hinzufügen" Click="AppBarToggleButton_Click"/>
+        </CommandBar>
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                            <TextBlock Grid.Column="0">
-                                <Run Text="Id" />
-                                <LineBreak />
-                                <Run Text="{x:Bind Id}" />
-                            </TextBlock>
+            <StackPanel Margin="40">
+                <TextBlock Text="Belegerfassung"/>
+                <ListView ItemsSource="{x:Bind BelegListe}" ItemClick="ListView_ItemClick" IsItemClickEnabled="True" IsSwipeEnabled="True" ShowsScrollingPlaceholders="True">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapGrid MaximumRowsOrColumns="6" Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Beleg">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="250"/>
+                                    <ColumnDefinition Width="150"/>                                
+                                </Grid.ColumnDefinitions>
 
-                            <TextBlock Grid.Column="1">
-                                <Run Text="Bezeichnung" FontWeight="Bold" />
-                                <LineBreak />
-                                <Run Text="{x:Bind Bezeichnung}" />
-                            </TextBlock>
+                                <TextBlock Grid.Column="0">
+                                    <Run Text="Id" />
+                                    <LineBreak />
+                                    <Run Text="{x:Bind Id}" />
+                                </TextBlock>
 
-                            <TextBlock Grid.Column="2">
-                                <Run Text="Betrag"/>
-                                <LineBreak />
-                                <Run Text="{x:Bind Betrag}" />
-                            </TextBlock>
+                                <TextBlock Grid.Column="1">
+                                    <Run Text="Bezeichnung" FontWeight="Bold" />
+                                    <LineBreak />
+                                    <Run Text="{x:Bind Bezeichnung}" />
+                                </TextBlock>
 
-                            <TextBlock Grid.Column="3">
-                                <Run Text="Status"/>
-                                <LineBreak />
-                                <Run Text="{x:Bind Status}" />
-                            </TextBlock>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel>
-    </Grid>
+                                <TextBlock Grid.Column="2">
+                                    <Run Text="Betrag"/>
+                                    <LineBreak />
+                                    <Run Text="{x:Bind Betrag}" />
+                                </TextBlock>
+
+                                <TextBlock Grid.Column="3">
+                                    <Run Text="Status"/>
+                                    <LineBreak />
+                                    <Run Text="{x:Bind Status}" />
+                                </TextBlock>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
 </Page>
