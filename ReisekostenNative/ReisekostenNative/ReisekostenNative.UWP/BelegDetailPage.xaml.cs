@@ -6,12 +6,17 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Graphics.Imaging;
+using Windows.Media.Capture;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -24,6 +29,8 @@ namespace ReisekostenNative.UWP
     public sealed partial class BelegDetailPage : Page
     {
         public BelegDetailModel ViewModel { get; set; }
+
+        private StorageFile Photo { get; set; }
 
         public BelegDetailPage()
         {
@@ -72,6 +79,24 @@ namespace ReisekostenNative.UWP
         private void Speichern_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.GoBack();
+        }
+
+        private async void AddImage_ClickAsync(object sender, RoutedEventArgs e)
+        {
+            CameraCaptureUI captureUI = new CameraCaptureUI();
+            captureUI.PhotoSettings.Format = CameraCaptureUIPhotoFormat.Jpeg;
+            captureUI.PhotoSettings.CroppedSizeInPixels = new Size(200, 200);
+            Photo = await captureUI.CaptureFileAsync(CameraCaptureUIMode.Photo);
+            this.pictureButton.Visibility = Visibility.Visible;
+            this.Frame.Navigate(typeof(PhotoPage), Photo);
+        }
+
+        private void AppBarToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Photo != null)
+            {
+                this.Frame.Navigate(typeof(PhotoPage), Photo);
+            }
         }
     }
 }

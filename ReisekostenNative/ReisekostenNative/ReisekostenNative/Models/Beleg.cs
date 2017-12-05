@@ -85,60 +85,12 @@ namespace IO.Swagger.Model
         /// <param name="BelegSize">Groesse des Beleges.</param>
         public Beleg(int? Belegnummer = default(int?), string Description = default(string), DateTime? Date = default(DateTime?), string Type = default(string), long? Betrag = default(long?), StatusEnum? Status = default(StatusEnum?), byte[] Thumbnail = default(byte[]), long? BelegSize = default(long?))
         {
-            // to ensure "Belegnummer" is required (not null)
-            if (Belegnummer == null)
-            {
-                throw new InvalidDataException("Belegnummer is a required property for Beleg and cannot be null");
-            }
-            else
-            {
-                this.Belegnummer = Belegnummer;
-            }
-            // to ensure "Description" is required (not null)
-            if (Description == null)
-            {
-                throw new InvalidDataException("Description is a required property for Beleg and cannot be null");
-            }
-            else
-            {
-                this.Description = Description;
-            }
-            // to ensure "Date" is required (not null)
-            if (Date == null)
-            {
-                throw new InvalidDataException("Date is a required property for Beleg and cannot be null");
-            }
-            else
-            {
-                this.Date = Date;
-            }
-            // to ensure "Type" is required (not null)
-            if (Type == null)
-            {
-                throw new InvalidDataException("Type is a required property for Beleg and cannot be null");
-            }
-            else
-            {
-                this.Type = Type;
-            }
-            // to ensure "Betrag" is required (not null)
-            if (Betrag == null)
-            {
-                throw new InvalidDataException("Betrag is a required property for Beleg and cannot be null");
-            }
-            else
-            {
-                this.Betrag = Betrag;
-            }
-            // to ensure "Status" is required (not null)
-            if (Status == null)
-            {
-                throw new InvalidDataException("Status is a required property for Beleg and cannot be null");
-            }
-            else
-            {
-                this.Status = Status;
-            }
+            this.Belegnummer = Belegnummer;
+            this.Description = Description;
+            this.Date = Date;
+            this.Type = Type;
+            this.Betrag = Betrag;
+            this.Status = Status;
             this.Thumbnail = Thumbnail;
             this.BelegSize = BelegSize;
         }

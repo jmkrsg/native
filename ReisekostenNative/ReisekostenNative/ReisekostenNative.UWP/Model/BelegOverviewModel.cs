@@ -8,5 +8,8 @@ namespace ReisekostenNative.UWP.Model
 {
     public class BelegOverviewModel
     {
+        public List<Beleg> BelegListe { get; set; }
+
+        public string Username { get; set; }
     }
 }
