@@ -42,24 +42,26 @@ namespace ReisekostenNative.iOS
 		[Outlet]
 		UIKit.UIImageView status { get; set; }
 
+		[Action ("artEditingChanged:")]
+		partial void artEditingChanged (Foundation.NSObject sender);
+
+		[Action ("artEditingEnd:")]
+		partial void artEditingEnd (Foundation.NSObject sender);
+
 		[Action ("belegButtonPerformed:")]
 		partial void belegButtonPerformed (Foundation.NSObject sender);
+
+		[Action ("datumEditingChanged:")]
+		partial void datumEditingChanged (Foundation.NSObject sender);
+
+		[Action ("datumEditingEnd:")]
+		partial void datumEditingEnd (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (lfd != null) {
-				lfd.Dispose ();
-				lfd = null;
-			}
-
-			if (datumValue != null) {
-				datumValue.Dispose ();
-				datumValue = null;
-			}
-
-			if (datum != null) {
-				datum.Dispose ();
-				datum = null;
+			if (art != null) {
+				art.Dispose ();
+				art = null;
 			}
 
 			if (artValue != null) {
@@ -67,24 +69,9 @@ namespace ReisekostenNative.iOS
 				artValue = null;
 			}
 
-			if (art != null) {
-				art.Dispose ();
-				art = null;
-			}
-
-			if (betrag != null) {
-				betrag.Dispose ();
-				betrag = null;
-			}
-
-			if (status != null) {
-				status.Dispose ();
-				status = null;
-			}
-
-			if (bezeichnung != null) {
-				bezeichnung.Dispose ();
-				bezeichnung = null;
+			if (beleg != null) {
+				beleg.Dispose ();
+				beleg = null;
 			}
 
 			if (beschreibung != null) {
@@ -92,9 +79,34 @@ namespace ReisekostenNative.iOS
 				beschreibung = null;
 			}
 
-			if (beleg != null) {
-				beleg.Dispose ();
-				beleg = null;
+			if (betrag != null) {
+				betrag.Dispose ();
+				betrag = null;
+			}
+
+			if (bezeichnung != null) {
+				bezeichnung.Dispose ();
+				bezeichnung = null;
+			}
+
+			if (datum != null) {
+				datum.Dispose ();
+				datum = null;
+			}
+
+			if (datumValue != null) {
+				datumValue.Dispose ();
+				datumValue = null;
+			}
+
+			if (lfd != null) {
+				lfd.Dispose ();
+				lfd = null;
+			}
+
+			if (status != null) {
+				status.Dispose ();
+				status = null;
 			}
 		}
 	}
