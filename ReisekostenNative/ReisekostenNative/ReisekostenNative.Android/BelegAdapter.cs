@@ -44,12 +44,23 @@ namespace ReisekostenNative.Droid
 
     class BelegViewHolder : RecyclerView.ViewHolder
     {
+
+        TextView art;
+        TextView datum;
+        TextView bezeichnung;
+
         public BelegViewHolder(View itemView) : base(itemView)
         {
+            art = itemView.FindViewById<TextView>(Resource.Id.art);
+            datum = itemView.FindViewById<TextView>(Resource.Id.datum);
+            bezeichnung = itemView.FindViewById<TextView>(Resource.Id.bezeichnung);
         }
 
         public void bind(Beleg e)
         {
+            art.Text = e.Type.ToString();
+            datum.Text = e.Date.ToString();
+            bezeichnung.Text = e.Description.ToString();
 
         }
     }
