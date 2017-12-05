@@ -202,6 +202,10 @@
     <Compile Include="BelegeTableViewController.designer.cs">
       <DependentUpon>BelegeTableViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="BelegeTableViewCell.cs" />
+    <Compile Include="BelegeTableViewCell.designer.cs">
+      <DependentUpon>BelegeTableViewCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\.DS_Store" />
