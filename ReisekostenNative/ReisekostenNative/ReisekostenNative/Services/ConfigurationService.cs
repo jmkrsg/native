@@ -11,6 +11,10 @@ namespace ReisekostenNative.Services
     {
         private static ConfigurationService instance;
 
+        private const string DATADIRECTORY = "data";
+
+        private Task<IFolder> datadirectoryCreationTask;
+
         public static ConfigurationService Instance
         {
             get
@@ -23,6 +27,17 @@ namespace ReisekostenNative.Services
             }
         }
 
+        public ConfigurationService()
+        {
+            InitialzeDataDirectory();
+        }
+
+        private void InitialzeDataDirectory()
+        {
+            IFolder rootFolder = FileSystem.Current.LocalStorage;
+            datadirectoryCreationTask = rootFolder.CreateFolderAsync(DATADIRECTORY, CreationCollisionOption.OpenIfExists);
+        }
+
         public String BelegserviceURL
         {
             get
@@ -33,15 +48,13 @@ namespace ReisekostenNative.Services
 
         private string datadirectory;
 
-        public String Datadirectory
+        public string Datadirectory
         {
             get
             {
                 if (datadirectory == null)
                 {
-                    IFolder rootFolder = FileSystem.Current.LocalStorage;
-
-
+                    datadirectory = datadirectoryCreationTask.Result.Path;
                 }
                 return datadirectory;
             }
