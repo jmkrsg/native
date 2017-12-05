@@ -274,6 +274,10 @@
     <Compile Include="BelegSpeichernSegue.designer.cs">
       <DependentUpon>BelegSpeichernSegue.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogoutSegue.cs" />
+    <Compile Include="LogoutSegue.designer.cs">
+      <DependentUpon>LogoutSegue.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\.DS_Store" />
