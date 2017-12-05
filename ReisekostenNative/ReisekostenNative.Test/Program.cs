@@ -10,7 +10,7 @@ namespace ReisekostenNative.Test
     {
         static void Main(string[] args)
         {
-            MyClass test = new MyClass();
+            ReisekostenNative.RESTClient.RESTClient test = new ReisekostenNative.RESTClient.RESTClient();
             Console.ReadLine();
         }
     }
