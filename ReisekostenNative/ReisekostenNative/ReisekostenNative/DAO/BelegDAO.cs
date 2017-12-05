@@ -12,7 +12,7 @@ namespace ReisekostenNative
         public DateTime date { get; set; }
         public string Type { get; set; }
         public string Status { get; set; }
-        public byte[] Thumbnail { get; set; }
+        public string ThumbnailBase64 { get; set; }
         public int BelegSize { get; set; }
     }
 }

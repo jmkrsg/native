@@ -9,7 +9,8 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
-            <ListView ItemsSource="{x:Bind BelegListe}">
+            <TextBlock Text="Belegerfassung"/>
+            <ListView ItemsSource="{x:Bind BelegListe}" ItemClick="ListView_ItemClick" IsItemClickEnabled="True">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapGrid MaximumRowsOrColumns="6" Orientation="Horizontal" />

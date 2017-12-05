@@ -79,10 +79,11 @@ namespace IO.Swagger.Model
         /// <param name="Description">Beschreibung des Beleges (required).</param>
         /// <param name="Date">Belegdatum (required).</param>
         /// <param name="Type">Art des Beleges (required).</param>
+        /// <param name="Betrag">Betrag des Beleges (required).</param>
         /// <param name="Status">Status des Beleges (required).</param>
         /// <param name="Thumbnail">Thumbnail-Darstellung des Beleges.</param>
-        /// <param name="BelegSize">Größe des Beleges.</param>
-        public Beleg(int? Belegnummer = default(int?), string Description = default(string), DateTime? Date = default(DateTime?), string Type = default(string), StatusEnum? Status = default(StatusEnum?), List<byte[]> Thumbnail = default(List<byte[]>), long? BelegSize = default(long?))
+        /// <param name="BelegSize">Groesse des Beleges.</param>
+        public Beleg(int? Belegnummer = default(int?), string Description = default(string), DateTime? Date = default(DateTime?), string Type = default(string), long? Betrag = default(long?), StatusEnum? Status = default(StatusEnum?), byte[] Thumbnail = default(byte[]), long? BelegSize = default(long?))
         {
             // to ensure "Belegnummer" is required (not null)
             if (Belegnummer == null)
@@ -119,6 +120,15 @@ namespace IO.Swagger.Model
             else
             {
                 this.Type = Type;
+            }
+            // to ensure "Betrag" is required (not null)
+            if (Betrag == null)
+            {
+                throw new InvalidDataException("Betrag is a required property for Beleg and cannot be null");
+            }
+            else
+            {
+                this.Betrag = Betrag;
             }
             // to ensure "Status" is required (not null)
             if (Status == null)
@@ -161,18 +171,25 @@ namespace IO.Swagger.Model
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 
+        /// <summary>
+        /// Betrag des Beleges
+        /// </summary>
+        /// <value>Betrag des Beleges</value>
+        [DataMember(Name = "betrag", EmitDefaultValue = false)]
+        public long? Betrag { get; set; }
+
 
         /// <summary>
         /// Thumbnail-Darstellung des Beleges
         /// </summary>
         /// <value>Thumbnail-Darstellung des Beleges</value>
         [DataMember(Name = "thumbnail", EmitDefaultValue = false)]
-        public List<byte[]> Thumbnail { get; set; }
+        public byte[] Thumbnail { get; set; }
 
         /// <summary>
-        /// Größe des Beleges
+        /// Groesse des Beleges
         /// </summary>
-        /// <value>Größe des Beleges</value>
+        /// <value>Groesse des Beleges</value>
         [DataMember(Name = "belegSize", EmitDefaultValue = false)]
         public long? BelegSize { get; set; }
 
@@ -188,6 +205,7 @@ namespace IO.Swagger.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Betrag: ").Append(Betrag).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Thumbnail: ").Append(Thumbnail).Append("\n");
             sb.Append("  BelegSize: ").Append(BelegSize).Append("\n");
@@ -248,6 +266,11 @@ namespace IO.Swagger.Model
                     this.Type.Equals(other.Type)
                 ) &&
                 (
+                    this.Betrag == other.Betrag ||
+                    this.Betrag != null &&
+                    this.Betrag.Equals(other.Betrag)
+                ) &&
+                (
                     this.Status == other.Status ||
                     this.Status != null &&
                     this.Status.Equals(other.Status)
@@ -255,7 +278,7 @@ namespace IO.Swagger.Model
                 (
                     this.Thumbnail == other.Thumbnail ||
                     this.Thumbnail != null &&
-                    this.Thumbnail.SequenceEqual(other.Thumbnail)
+                    this.Thumbnail.Equals(other.Thumbnail)
                 ) &&
                 (
                     this.BelegSize == other.BelegSize ||
@@ -283,6 +306,8 @@ namespace IO.Swagger.Model
                     hash = hash * 59 + this.Date.GetHashCode();
                 if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
+                if (this.Betrag != null)
+                    hash = hash * 59 + this.Betrag.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
                 if (this.Thumbnail != null)

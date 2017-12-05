@@ -26,8 +26,8 @@ namespace ReisekostenNative.Droid
             SetContentView(Resource.Layout.beleg_liste);
 
             List<Beleg> belegeList = new List<Beleg>();
-            belegeList.Add(new Beleg(1,"Beschreibung", new DateTime(), "Typ", Beleg.StatusEnum.ABGELEHNT, null, 0));
-            belegeList.Add(new Beleg(1, "Beschreibung2", new DateTime(), "Typ2", Beleg.StatusEnum.ABGELEHNT, null, 0));
+            belegeList.Add(new Beleg(1,"Beschreibung", new DateTime(), "Typ", 0, Beleg.StatusEnum.ABGELEHNT, null, 0));
+            belegeList.Add(new Beleg(1, "Beschreibung2", new DateTime(), "Typ2", 0, Beleg.StatusEnum.ABGELEHNT, null, 0));
 
 
             BelegeAdapter adapter = new BelegeAdapter(belegeList);

@@ -56,5 +56,11 @@ namespace ReisekostenNative.UWP
         }
 
         public List<Beleg> BelegListe { get; set; }
+
+        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            // navigate to detailPage and edit given item
+            this.Frame.Navigate(typeof(BelegDetailPage), e.ClickedItem);
+        }
     }
 }
