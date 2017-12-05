@@ -10,8 +10,8 @@ using System.CodeDom.Compiler;
 
 namespace ReisekostenNative.iOS
 {
-    [Register ("BelegeNeuViewController")]
-    partial class BelegeNeuViewController
+    [Register ("BelegNeuViewController")]
+    partial class BelegNeuViewController
     {
         void ReleaseDesignerOutlets ()
         {
