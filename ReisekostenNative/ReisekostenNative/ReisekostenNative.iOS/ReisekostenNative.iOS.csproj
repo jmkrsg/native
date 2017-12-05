@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{8DDCA5B7-8688-464F-A75E-ADD1AF12836F}</ProjectGuid>
+    <ProjectGuid>{7B6E2870-4419-4063-A3B0-4FE9154D6620}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>ReisekostenNative.iOS</RootNamespace>
@@ -92,80 +92,56 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-40.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-40%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-40%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-60%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-60%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-72.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-72%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-76.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-76%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-83.5%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-Small-50.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-Small-50%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-Small.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-Small%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-Small%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\NotificationIcon%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\NotificationIcon%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\NotificationIcon~ipad.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\NotificationIcon~ipad%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\ios-marketing.png">
-      <InProject>false</InProject>
-    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-40.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-40%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-40%403x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-60%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-60%403x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-72.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-72%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-76.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-76%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-83.5%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-Small-50.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-Small-50%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-Small.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-Small%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon-Small%403x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Icon%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\NotificationIcon%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\NotificationIcon%403x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\NotificationIcon~ipad.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\NotificationIcon~ipad%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\ios-marketing.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbar_logo.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbar_logo.imageset\navbar_logo.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\.DS_Store" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_cancel.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_cancel.imageset\navbaritem_cancel.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_cancel.imageset\navbaritem_cancel%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_cancel.imageset\navbaritem_cancel%403x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_logout.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_logout.imageset\navbaritem_logout.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_logout.imageset\navbaritem_logout%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_logout.imageset\navbaritem_logout%403x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_plus.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_plus.imageset\navbaritem_plus_no_circle.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_plus.imageset\navbaritem_plus_no_circle%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_plus.imageset\navbaritem_plus_no_circle%403x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_save.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_save.imageset\navbaritem_save.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_save.imageset\navbaritem_save%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_save.imageset\navbaritem_save%403x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_settings.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_settings.imageset\navbaritem_settings.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_settings.imageset\navbaritem_settings%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_settings.imageset\navbaritem_settings%403x.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
@@ -182,6 +158,9 @@
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\.DS_Store" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
