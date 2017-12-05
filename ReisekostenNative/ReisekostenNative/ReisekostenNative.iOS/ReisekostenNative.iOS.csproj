@@ -288,6 +288,10 @@
     <Compile Include="BelegNeuTableViewController.designer.cs">
       <DependentUpon>BelegNeuTableViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="BelegNeuTableView.cs" />
+    <Compile Include="BelegNeuTableView.designer.cs">
+      <DependentUpon>BelegNeuTableView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\.DS_Store" />
