@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReisekostenNative.UWP.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace ReisekostenNative.UWP
     /// </summary>
     public sealed partial class BelegDetailPage : Page
     {
-        public Beleg SelectedBeleg { get; set; }
+        public BelegDetailModel ViewModel { get; set; }
 
         public BelegDetailPage()
         {
@@ -32,12 +33,17 @@ namespace ReisekostenNative.UWP
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            ViewModel = new BelegDetailModel();
 
-            SelectedBeleg = (Beleg)e.Parameter;
-
-            if (SelectedBeleg is null)
+            if (e.Parameter != null)
             {
-                SelectedBeleg = new Beleg();
+                ViewModel.SelectedBeleg = (Beleg)e.Parameter;
+                ViewModel.Mode = ViewMode.Edit;
+            }
+            else
+            {
+                ViewModel.SelectedBeleg = new Beleg();
+                ViewModel.Mode = ViewMode.Create;
             }
         }
     }

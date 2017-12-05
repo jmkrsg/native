@@ -7,8 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.RowDefinitions>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
             <RowDefinition Height="35" />
             <RowDefinition Height="35" />
             <RowDefinition Height="35" />
@@ -21,16 +23,25 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="1" Text="Id"></TextBlock>
-        <TextBox Grid.Row="0" Grid.Column="2" Name="Id" IsReadOnly="True"></TextBox>
+        <TextBox Grid.Row="0" Grid.Column="2" Name="Id" IsReadOnly="True" Text="{x:Bind ViewModel.SelectedBeleg.Id}"></TextBox>
 
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="Beezeichnung"></TextBlock>
-        <TextBox Grid.Row="1" Grid.Column="2" Name="Bezeichnung"></TextBox>        
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Bezeichnung"></TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="2" Name="Bezeichnung" Text="{x:Bind ViewModel.SelectedBeleg.Bezeichnung}"></TextBox>        
         
         <TextBlock Grid.Row="2" Grid.Column="1" Text="Belegdatum"></TextBlock>
         <DatePicker Grid.Row="2" Grid.Column="2" Name="Belegdatum"></DatePicker>
 
         <TextBlock Grid.Row="3" Grid.Column="1" Text="Belegart"></TextBlock>
         <ListBox Grid.Row="3" Grid.Column="2" Name="Belegart"></ListBox>
+
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="Betrag"></TextBlock>
+        <TextBox Grid.Row="4" Grid.Column="2" Name="Betrag"></TextBox>
+
+        <TextBlock Grid.Row="5" Grid.Column="1" Text="Status"></TextBlock>
+        <ListBox Grid.Row="5" Grid.Column="2" Name="Status"></ListBox>
+
+        <Button Name="Abbrechen" Content="Abbrechen"></Button>
+        <Button Name="Speichern" Content="Speichern"></Button>
 
     </Grid>
 </Page>
