@@ -731,7 +731,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Beleg erfassen" id="PYQ-2v-rMR">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="navbaritem_save" id="T8E-aK-py7"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="navbaritem_save" id="T8E-aK-py7">
+                            <connections>
+                                <segue destination="rfX-eP-7ZX" kind="custom" customClass="BelegSpeichernSegue" id="sYL-MT-LpL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUp-Ys-Yh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
