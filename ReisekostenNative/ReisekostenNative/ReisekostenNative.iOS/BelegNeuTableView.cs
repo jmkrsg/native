@@ -12,5 +12,30 @@ namespace ReisekostenNative.iOS
         public BelegNeuTableView (IntPtr handle) : base (handle)
 		{
 		}
+
+        partial void artEditingEnd(NSObject sender)
+        {
+
+        }
+
+        partial void artEditingChanged(NSObject sender)
+        {
+
+        }
+
+        partial void datumEditingEnd(NSObject sender)
+        {
+
+        }
+
+        partial void datumEditingChanged(NSObject sender)
+        {
+
+        }
+
+        partial void belegButtonPerformed(NSObject sender)
+        {
+
+        }
 	}
 }
