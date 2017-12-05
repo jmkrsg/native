@@ -35,8 +35,8 @@
     <Compile Include="DB\BelegDB.cs" />
     <Compile Include="Models\Beleg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DB\Services\ConfigurationService.cs" />
-    <Compile Include="DB\Services\UIService.cs" />
+    <Compile Include="Services\ConfigurationService.cs" />
+    <Compile Include="Services\UIService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
