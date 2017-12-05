@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ReisekostenNative.Services
 {
-    class ConfigurationService
+    public class ConfigurationService
     {
         private static ConfigurationService instance;
 
