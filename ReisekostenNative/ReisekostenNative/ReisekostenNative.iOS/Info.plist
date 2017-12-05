@@ -45,6 +45,6 @@
 	<key>XSAppIconAssets</key>
 	<string>Resources/Images.xcassets/AppIcons.appiconset</string>
 	<key>CFBundleName</key>
-	<string>ReisekostenNative.iOS</string>
+	<string>Belegerfassung</string>
 </dict>
 </plist>
