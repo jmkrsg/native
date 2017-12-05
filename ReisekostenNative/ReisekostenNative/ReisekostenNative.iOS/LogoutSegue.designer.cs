@@ -9,8 +9,8 @@ using System.CodeDom.Compiler;
 
 namespace ReisekostenNative.iOS
 {
-    [Register ("LogoutSegue")]
-    partial class LogoutSegue
+	[Register ("LogoutSegue")]
+	partial class LogoutSegue
 	{
 		
 		void ReleaseDesignerOutlets ()
