@@ -16,8 +16,33 @@
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="Name" />
+                    <DataTemplate x:DataType="local:Beleg">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="250"/>
+                                <ColumnDefinition Width="150"/>                                
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0">
+                                <Run Text="Id" />
+                                <LineBreak />
+                                <Run Text="{x:Bind Id}" />
+                            </TextBlock>
+
+                            <TextBlock Grid.Column="1">
+                                <Run Text="Bezeichnung" FontWeight="Bold" />
+                                <LineBreak />
+                                <Run Text="{x:Bind Bezeichnung}" />
+                            </TextBlock>
+
+                            <TextBlock Grid.Column="2">
+                                <Run Text="Betrag"/>
+                                <LineBreak />
+                                <Run Text="{x:Bind Betrag}" />
+                            </TextBlock>
+                        </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

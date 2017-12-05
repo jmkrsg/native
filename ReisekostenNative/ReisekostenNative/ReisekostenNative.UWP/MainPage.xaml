@@ -8,10 +8,10 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <NavigationView OpenPaneLength="280" CompactModeThresholdWidth="560" ExpandedModeThresholdWidth="560"/>
-        <StackPanel Orientation="Vertical" Grid.Row="2">
-            <TextBlock Text="User" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <TextBox Name="Username" Text="" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Vertical" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="Assets/Icon.png" Stretch="None" />
+            <TextBox Name="Username" HorizontalAlignment="Center" VerticalAlignment="Top" Width="200" PlaceholderText="Username"/>
+            <PasswordBox Name="Password" HorizontalAlignment="Center" VerticalAlignment="Top" Width="200" PlaceholderText="Password" InputScope="Password"/>
             <Button Content="Login" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_Click"/>
         </StackPanel>
     </Grid>
