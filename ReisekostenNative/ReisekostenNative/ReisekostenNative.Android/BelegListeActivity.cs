@@ -16,7 +16,7 @@ using IO.Swagger.Model;
 
 namespace ReisekostenNative.Droid
 {
-    [Activity(Label = "@string/app_name", Icon = "@drawable/icon", Theme = "@style/Theme.AppCompat.Light.DarkActionBar")]
+    [Activity(Label = "@string/app_name", Icon = "@drawable/icon", Theme = "@style/MyAppTheme")]
     public class BelegListe : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -30,9 +30,6 @@ namespace ReisekostenNative.Droid
             belegeList.Add(new Beleg(1, "Beschreibung2", new DateTime(), "Typ2", Beleg.StatusEnum.ABGELEHNT, null, 0));
 
 
-
-
-
             BelegeAdapter adapter = new BelegeAdapter(belegeList);
 
             RecyclerView belegeView = FindViewById<RecyclerView>(Resource.Id.rv_belege);
@@ -40,6 +37,12 @@ namespace ReisekostenNative.Droid
             belegeView.SetLayoutManager(new LinearLayoutManager(this));
 
             belegeView.SetAdapter(adapter);
+
+            View addButton = FindViewById(Resource.Id.fab_add);
+            addButton.Click += delegate {
+                Intent intent = new Intent(this, typeof(BelegErfassenActivity));
+                StartActivity(intent);
+            };
             
 
         }
