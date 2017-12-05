@@ -69,6 +69,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ReisekostenNative\ReisekostenNative.csproj">
       <Name>ReisekostenNative</Name>
+      <Project>{1EC6FFB1-B8D0-471B-8C5B-892126618599}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
