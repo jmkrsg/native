@@ -29,7 +29,7 @@ namespace ReisekostenNative.Services
 
         public ConfigurationService()
         {
-            InitialzeDataDirectory();
+            //InitialzeDataDirectory();
         }
 
         private void InitialzeDataDirectory()

@@ -12,39 +12,54 @@ using Android.Widget;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using IO.Swagger.Model;
-
+using ReisekostenNative.RESTClient;
+using System.Threading.Tasks;
 
 namespace ReisekostenNative.Droid
 {
     [Activity(Label = "@string/app_name", Icon = "@drawable/icon", Theme = "@style/MyAppTheme")]
     public class BelegListe : AppCompatActivity
     {
+        RecyclerView belegeView;
+        string user;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.beleg_liste);
+            user=Intent.Extras.GetString("USER");
 
-            List<Beleg> belegeList = new List<Beleg>();
-            belegeList.Add(new Beleg(1,"Beschreibung", new DateTime(), "Typ", 0, Beleg.StatusEnum.ABGELEHNT, null, 0));
-            belegeList.Add(new Beleg(1, "Beschreibung2", new DateTime(), "Typ2", 0, Beleg.StatusEnum.ABGELEHNT, null, 0));
-
-
-            BelegeAdapter adapter = new BelegeAdapter(belegeList);
-
-            RecyclerView belegeView = FindViewById<RecyclerView>(Resource.Id.rv_belege);
+            belegeView = FindViewById<RecyclerView>(Resource.Id.rv_belege);
             belegeView.AddItemDecoration(new DividerItemDecoration(this, 0));
             belegeView.SetLayoutManager(new LinearLayoutManager(this));
-
-            belegeView.SetAdapter(adapter);
 
             View addButton = FindViewById(Resource.Id.fab_add);
             addButton.Click += delegate {
                 Intent intent = new Intent(this, typeof(BelegErfassenActivity));
                 StartActivity(intent);
             };
-            
 
+            RESTClient.RESTClient client = new RESTClient.RESTClient();
+            client.GetBelegeByUserAsync(user).ContinueWith((o) => this.Finished(o));
+
+        }
+
+        private void Finished (object o)
+        {
+            Task<List<Beleg>> task = o as Task<List<Beleg>>;
+            if(task != null)
+            {
+                RunOnUiThread(() =>
+                {
+                    List<Beleg> belege = task.Result;
+                    if(belege != null)
+                    {
+                        BelegeAdapter adapter = new BelegeAdapter(belege);
+                        belegeView.SetAdapter(adapter);
+                    }
+                });
+
+            }
         }
     }
 }
