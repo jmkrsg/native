@@ -179,7 +179,7 @@
         <!--Beleg erfassen-->
         <scene sceneID="co4-jf-QEU">
             <objects>
-                <viewController title="Beleg erfassen" id="w4L-6R-jKk" customClass="BelegeNeuViewController" sceneMemberID="viewController">
+                <viewController title="Beleg erfassen" id="w4L-6R-jKk" customClass="BelegNeuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mxM-Cn-RfN"/>
                         <viewControllerLayoutGuide type="bottom" id="6lz-gQ-f11"/>
@@ -362,7 +362,7 @@
         <!--Beleg erfassen-->
         <scene sceneID="pEW-ZJ-CEJ">
             <objects>
-                <tableViewController title="Beleg erfassen" id="rfX-eP-7ZX" sceneMemberID="viewController">
+                <tableViewController title="Beleg erfassen" id="rfX-eP-7ZX" customClass="BelegNeuTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pmt-wc-5qG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
