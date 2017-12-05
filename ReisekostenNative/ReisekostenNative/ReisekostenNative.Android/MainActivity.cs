@@ -9,7 +9,7 @@ using Android.OS;
 
 namespace ReisekostenNative.Droid
 {
-	[Activity (Label = "ReisekostenNative.Android", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity (Label = "@string/app_name", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
 		int count = 1;
