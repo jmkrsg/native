@@ -42,7 +42,7 @@ namespace ReisekostenNative.Services
         {
             get
             {
-                return "52.169.65.115:8080";
+                return "http://52.169.65.115:8080";
             }
         }
 
