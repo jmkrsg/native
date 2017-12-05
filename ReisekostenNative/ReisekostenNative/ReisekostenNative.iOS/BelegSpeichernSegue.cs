@@ -12,5 +12,18 @@ namespace ReisekostenNative.iOS
         public BelegSpeichernSegue (IntPtr handle) : base (handle)
 		{
 		}
+
+        public override void Perform()
+        {
+
+            var tabViewCtrl = SourceViewController as BelegNeuTableViewController;
+            if (tabViewCtrl != null) {
+                var tabView = tabViewCtrl.TableView as BelegNeuTableView;
+                if (tabView != null) {
+                    // TODO restcall ...
+                }
+                tabViewCtrl.NavigationController.PopViewController(true);
+            }
+        }
 	}
 }

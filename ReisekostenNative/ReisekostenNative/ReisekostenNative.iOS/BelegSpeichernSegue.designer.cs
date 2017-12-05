@@ -9,12 +9,12 @@ using System.CodeDom.Compiler;
 
 namespace ReisekostenNative.iOS
 {
-    [Register ("BelegSpeichernSegue")]
-    partial class BelegSpeichernSegue
-    {
-        
-        void ReleaseDesignerOutlets ()
-        {
-        }
-    }
+	[Register ("BelegSpeichernSegue")]
+	partial class BelegSpeichernSegue
+	{
+		
+		void ReleaseDesignerOutlets ()
+		{
+		}
+	}
 }
