@@ -2822,7 +2822,7 @@ namespace ReisekostenNative.Droid
 			public const int design_text_input_password_icon = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int Main = 2130903082;
+			public const int login = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
 			public const int notification_action = 2130903083;

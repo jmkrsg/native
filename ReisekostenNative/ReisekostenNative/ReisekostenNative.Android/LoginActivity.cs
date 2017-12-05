@@ -18,7 +18,7 @@ namespace ReisekostenNative.Droid
 			base.OnCreate (bundle);
 
 			// Set our view from the "main" layout resource
-			SetContentView (Resource.Layout.Main);
+			SetContentView (Resource.Layout.login);
 
 
 			Button login = FindViewById<Button> (Resource.Id.bt_login);
