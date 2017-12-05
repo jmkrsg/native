@@ -20,29 +20,7 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbar_logo" translatesAutoresizingMaskIntoConstraints="NO" id="4KZ-WH-OFO">
-                                <rect key="frame" x="123.5" y="84" width="127" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="127" id="Onu-W7-Kpm"/>
-                                    <constraint firstAttribute="height" constant="43" id="VJT-yN-SzA"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Belegerfassung" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luf-7H-rFG">
-                                <rect key="frame" x="20" y="159" width="335" height="29"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="luf-7H-rFG" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" symbolic="YES" id="49J-Jt-4aY"/>
-                            <constraint firstAttribute="trailing" secondItem="luf-7H-rFG" secondAttribute="trailing" constant="20" symbolic="YES" id="dZ6-g4-3nz"/>
-                            <constraint firstItem="4KZ-WH-OFO" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="nC8-Bw-5BA"/>
-                            <constraint firstItem="4KZ-WH-OFO" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="64" id="pTz-rr-miu"/>
-                            <constraint firstItem="luf-7H-rFG" firstAttribute="top" secondItem="4KZ-WH-OFO" secondAttribute="bottom" constant="32" id="zjS-Ob-W0C"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -50,7 +28,4 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="navbar_logo" width="127" height="43"/>
-    </resources>
 </document>

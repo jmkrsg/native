@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2010
+VisualStudioVersion = 15.0.27130.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReisekostenNative.Android", "ReisekostenNative\ReisekostenNative.Android\ReisekostenNative.Android.csproj", "{1EF566FA-C579-472A-BCE6-308E293CC5A0}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReisekostenNative.UWP", "ReisekostenNative\ReisekostenNative.UWP\ReisekostenNative.UWP.csproj", "{C5954CF0-71B8-4EE5-87AB-815456FDEAC0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReisekostenNative", "ReisekostenNative\ReisekostenNative\ReisekostenNative.csproj", "{1EC6FFB1-B8D0-471B-8C5B-892126618599}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReisekostenNative.Test", "ReisekostenNative.Test\ReisekostenNative.Test.csproj", "{46832F67-F8EE-496D-953C-98D8B29CF1E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -127,6 +129,30 @@ Global
 		{1EC6FFB1-B8D0-471B-8C5B-892126618599}.Release|x64.Build.0 = Release|Any CPU
 		{1EC6FFB1-B8D0-471B-8C5B-892126618599}.Release|x86.ActiveCfg = Release|Any CPU
 		{1EC6FFB1-B8D0-471B-8C5B-892126618599}.Release|x86.Build.0 = Release|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Debug|ARM.Build.0 = Debug|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Debug|x64.Build.0 = Debug|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Debug|x86.Build.0 = Debug|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Release|ARM.ActiveCfg = Release|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Release|ARM.Build.0 = Release|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Release|iPhone.Build.0 = Release|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Release|x64.ActiveCfg = Release|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Release|x64.Build.0 = Release|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Release|x86.ActiveCfg = Release|Any CPU
+		{46832F67-F8EE-496D-953C-98D8B29CF1E1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
