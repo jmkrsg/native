@@ -1,0 +1,186 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Backend for Xamarin Hackathon",
+    "version" : "1.0.0-SNAPSHOT",
+    "title" : "Swagger documentation for belegerfassung-ui"
+  },
+  "basePath" : "/rest",
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/belege/status" : {
+      "get" : {
+        "operationId" : "listStatus",
+        "consumes" : [ "*/*" ],
+        "produces" : [ "application/json", "text/plain" ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/belege/types" : {
+      "get" : {
+        "operationId" : "listTypes",
+        "consumes" : [ "*/*" ],
+        "produces" : [ "application/json", "text/plain" ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/belege/{user}" : {
+      "get" : {
+        "operationId" : "list",
+        "consumes" : [ "*/*" ],
+        "produces" : [ "application/json", "text/plain" ],
+        "parameters" : [ {
+          "name" : "user",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "insert",
+        "consumes" : [ "*/*" ],
+        "produces" : [ "application/json", "text/plain" ],
+        "parameters" : [ {
+          "name" : "user",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/belege/{user}/{belegnummer}" : {
+      "get" : {
+        "operationId" : "find",
+        "consumes" : [ "*/*" ],
+        "produces" : [ "application/json", "text/plain" ],
+        "parameters" : [ {
+          "name" : "user",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "belegnummer",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateBeleg",
+        "consumes" : [ "*/*" ],
+        "produces" : [ "application/json", "text/plain" ],
+        "parameters" : [ {
+          "name" : "user",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "belegnummer",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/belege/{user}/{belegnummer}/beleg" : {
+      "get" : {
+        "operationId" : "getBeleg",
+        "consumes" : [ "*/*" ],
+        "produces" : [ "application/octet-stream" ],
+        "parameters" : [ {
+          "name" : "user",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "belegnummer",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateBeleg",
+        "consumes" : [ "application/octet-stream" ],
+        "produces" : [ "application/json", "text/plain" ],
+        "parameters" : [ {
+          "name" : "user",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "belegnummer",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/belege/{user}/{kundennummer}" : {
+      "delete" : {
+        "operationId" : "delete",
+        "consumes" : [ "*/*" ],
+        "produces" : [ "application/json", "text/plain" ],
+        "parameters" : [ {
+          "name" : "user",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "belegnummer",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    }
+  }
+}
