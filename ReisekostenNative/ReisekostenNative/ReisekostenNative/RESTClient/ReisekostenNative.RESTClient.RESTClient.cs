@@ -1,5 +1,6 @@
 ﻿using IO.Swagger.Model;
 using Newtonsoft.Json;
+using ReisekostenNative.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,9 @@ namespace ReisekostenNative.RESTClient
 
 		public RESTClient()
         {
+            ConfigurationService configService = new ConfigurationService();
 			// get from config
-			this.baseUri = new Uri("http://52.169.65.115:8080");
+			this.baseUri = new Uri(configService.BelegserviceURL);
         }
 
 		public async Task<List<string>> GetTypesAsync()
