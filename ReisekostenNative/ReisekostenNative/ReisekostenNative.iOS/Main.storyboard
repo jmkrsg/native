@@ -307,6 +307,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Foto aufnehmen"/>
+                                <connections>
+                                    <action selector="belegButtonPerformed:" destination="w4L-6R-jKk" eventType="touchUpInside" id="qfx-t3-jqn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -354,6 +357,15 @@
                     <navigationItem key="navigationItem" title="Beleg erfassen" id="wVx-SO-0oP">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="navbaritem_save" id="weO-TI-ErE"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="art" destination="RjE-mE-fP0" id="Brc-uB-pSg"/>
+                        <outlet property="beleg" destination="bMc-V0-kwL" id="2GH-JD-yaJ"/>
+                        <outlet property="beschreibung" destination="gku-WR-CVL" id="cZo-5o-fCm"/>
+                        <outlet property="betrag" destination="kqL-I8-7B4" id="S8n-96-V8U"/>
+                        <outlet property="bezeichnung" destination="fVe-Hv-lP8" id="AJD-X1-qR2"/>
+                        <outlet property="datum" destination="vLa-X6-CKx" id="7jU-xp-48a"/>
+                        <outlet property="status" destination="nfh-VT-qSU" id="zXB-81-uzC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZW-gi-omp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -378,8 +390,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datum:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="trD-2x-Da6">
-                                                    <rect key="frame" x="20" y="11" width="335" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="110" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="110" id="y35-Ic-jgL"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05.12.2017" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ft-5d-T3p">
+                                                    <rect key="frame" x="138" y="11" width="217" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -387,7 +408,9 @@
                                             <constraints>
                                                 <constraint firstItem="trD-2x-Da6" firstAttribute="leading" secondItem="zjK-NV-mlB" secondAttribute="leading" constant="20" symbolic="YES" id="ILn-nK-9I0"/>
                                                 <constraint firstItem="trD-2x-Da6" firstAttribute="centerY" secondItem="zjK-NV-mlB" secondAttribute="centerY" id="hKo-fa-HwF"/>
-                                                <constraint firstAttribute="trailing" secondItem="trD-2x-Da6" secondAttribute="trailing" constant="20" symbolic="YES" id="iCw-ko-6Gh"/>
+                                                <constraint firstItem="1ft-5d-T3p" firstAttribute="centerY" secondItem="zjK-NV-mlB" secondAttribute="centerY" id="iIB-we-OGQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="1ft-5d-T3p" secondAttribute="trailing" constant="20" symbolic="YES" id="iyI-Lz-xl5"/>
+                                                <constraint firstItem="1ft-5d-T3p" firstAttribute="leading" secondItem="trD-2x-Da6" secondAttribute="trailing" constant="8" symbolic="YES" id="mYH-re-aOl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -425,16 +448,27 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Art:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xED-P1-GGU">
-                                                    <rect key="frame" x="20" y="11" width="335" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="110" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="110" id="9yq-DC-8vX"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Art ..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mfk-1v-OVo">
+                                                    <rect key="frame" x="138" y="11" width="217" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Mfk-1v-OVo" firstAttribute="leading" secondItem="xED-P1-GGU" secondAttribute="trailing" constant="8" symbolic="YES" id="0XA-bH-0v4"/>
                                                 <constraint firstItem="xED-P1-GGU" firstAttribute="centerY" secondItem="NHH-V4-Doy" secondAttribute="centerY" id="3hT-xI-gxj"/>
                                                 <constraint firstItem="xED-P1-GGU" firstAttribute="leading" secondItem="NHH-V4-Doy" secondAttribute="leading" constant="20" symbolic="YES" id="Af6-pZ-uJS"/>
-                                                <constraint firstAttribute="trailing" secondItem="xED-P1-GGU" secondAttribute="trailing" constant="20" symbolic="YES" id="yv9-sb-3nC"/>
+                                                <constraint firstAttribute="trailing" secondItem="Mfk-1v-OVo" secondAttribute="trailing" constant="20" symbolic="YES" id="gf1-W8-ecS"/>
+                                                <constraint firstItem="Mfk-1v-OVo" firstAttribute="centerY" secondItem="NHH-V4-Doy" secondAttribute="centerY" id="m9l-fB-Avx"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
