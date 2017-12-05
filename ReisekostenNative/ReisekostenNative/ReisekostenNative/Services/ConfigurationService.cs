@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PCLStorage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,22 @@ namespace ReisekostenNative.Services
             get
             {
                 return "52.169.65.115:8080";
+            }
+        }
+
+        private string datadirectory;
+
+        public String Datadirectory
+        {
+            get
+            {
+                if (datadirectory == null)
+                {
+                    IFolder rootFolder = FileSystem.Current.LocalStorage;
+
+
+                }
+                return datadirectory;
             }
         }
     }
