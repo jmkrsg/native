@@ -40,6 +40,18 @@ namespace ReisekostenNative.UWP
             BelegListe = new List<Beleg>();
             Beleg b = new Beleg();
             b.Belegart = "test";
+            b.Id = "1001";
+            b.Betrag = 1000;
+            b.Bezeichnung = "Testbeleg1";
+            b.Status = "OK";
+            BelegListe.Add(b);
+
+            b = new Beleg();
+            b.Belegart = "test";
+            b.Id = "1002";
+            b.Betrag = 1000;
+            b.Bezeichnung = "Testbeleg2";
+            b.Status = "OK";
             BelegListe.Add(b);
         }
 
