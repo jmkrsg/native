@@ -88,7 +88,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="92" id="sG6-as-wrd" customClass="BelegTableViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="92" id="sG6-as-wrd" customClass="BelegeTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="375" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sG6-as-wrd" id="r1M-FI-nPb">
@@ -147,11 +147,11 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="betrag" destination="sWt-lL-Wg5" id="7Cd-jh-90y"/>
-                                    <outlet property="bezeichnung" destination="erv-zk-EZx" id="INx-8S-642"/>
-                                    <outlet property="datum" destination="WWO-Dh-oO1" id="ACj-6N-HFJ"/>
-                                    <outlet property="image" destination="YcK-wq-fbF" id="YQh-s3-eJK"/>
-                                    <outlet property="status" destination="FTE-hL-xgX" id="Zrh-yn-PGH"/>
+                                    <outlet property="betrag" destination="sWt-lL-Wg5" id="C9T-t8-Jdr"/>
+                                    <outlet property="bezeichnung" destination="erv-zk-EZx" id="f95-Ny-rHI"/>
+                                    <outlet property="datum" destination="WWO-Dh-oO1" id="wbq-n7-f9o"/>
+                                    <outlet property="image" destination="YcK-wq-fbF" id="tcc-wO-Q3B"/>
+                                    <outlet property="status" destination="FTE-hL-xgX" id="Nlc-Iz-wue"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -163,7 +163,11 @@
                     <navigationItem key="navigationItem" title="Belege" id="qRF-AL-n3W">
                         <barButtonItem key="leftBarButtonItem" image="navbaritem_logout" id="HLP-Iu-Har"/>
                         <rightBarButtonItems>
-                            <barButtonItem image="navbaritem_plus" id="IAN-0S-zwW"/>
+                            <barButtonItem image="navbaritem_plus" id="IAN-0S-zwW">
+                                <connections>
+                                    <segue destination="w4L-6R-jKk" kind="show" id="I3H-mC-J7P"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem systemItem="edit" id="i3L-Fz-JQM"/>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -171,6 +175,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRL-au-0BA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1740" y="374.66266866566718"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="co4-jf-QEU">
+            <objects>
+                <viewController id="w4L-6R-jKk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mxM-Cn-RfN"/>
+                        <viewControllerLayoutGuide type="bottom" id="6lz-gQ-f11"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3vk-VO-Dxr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wVx-SO-0oP">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="navbaritem_save" id="weO-TI-ErE"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QZW-gi-omp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2593" y="375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Z6O-Y7-JWe">
@@ -194,6 +219,7 @@
         <image name="navbar_logo" width="127" height="43"/>
         <image name="navbaritem_logout" width="25" height="25"/>
         <image name="navbaritem_plus" width="25" height="25"/>
+        <image name="navbaritem_save" width="30" height="30"/>
     </resources>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
