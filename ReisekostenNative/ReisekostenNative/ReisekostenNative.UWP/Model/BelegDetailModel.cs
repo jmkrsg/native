@@ -14,9 +14,13 @@ namespace ReisekostenNative.UWP.Model
     }
 
     public class BelegDetailModel
-    {
+    { 
         public Beleg SelectedBeleg { get; set; }
 
         public ViewMode Mode { get; set; }
+
+        public List<string> StatusList { get; set; }
+
+        public List<string> TypeList { get; set; }
     }
 }

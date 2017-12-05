@@ -30,10 +30,27 @@ namespace ReisekostenNative.UWP
             this.InitializeComponent();
         }
 
+        private void MockViewModel()
+        {
+            ViewModel.StatusList = new List<string>();
+            ViewModel.StatusList.Add("ERFASST");
+            ViewModel.StatusList.Add("EXPORTIERT");
+            ViewModel.StatusList.Add("GEBUCHT");
+            ViewModel.StatusList.Add("ABGELEHNT");
+
+            ViewModel.TypeList = new List<string>();
+            ViewModel.TypeList.Add("Gastronomie");
+            ViewModel.TypeList.Add("Hotel");
+            ViewModel.TypeList.Add("Transport");
+            ViewModel.TypeList.Add("Sonstiges");
+        }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
             ViewModel = new BelegDetailModel();
+
+            MockViewModel();
 
             if (e.Parameter != null)
             {
@@ -45,6 +62,16 @@ namespace ReisekostenNative.UWP
                 ViewModel.SelectedBeleg = new Beleg();
                 ViewModel.Mode = ViewMode.Create;
             }
+        }
+
+        private void Abbrechen_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.GoBack();
+        }
+
+        private void Speichern_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.GoBack();
         }
     }
 }
