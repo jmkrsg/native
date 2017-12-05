@@ -90,7 +90,7 @@
         }
       },
       "put" : {
-        "operationId" : "updateBeleg",
+        "operationId" : "update",
         "consumes" : [ "*/*" ],
         "produces" : [ "application/json", "text/plain" ],
         "parameters" : [ {
