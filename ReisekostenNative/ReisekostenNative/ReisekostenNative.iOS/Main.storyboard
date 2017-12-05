@@ -88,7 +88,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="92" id="sG6-as-wrd">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="92" id="sG6-as-wrd" customClass="BelegTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="375" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sG6-as-wrd" id="r1M-FI-nPb">
@@ -146,6 +146,13 @@
                                         <constraint firstItem="sWt-lL-Wg5" firstAttribute="leading" secondItem="WWO-Dh-oO1" secondAttribute="trailing" constant="8" symbolic="YES" id="sBF-4x-HOr"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="betrag" destination="sWt-lL-Wg5" id="7Cd-jh-90y"/>
+                                    <outlet property="bezeichnung" destination="erv-zk-EZx" id="INx-8S-642"/>
+                                    <outlet property="datum" destination="WWO-Dh-oO1" id="ACj-6N-HFJ"/>
+                                    <outlet property="image" destination="YcK-wq-fbF" id="YQh-s3-eJK"/>
+                                    <outlet property="status" destination="FTE-hL-xgX" id="Zrh-yn-PGH"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
