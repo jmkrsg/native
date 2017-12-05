@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbar_logo" translatesAutoresizingMaskIntoConstraints="NO" id="DQo-DX-dZ8">
-                                <rect key="frame" x="123.5" y="84" width="127" height="43"/>
+                                <rect key="frame" x="124" y="84" width="127" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="127" id="HOg-91-yk1"/>
                                     <constraint firstAttribute="height" constant="43" id="iC7-lS-WU9"/>

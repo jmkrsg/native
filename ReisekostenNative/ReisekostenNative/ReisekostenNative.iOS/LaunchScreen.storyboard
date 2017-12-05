@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,22 +10,74 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
+        <scene sceneID="Tdp-gx-Bqd">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController id="u8E-av-fZw" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
-                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                        <viewControllerLayoutGuide type="top" id="kgr-hO-4Tm"/>
+                        <viewControllerLayoutGuide type="bottom" id="pEq-0O-8iS"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleToFill" id="OCh-1Z-wIo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbar_logo" translatesAutoresizingMaskIntoConstraints="NO" id="9Qz-bL-Y6b">
+                                <rect key="frame" x="123.5" y="84" width="127" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="uLo-pj-w2P"/>
+                                    <constraint firstAttribute="width" constant="127" id="uWl-5r-5ov"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Benutzer" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kXs-Y3-NIu">
+                                <rect key="frame" x="20" y="268" width="335" height="24"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Passwort" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yRU-Ii-dVm">
+                                <rect key="frame" x="20" y="300" width="335" height="24"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FyB-p1-GYu">
+                                <rect key="frame" x="20" y="356" width="335" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Login"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Belegerfassung" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1E7-xa-XRt">
+                                <rect key="frame" x="20" y="159" width="335" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="yRU-Ii-dVm" secondAttribute="trailing" constant="20" symbolic="YES" id="09J-ft-bZ3"/>
+                            <constraint firstItem="yRU-Ii-dVm" firstAttribute="leading" secondItem="OCh-1Z-wIo" secondAttribute="leading" constant="20" symbolic="YES" id="0C7-f2-iUL"/>
+                            <constraint firstAttribute="trailing" secondItem="FyB-p1-GYu" secondAttribute="trailing" constant="20" symbolic="YES" id="5m5-23-Wty"/>
+                            <constraint firstAttribute="trailing" secondItem="1E7-xa-XRt" secondAttribute="trailing" constant="20" symbolic="YES" id="68m-bc-Zyj"/>
+                            <constraint firstAttribute="trailing" secondItem="kXs-Y3-NIu" secondAttribute="trailing" constant="20" symbolic="YES" id="AC4-nK-1Fx"/>
+                            <constraint firstItem="kXs-Y3-NIu" firstAttribute="leading" secondItem="OCh-1Z-wIo" secondAttribute="leading" constant="20" symbolic="YES" id="BN0-e8-MlH"/>
+                            <constraint firstItem="yRU-Ii-dVm" firstAttribute="top" secondItem="kXs-Y3-NIu" secondAttribute="bottom" constant="8" symbolic="YES" id="LOt-hQ-K3s"/>
+                            <constraint firstItem="9Qz-bL-Y6b" firstAttribute="top" secondItem="kgr-hO-4Tm" secondAttribute="bottom" constant="64" id="OLf-mp-dbS"/>
+                            <constraint firstItem="1E7-xa-XRt" firstAttribute="leading" secondItem="OCh-1Z-wIo" secondAttribute="leading" constant="20" symbolic="YES" id="bem-Ui-JhW"/>
+                            <constraint firstItem="1E7-xa-XRt" firstAttribute="top" secondItem="9Qz-bL-Y6b" secondAttribute="bottom" constant="32" id="bs0-Iz-Zq6"/>
+                            <constraint firstItem="FyB-p1-GYu" firstAttribute="top" secondItem="yRU-Ii-dVm" secondAttribute="bottom" constant="32" id="e5d-F2-94q"/>
+                            <constraint firstItem="FyB-p1-GYu" firstAttribute="leading" secondItem="OCh-1Z-wIo" secondAttribute="leading" constant="20" symbolic="YES" id="fRL-9c-ZjD"/>
+                            <constraint firstItem="9Qz-bL-Y6b" firstAttribute="centerX" secondItem="OCh-1Z-wIo" secondAttribute="centerX" id="lM8-nv-lZl"/>
+                            <constraint firstItem="kXs-Y3-NIu" firstAttribute="top" secondItem="1E7-xa-XRt" secondAttribute="bottom" constant="80" id="neM-FS-dI3"/>
+                        </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wku-ZH-vOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="navbar_logo" width="127" height="43"/>
+    </resources>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
