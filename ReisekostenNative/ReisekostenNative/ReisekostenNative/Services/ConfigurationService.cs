@@ -7,9 +7,13 @@ using System.Threading.Tasks;
 
 namespace ReisekostenNative.Services
 {
-    class ConfigurationService
+    public class ConfigurationService
     {
         private static ConfigurationService instance;
+
+        private const string DATADIRECTORY = "data";
+
+        private Task<IFolder> datadirectoryCreationTask;
 
         public static ConfigurationService Instance
         {
@@ -23,25 +27,34 @@ namespace ReisekostenNative.Services
             }
         }
 
+        public ConfigurationService()
+        {
+            InitialzeDataDirectory();
+        }
+
+        private void InitialzeDataDirectory()
+        {
+            IFolder rootFolder = FileSystem.Current.LocalStorage;
+            datadirectoryCreationTask = rootFolder.CreateFolderAsync(DATADIRECTORY, CreationCollisionOption.OpenIfExists);
+        }
+
         public String BelegserviceURL
         {
             get
             {
-                return "52.169.65.115:8080";
+                return "http://52.169.65.115:8080";
             }
         }
 
         private string datadirectory;
 
-        public String Datadirectory
+        public string Datadirectory
         {
             get
             {
                 if (datadirectory == null)
                 {
-                    IFolder rootFolder = FileSystem.Current.LocalStorage;
-
-
+                    datadirectory = datadirectoryCreationTask.Result.Path;
                 }
                 return datadirectory;
             }
