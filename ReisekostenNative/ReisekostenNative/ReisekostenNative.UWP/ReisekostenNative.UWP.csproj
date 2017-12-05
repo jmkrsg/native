@@ -96,6 +96,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BelegDetailPage.xaml.cs">
+      <DependentUpon>BelegDetailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BeleguebersichtPage.xaml.cs">
       <DependentUpon>BeleguebersichtPage.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="BelegDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BeleguebersichtPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
