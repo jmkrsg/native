@@ -162,7 +162,6 @@ namespace IO.Swagger.Model
         /// </summary>
         /// <value>Belegdatum</value>
         [DataMember(Name = "date", EmitDefaultValue = false)]
-        [JsonConverter(typeof(SwaggerDateConverter))]
         public DateTime? Date { get; set; }
 
         /// <summary>
