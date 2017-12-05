@@ -10,6 +10,8 @@
   "paths" : {
     "/belege/status" : {
       "get" : {
+        "summary" : "Listet die Status-Werte",
+        "description" : "",
         "operationId" : "listStatus",
         "consumes" : [ "*/*" ],
         "produces" : [ "application/json", "text/plain" ],
@@ -22,6 +24,8 @@
     },
     "/belege/types" : {
       "get" : {
+        "summary" : "Listet die Beleg-Typen",
+        "description" : "",
         "operationId" : "listTypes",
         "consumes" : [ "*/*" ],
         "produces" : [ "application/json", "text/plain" ],
@@ -34,6 +38,8 @@
     },
     "/belege/{user}" : {
       "get" : {
+        "summary" : "Listet alle Belege des Benutzers",
+        "description" : "",
         "operationId" : "list",
         "consumes" : [ "*/*" ],
         "produces" : [ "application/json", "text/plain" ],
@@ -50,6 +56,8 @@
         }
       },
       "post" : {
+        "summary" : "Fuegt einen neuen Beleg ein",
+        "description" : "",
         "operationId" : "insert",
         "consumes" : [ "*/*" ],
         "produces" : [ "application/json", "text/plain" ],
@@ -58,6 +66,13 @@
           "in" : "path",
           "required" : true,
           "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Beleg"
+          }
         } ],
         "responses" : {
           "default" : {
@@ -68,6 +83,8 @@
     },
     "/belege/{user}/{belegnummer}" : {
       "get" : {
+        "summary" : "Liefert einen Beleg",
+        "description" : "",
         "operationId" : "find",
         "consumes" : [ "*/*" ],
         "produces" : [ "application/json", "text/plain" ],
@@ -90,7 +107,40 @@
         }
       },
       "put" : {
+        "summary" : "Aendert einen Beleg",
+        "description" : "",
         "operationId" : "update",
+        "consumes" : [ "*/*" ],
+        "produces" : [ "application/json", "text/plain" ],
+        "parameters" : [ {
+          "name" : "user",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "belegnummer",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Beleg"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "Speichert einen Beleg",
+        "description" : "",
+        "operationId" : "delete",
         "consumes" : [ "*/*" ],
         "produces" : [ "application/json", "text/plain" ],
         "parameters" : [ {
@@ -114,6 +164,8 @@
     },
     "/belege/{user}/{belegnummer}/beleg" : {
       "get" : {
+        "summary" : "Liefert das Beleg-Image",
+        "description" : "",
         "operationId" : "getBeleg",
         "consumes" : [ "*/*" ],
         "produces" : [ "application/octet-stream" ],
@@ -136,6 +188,8 @@
         }
       },
       "put" : {
+        "summary" : "Speichert das Beleg-Image",
+        "description" : "",
         "operationId" : "updateBeleg",
         "consumes" : [ "application/octet-stream" ],
         "produces" : [ "application/json", "text/plain" ],
@@ -157,28 +211,48 @@
           }
         }
       }
-    },
-    "/belege/{user}/{kundennummer}" : {
-      "delete" : {
-        "operationId" : "delete",
-        "consumes" : [ "*/*" ],
-        "produces" : [ "application/json", "text/plain" ],
-        "parameters" : [ {
-          "name" : "user",
-          "in" : "path",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "belegnummer",
-          "in" : "path",
-          "required" : true,
+    }
+  },
+  "definitions" : {
+    "Beleg" : {
+      "type" : "object",
+      "required" : [ "belegnummer", "date", "description", "status", "type" ],
+      "properties" : {
+        "belegnummer" : {
           "type" : "integer",
-          "format" : "int32"
-        } ],
-        "responses" : {
-          "default" : {
-            "description" : "successful operation"
+          "format" : "int32",
+          "description" : "Id des Beleges"
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "Beschreibung des Beleges"
+        },
+        "date" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Belegdatum"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "Art des Beleges"
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status des Beleges",
+          "enum" : [ "ERFASST", "EXPORTIERT", "GEBUCHT", "ABGELEHNT" ]
+        },
+        "thumbnail" : {
+          "type" : "array",
+          "description" : "Thumbnail-Darstellung des Beleges",
+          "items" : {
+            "type" : "string",
+            "format" : "byte"
           }
+        },
+        "belegSize" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Größe des Beleges"
         }
       }
     }
