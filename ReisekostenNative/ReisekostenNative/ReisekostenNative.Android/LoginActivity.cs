@@ -9,7 +9,7 @@ using Android.OS;
 
 namespace ReisekostenNative.Droid
 {
-	[Activity (Label = "@string/app_name", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/Theme.AppCompat.Light")]
+	[Activity (Label = "@string/app_name", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/MyAppTheme")]
 	public class MainActivity : Activity
 	{
 
@@ -17,7 +17,6 @@ namespace ReisekostenNative.Droid
 		{
 			base.OnCreate (bundle);
 
-			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.login);
 
 
