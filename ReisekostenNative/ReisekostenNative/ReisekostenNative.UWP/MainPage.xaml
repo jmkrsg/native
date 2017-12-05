@@ -8,6 +8,11 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <NavigationView OpenPaneLength="280" CompactModeThresholdWidth="560" ExpandedModeThresholdWidth="560"/>
+        <StackPanel Orientation="Vertical" Grid.Row="2">
+            <TextBlock Text="User" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox Name="Username" Text="" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Button Content="Login" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_Click"/>
+        </StackPanel>
     </Grid>
 </Page>
