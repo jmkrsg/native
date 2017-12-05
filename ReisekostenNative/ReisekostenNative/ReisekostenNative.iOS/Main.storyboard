@@ -165,7 +165,7 @@
                         <rightBarButtonItems>
                             <barButtonItem image="navbaritem_plus" id="IAN-0S-zwW">
                                 <connections>
-                                    <segue destination="w4L-6R-jKk" kind="show" id="I3H-mC-J7P"/>
+                                    <segue destination="rfX-eP-7ZX" kind="show" id="Zag-RA-77Z"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="edit" id="i3L-Fz-JQM"/>
@@ -176,10 +176,10 @@
             </objects>
             <point key="canvasLocation" x="1740" y="374.66266866566718"/>
         </scene>
-        <!--Neuer Beleg-->
+        <!--Beleg erfassen-->
         <scene sceneID="co4-jf-QEU">
             <objects>
-                <viewController title="Neuer Beleg" id="w4L-6R-jKk" customClass="BelegeNeuViewController" sceneMemberID="viewController">
+                <viewController title="Beleg erfassen" id="w4L-6R-jKk" customClass="BelegeNeuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mxM-Cn-RfN"/>
                         <viewControllerLayoutGuide type="bottom" id="6lz-gQ-f11"/>
@@ -189,13 +189,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datum:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkA-n3-Lee">
-                                <rect key="frame" x="20" y="124" width="335" height="21"/>
+                                <rect key="frame" x="20" y="28" width="335" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="vLa-X6-CKx">
-                                <rect key="frame" x="0.0" y="145" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="49" width="375" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="IVO-Ly-gaW"/>
                                 </constraints>
@@ -204,19 +204,19 @@
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Art:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQc-WJ-mgz">
-                                <rect key="frame" x="20" y="295" width="335" height="21"/>
+                                <rect key="frame" x="20" y="199" width="335" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RjE-mE-fP0">
-                                <rect key="frame" x="0.0" y="316" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="220" width="375" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="0W3-GT-uOl"/>
                                 </constraints>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Betrag:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTP-B0-204">
-                                <rect key="frame" x="20" y="466" width="110" height="21"/>
+                                <rect key="frame" x="20" y="370" width="110" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="lzp-yl-xVJ"/>
                                 </constraints>
@@ -225,7 +225,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0,00 €" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kqL-I8-7B4">
-                                <rect key="frame" x="138" y="466" width="217" height="21"/>
+                                <rect key="frame" x="138" y="370" width="217" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Cwk-bG-Ire"/>
                                 </constraints>
@@ -234,7 +234,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLg-yj-5XC">
-                                <rect key="frame" x="20" y="495" width="110" height="21"/>
+                                <rect key="frame" x="20" y="399" width="110" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="M2e-8E-uxq"/>
                                 </constraints>
@@ -243,14 +243,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nfh-VT-qSU">
-                                <rect key="frame" x="334" y="495" width="21" height="21"/>
+                                <rect key="frame" x="334" y="399" width="21" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="tcR-qh-FiW"/>
                                     <constraint firstAttribute="width" constant="21" id="xTK-dc-eEO"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bezeichnung:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0D-Lw-Itz">
-                                <rect key="frame" x="20" y="524" width="110" height="21"/>
+                                <rect key="frame" x="20" y="428" width="110" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="pGH-3p-5JP"/>
                                 </constraints>
@@ -259,7 +259,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bezeichnung" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fVe-Hv-lP8">
-                                <rect key="frame" x="138" y="524" width="217" height="21"/>
+                                <rect key="frame" x="138" y="428" width="217" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="gAv-D7-XLB"/>
                                 </constraints>
@@ -268,7 +268,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beschreibung:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vh5-mi-Jwr">
-                                <rect key="frame" x="20" y="553" width="120" height="21"/>
+                                <rect key="frame" x="20" y="457" width="120" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="CBc-hX-beZ"/>
                                 </constraints>
@@ -277,7 +277,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Beschreibung" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gku-WR-CVL">
-                                <rect key="frame" x="148" y="553" width="207" height="21"/>
+                                <rect key="frame" x="148" y="457" width="207" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="ZyC-qE-vA0"/>
                                 </constraints>
@@ -286,7 +286,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beleg:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiC-Zi-xeV">
-                                <rect key="frame" x="20" y="582" width="110" height="21"/>
+                                <rect key="frame" x="20" y="486" width="110" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="6m8-j7-x6Z"/>
                                 </constraints>
@@ -295,13 +295,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bMc-V0-kwL">
-                                <rect key="frame" x="20" y="611" width="335" height="300"/>
+                                <rect key="frame" x="20" y="515" width="335" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="c6S-A6-Qtd"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eg4-2E-Ssv">
-                                <rect key="frame" x="229" y="582" width="126" height="21"/>
+                                <rect key="frame" x="229" y="486" width="126" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Tor-OF-tCH"/>
                                 </constraints>
@@ -351,7 +351,7 @@
                             <constraint firstAttribute="trailing" secondItem="eg4-2E-Ssv" secondAttribute="trailing" constant="20" symbolic="YES" id="zr5-Yd-rG7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Neuer Beleg" id="wVx-SO-0oP">
+                    <navigationItem key="navigationItem" title="Beleg erfassen" id="wVx-SO-0oP">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="navbaritem_save" id="weO-TI-ErE"/>
                     </navigationItem>
                 </viewController>
@@ -359,10 +359,10 @@
             </objects>
             <point key="canvasLocation" x="2592.8000000000002" y="374.66266866566718"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Beleg erfassen-->
         <scene sceneID="pEW-ZJ-CEJ">
             <objects>
-                <tableViewController id="rfX-eP-7ZX" sceneMemberID="viewController">
+                <tableViewController title="Beleg erfassen" id="rfX-eP-7ZX" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pmt-wc-5qG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -617,11 +617,11 @@
                             </tableViewSection>
                             <tableViewSection id="RDD-iO-uYC">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="jk8-Q7-4AI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="jk8-Q7-4AI">
                                         <rect key="frame" x="0.0" y="714" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jk8-Q7-4AI" id="IHX-CH-kpc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beleg:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FB-AE-gxn">
@@ -677,10 +677,13 @@
                             <outlet property="delegate" destination="rfX-eP-7ZX" id="gXs-3C-YLk"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Beleg erfassen" id="PYQ-2v-rMR">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="navbaritem_save" id="T8E-aK-py7"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUp-Ys-Yh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2409" y="1066"/>
+            <point key="canvasLocation" x="1740" y="1161"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Z6O-Y7-JWe">
