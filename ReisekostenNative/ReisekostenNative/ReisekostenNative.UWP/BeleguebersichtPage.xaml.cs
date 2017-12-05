@@ -25,13 +25,16 @@ namespace ReisekostenNative.UWP
     /// </summary>
     public sealed partial class BeleguebersichtPage : Page
     {
+        public BelegOverviewModel ViewModel { get; set; }
+
         public BeleguebersichtPage()
         {
             this.InitializeComponent();
-            BelegListe = new BelegGenerator().GenerateData(20);
+            ViewModel = new BelegOverviewModel();
+            ViewModel.BelegListe = new BelegGenerator().GenerateData(20);
         }
 
-        public List<Beleg> BelegListe { get; set; }
+        public string Username { get; set; }
 
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -42,6 +45,15 @@ namespace ReisekostenNative.UWP
         private void AppBarToggleButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(BelegDetailPage), null);
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (e.Parameter != null)
+            {
+                Username = e.Parameter as string;
+            }
         }
     }
 }

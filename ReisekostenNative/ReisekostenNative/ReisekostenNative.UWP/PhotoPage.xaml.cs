@@ -34,23 +34,23 @@ namespace ReisekostenNative.UWP
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            StorageFile photo = (StorageFile)e.Parameter;
-            LoadImage(photo);
+            if (e.Parameter is StorageFile)
+            {
+                StorageFile photo = (StorageFile)e.Parameter;
+                LoadImage(photo);
+            }
         }
 
         private async void LoadImage(IStorageFile photo)
         {
-            if (photo != null)
-            {
-                IRandomAccessStream stream = await photo.OpenAsync(FileAccessMode.Read);
-                BitmapDecoder decoder = await BitmapDecoder.CreateAsync(stream);
-                SoftwareBitmap softwareBitmap = await decoder.GetSoftwareBitmapAsync();
+            IRandomAccessStream stream = await photo.OpenAsync(FileAccessMode.Read);
+            BitmapDecoder decoder = await BitmapDecoder.CreateAsync(stream);
+            SoftwareBitmap softwareBitmap = await decoder.GetSoftwareBitmapAsync();
 
-                SoftwareBitmap softwareBitmapBGR8 = SoftwareBitmap.Convert(softwareBitmap, BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
-                SoftwareBitmapSource bitmapSource = new SoftwareBitmapSource();
-                await bitmapSource.SetBitmapAsync(softwareBitmapBGR8);
-                this.imageControl.Source = bitmapSource;
-            }
+            SoftwareBitmap softwareBitmapBGR8 = SoftwareBitmap.Convert(softwareBitmap, BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
+            SoftwareBitmapSource bitmapSource = new SoftwareBitmapSource();
+            await bitmapSource.SetBitmapAsync(softwareBitmapBGR8);
+            this.imageControl.Source = bitmapSource;
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -29,7 +30,24 @@ namespace ReisekostenNative.UWP
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(BeleguebersichtPage), this.Username.Text);     
+            Login(this.Username.Text, this.Password.PasswordChar);
+        }
+
+        private void Password_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == VirtualKey.Enter)
+            {
+                Login(this.Username.Text, this.Password.PasswordChar);
+            }
+        }
+
+        private void Login(string username, string password)
+        {
+            if (!String.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
+            {
+                // TODO: check password ...
+                this.Frame.Navigate(typeof(BeleguebersichtPage), username);
+            }
         }
     }
 }

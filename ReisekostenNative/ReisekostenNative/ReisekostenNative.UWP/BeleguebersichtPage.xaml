@@ -14,8 +14,8 @@
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <StackPanel Margin="40">
-                <TextBlock Text="Belegerfassung"/>
-                <ListView ItemsSource="{x:Bind BelegListe}" ItemClick="ListView_ItemClick" IsItemClickEnabled="True" IsSwipeEnabled="True" ShowsScrollingPlaceholders="True">
+                <TextBlock Text="Belegerfassung" FontSize="24"/>
+                <ListView ItemsSource="{x:Bind ViewModel.BelegListe}" ItemClick="ListView_ItemClick" IsItemClickEnabled="True" IsSwipeEnabled="True" ShowsScrollingPlaceholders="True">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapGrid MaximumRowsOrColumns="6" Orientation="Horizontal" />
@@ -32,26 +32,18 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="0">
-                                    <Run Text="Id" />
-                                    <LineBreak />
                                     <Run Text="{x:Bind Id}" />
                                 </TextBlock>
 
                                 <TextBlock Grid.Column="1">
-                                    <Run Text="Bezeichnung" FontWeight="Bold" />
-                                    <LineBreak />
                                     <Run Text="{x:Bind Bezeichnung}" />
                                 </TextBlock>
 
                                 <TextBlock Grid.Column="2">
-                                    <Run Text="Betrag"/>
-                                    <LineBreak />
                                     <Run Text="{x:Bind Betrag}" />
                                 </TextBlock>
 
                                 <TextBlock Grid.Column="3">
-                                    <Run Text="Status"/>
-                                    <LineBreak />
                                     <Run Text="{x:Bind Status}" />
                                 </TextBlock>
                             </Grid>
