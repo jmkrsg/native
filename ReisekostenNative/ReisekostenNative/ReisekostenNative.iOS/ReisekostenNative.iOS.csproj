@@ -262,6 +262,18 @@
     <Compile Include="BelegNeuViewController.designer.cs">
       <DependentUpon>BelegNeuViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="BelegNeuTableViewController.cs" />
+    <Compile Include="BelegNeuTableViewController.designer.cs">
+      <DependentUpon>BelegNeuTableViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BelegNeuTableView.cs" />
+    <Compile Include="BelegNeuTableView.designer.cs">
+      <DependentUpon>BelegNeuTableView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BelegSpeichernSegue.cs" />
+    <Compile Include="BelegSpeichernSegue.designer.cs">
+      <DependentUpon>BelegSpeichernSegue.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\.DS_Store" />

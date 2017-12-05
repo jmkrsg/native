@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReisekostenNative.UWP.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,23 +23,55 @@ namespace ReisekostenNative.UWP
     /// </summary>
     public sealed partial class BelegDetailPage : Page
     {
-        public Beleg SelectedBeleg { get; set; }
+        public BelegDetailModel ViewModel { get; set; }
 
         public BelegDetailPage()
         {
             this.InitializeComponent();
         }
 
+        private void MockViewModel()
+        {
+            ViewModel.StatusList = new List<string>();
+            ViewModel.StatusList.Add("ERFASST");
+            ViewModel.StatusList.Add("EXPORTIERT");
+            ViewModel.StatusList.Add("GEBUCHT");
+            ViewModel.StatusList.Add("ABGELEHNT");
+
+            ViewModel.TypeList = new List<string>();
+            ViewModel.TypeList.Add("Gastronomie");
+            ViewModel.TypeList.Add("Hotel");
+            ViewModel.TypeList.Add("Transport");
+            ViewModel.TypeList.Add("Sonstiges");
+        }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            ViewModel = new BelegDetailModel();
 
-            SelectedBeleg = (Beleg)e.Parameter;
+            MockViewModel();
 
-            if (SelectedBeleg is null)
+            if (e.Parameter != null)
             {
-                SelectedBeleg = new Beleg();
+                ViewModel.SelectedBeleg = (Beleg)e.Parameter;
+                ViewModel.Mode = ViewMode.Edit;
             }
+            else
+            {
+                ViewModel.SelectedBeleg = new Beleg();
+                ViewModel.Mode = ViewMode.Create;
+            }
+        }
+
+        private void Abbrechen_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.GoBack();
+        }
+
+        private void Speichern_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.GoBack();
         }
     }
 }

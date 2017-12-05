@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ReisekostenNative.UWP.Help;
+using ReisekostenNative.UWP.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -18,17 +20,6 @@ using Windows.UI.Xaml.Navigation;
 namespace ReisekostenNative.UWP
 {
 
-    public class Beleg
-    {
-        public string Id { get; set; }
-        public DateTime Belegdatum { get; set; }
-        public string Belegart { get; set; }
-
-        public Decimal Betrag { get; set; }
-        public string Bezeichnung { get; set; }
-        public string Status { get; set; }
-    }
-
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
@@ -37,22 +28,7 @@ namespace ReisekostenNative.UWP
         public BeleguebersichtPage()
         {
             this.InitializeComponent();
-            BelegListe = new List<Beleg>();
-            Beleg b = new Beleg();
-            b.Belegart = "test";
-            b.Id = "1001";
-            b.Betrag = 1000;
-            b.Bezeichnung = "Testbeleg1";
-            b.Status = "OK";
-            BelegListe.Add(b);
-
-            b = new Beleg();
-            b.Belegart = "test";
-            b.Id = "1002";
-            b.Betrag = 1000;
-            b.Bezeichnung = "Testbeleg2";
-            b.Status = "OK";
-            BelegListe.Add(b);
+            BelegListe = new BelegGenerator().GenerateData(20);
         }
 
         public List<Beleg> BelegListe { get; set; }

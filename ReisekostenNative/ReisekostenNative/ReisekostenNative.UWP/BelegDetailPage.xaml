@@ -7,12 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="450">
         <Grid.RowDefinitions>
             <RowDefinition Height="35" />
             <RowDefinition Height="35" />
             <RowDefinition Height="35" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="45" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10" />
@@ -21,16 +24,27 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="1" Text="Id"></TextBlock>
-        <TextBox Grid.Row="0" Grid.Column="2" Name="Id" IsReadOnly="True"></TextBox>
+        <TextBox Grid.Row="0" Grid.Column="2" Name="Id" IsReadOnly="True" Text="{x:Bind ViewModel.SelectedBeleg.Id}"></TextBox>
 
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="Beezeichnung"></TextBlock>
-        <TextBox Grid.Row="1" Grid.Column="2" Name="Bezeichnung"></TextBox>        
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Bezeichnung"></TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="2" Name="Bezeichnung" Text="{x:Bind ViewModel.SelectedBeleg.Bezeichnung}"></TextBox>        
         
         <TextBlock Grid.Row="2" Grid.Column="1" Text="Belegdatum"></TextBlock>
-        <DatePicker Grid.Row="2" Grid.Column="2" Name="Belegdatum"></DatePicker>
+        <CalendarDatePicker Grid.Row="2" Grid.Column="2" Name="Belegdatum"></CalendarDatePicker>
 
         <TextBlock Grid.Row="3" Grid.Column="1" Text="Belegart"></TextBlock>
-        <ListBox Grid.Row="3" Grid.Column="2" Name="Belegart"></ListBox>
+        <ComboBox Grid.Row="3" Grid.Column="2" Name="Belegart" ItemsSource="{x:Bind ViewModel.TypeList}"></ComboBox>
+
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="Betrag"></TextBlock>
+        <TextBox Grid.Row="4" Grid.Column="2" Name="Betrag"></TextBox>
+
+        <TextBlock Grid.Row="5" Grid.Column="1" Text="Status"></TextBlock>
+        <ComboBox Grid.Row="5" Grid.Column="2" Name="Status" ItemsSource="{x:Bind ViewModel.StatusList}"></ComboBox>
+
+        <Button Grid.Row="6" Grid.Column="1" Name="Abbrechen" Content="Abbrechen" 
+                HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="Abbrechen_Click"/>
+        <Button Grid.Row="6" Grid.Column="2" Name="Speichern" Content="Speichern" 
+                HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="Speichern_Click"/>
 
     </Grid>
 </Page>

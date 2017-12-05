@@ -7,9 +7,9 @@ using UIKit;
 
 namespace ReisekostenNative.iOS
 {
-    public partial class BelegNeuViewController : UIViewController
+    public partial class BelegNeuTableViewController : UITableViewController
 	{
-        public BelegNeuViewController (IntPtr handle) : base (handle)
+        public BelegNeuTableViewController (IntPtr handle) : base (handle)
 		{
 		}
 	}

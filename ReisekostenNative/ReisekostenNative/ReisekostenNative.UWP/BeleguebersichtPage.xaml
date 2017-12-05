@@ -2,15 +2,15 @@
     x:Class="ReisekostenNative.UWP.BeleguebersichtPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ReisekostenNative.UWP"
+    xmlns:local="using:ReisekostenNative.UWP.Model"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center">
         <StackPanel>
             <TextBlock Text="Belegerfassung"/>
-            <ListView ItemsSource="{x:Bind BelegListe}" ItemClick="ListView_ItemClick" IsItemClickEnabled="True">
+            <ListView ItemsSource="{x:Bind BelegListe}" ItemClick="ListView_ItemClick" IsItemClickEnabled="True" IsSwipeEnabled="True" ShowsScrollingPlaceholders="True">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapGrid MaximumRowsOrColumns="6" Orientation="Horizontal" />
@@ -42,6 +42,12 @@
                                 <Run Text="Betrag"/>
                                 <LineBreak />
                                 <Run Text="{x:Bind Betrag}" />
+                            </TextBlock>
+
+                            <TextBlock Grid.Column="3">
+                                <Run Text="Status"/>
+                                <LineBreak />
+                                <Run Text="{x:Bind Status}" />
                             </TextBlock>
                         </Grid>
                     </DataTemplate>
