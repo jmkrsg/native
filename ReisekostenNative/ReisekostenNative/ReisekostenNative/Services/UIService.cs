@@ -36,14 +36,20 @@ namespace ReisekostenNative.Services
             await Task.Factory.StartNew(() =>
             {
                 List<Beleg> alleBelege = this.client.GetBelegeByUserAsync(user).Result;
-                List<Beleg> belegeFromDB = BelegDAO.Instance.GetBelegeByUser(user).Result;
-
-                foreach (var beleg in alleBelege)
+                try
                 {
-                    if (BelegDAO.Instance.GetBelegByBelegnummer(beleg.Belegnummer.Value) == null)
+                    List<Beleg> belegeFromDB = BelegDAO.Instance.GetBelegeByUser(user).Result;
+
+                    foreach (var beleg in alleBelege)
                     {
-                        BelegDAO.Instance.StoreBeleg(beleg);
+                        if (BelegDAO.Instance.GetBelegByBelegnummer(beleg.Belegnummer.Value) == null)
+                        {
+                            BelegDAO.Instance.StoreBeleg(beleg);
+                        }
                     }
+                }
+                catch (Exception)
+                {
                 }
 
                 return alleBelege;
