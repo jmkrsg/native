@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Foundation;
 using UIKit;
+using IO.Swagger.Model;
 using ReisekostenNative.Services;
 
 namespace ReisekostenNative.iOS
@@ -16,7 +17,7 @@ namespace ReisekostenNative.iOS
 		{
 		}
 
-        List<string> belege = new List<string>();
+        List<Beleg> belege = new List<Beleg>();
 
         public override void ViewDidLoad()
         {
@@ -27,12 +28,13 @@ namespace ReisekostenNative.iOS
 
         public void initTableView()
         {
-           // UIService.Instance.GetBelege((o) => setBelege(o));
+            UIService.Instance.GetBelege("hugo",(o) => setBelege(o));
         }
 
-        private void setBelege(Task<List<string>> o)
+        private void setBelege(Task<List<Beleg>> o)
         {
             belege = o.Result;
+            TableView.ReloadData();
         }
 
         public override nint NumberOfSections(UITableView tableView)
@@ -60,7 +62,7 @@ namespace ReisekostenNative.iOS
             var cell = tableView.DequeueReusableCell("belege", indexPath);
             if(cell is BelegeTableViewCell) {
                 var belegCell = cell as BelegeTableViewCell;
-                // belegCell
+                belegCell.setCellData(belege[indexPath.Row]);
             }
             return cell;
         }
