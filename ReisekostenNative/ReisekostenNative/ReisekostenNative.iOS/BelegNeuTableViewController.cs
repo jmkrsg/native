@@ -14,18 +14,24 @@ namespace ReisekostenNative.iOS
 	{
         bool datumExp = false;
         bool artExp = false;
-        List<string> arten = new List<string>();
 
         public BelegNeuTableViewController (IntPtr handle) : base (handle)
 		{
-            datum.MaximumDate = new NSDate();
-            //art.Delegate = 
-            //    art.DataSource
-            UIService.Instance.GetBelegarten((o) => setArten(o));
+            
 		}
 
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
+
+            datum.MaximumDate = new NSDate();
+            art.Model = new ArtenPickerViewModel();
+            UIService.Instance.GetBelegarten((o) => setArten(o));
+        }
+
         private void setArten(Task<List<string>> o) {
-            arten = o.Result;
+            ((ArtenPickerViewModel)art.Model).setArten(o.Result, artValue);
+            art.ReloadComponent(0);
         }
 
         public override nint RowsInSection(UITableView tableView, nint section)
@@ -90,9 +96,42 @@ namespace ReisekostenNative.iOS
         {
             if ((indexPath.Section == 0 || indexPath.Section == 1 || indexPath.Section == 5 || indexPath.Section == 6) && indexPath.Row == 0)
             {
-
+                return indexPath;
             }
-            return indexPath;
+            return null;
+        }
+
+        public class ArtenPickerViewModel : UIPickerViewModel
+        {
+
+            List<string> arten = new List<string>();
+            UILabel artVal = new UILabel();
+
+            public void setArten(List<string> newArten, UILabel newArtVal) {
+                arten = newArten;
+                artVal = newArtVal;
+            }
+
+            public override nint GetRowsInComponent(UIPickerView pickerView, nint component)
+            {
+                return arten.Capacity;
+            }
+
+            public override string GetTitle(UIPickerView pickerView, nint row, nint component)
+            {
+                return arten[(int)row];
+            }
+
+            public override nint GetComponentCount(UIPickerView pickerView)
+            {
+                return 1;
+            }
+
+            public override void Selected(UIPickerView pickerView, nint row, nint component)
+            {
+                artVal.Text = arten[(int)row];
+            }
+
         }
 	}
 }
