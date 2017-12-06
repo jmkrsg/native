@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Imaging;
@@ -100,8 +101,26 @@ namespace ReisekostenNative.UWP
             captureUI.PhotoSettings.CroppedSizeInPixels = new Size(200, 200);
             Photo = await captureUI.CaptureFileAsync(CameraCaptureUIMode.Photo);
             this.pictureButton.Visibility = Visibility.Visible;
+            this.ViewModel.SelectedBeleg.BelegImage = ReadFile(Photo).Result;
             this.Frame.Navigate(typeof(PhotoPage), Photo);
         }
+
+        public async Task<byte[]> ReadFile(StorageFile file)
+        {
+            byte[] fileBytes = null;
+            using (IRandomAccessStreamWithContentType stream = await file.OpenReadAsync())
+            {
+                fileBytes = new byte[stream.Size];
+                using (DataReader reader = new DataReader(stream))
+                {
+                    await reader.LoadAsync((uint)stream.Size);
+                    reader.ReadBytes(fileBytes);
+                }
+            }
+
+            return fileBytes;
+        }
+
 
         private void AppBarToggleButton_Click(object sender, RoutedEventArgs e)
         {
