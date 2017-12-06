@@ -40,6 +40,20 @@ namespace ReisekostenNative.iOS
             return beschreibung != null && beschreibung.Text != null && beschreibung.Text.Length > 0;
         }
 
+        public bool isDataValid()
+        {
+            return isOK(datumValue) && isOK(artValue) && isOK(bezeichnung) && isOK(betrag);
+        }
+
+        private bool isOK(UILabel label) {
+            return label != null && label.Text != null && label.Text.Length > 0;
+        }
+
+        private bool isOK(UITextField textField)
+        {
+            return textField != null && textField.Text != null && textField.Text.Length > 0;
+        }
+
         public class ArtenPickerViewModel : UIPickerViewModel
         {
 

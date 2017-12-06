@@ -16,13 +16,24 @@ namespace ReisekostenNative.iOS
         public override void Perform()
         {
 
-            var tabViewCtrl = SourceViewController as BelegNeuTableViewController;
-            if (tabViewCtrl != null) {
-                var tabView = tabViewCtrl.TableView as BelegNeuTableView;
-                if (tabView != null) {
-                    // TODO restcall ...
+            var src = SourceViewController as BelegNeuTableViewController;
+            if (src != null) {
+                var tabView = src.TableView as BelegNeuTableView;
+                if (tabView != null && tabView.isDataValid()) {
+                    
+                    src.NavigationController.PopViewController(true);
                 }
-                tabViewCtrl.NavigationController.PopViewController(true);
+                else
+                {
+                    //Create Alert
+                    var okAlertController = UIAlertController.Create("Fehler", "Fehler beim Speichern des Belegs", UIAlertControllerStyle.Alert);
+
+                    //Add Action
+                    okAlertController.AddAction(UIAlertAction.Create("Ok", UIAlertActionStyle.Default, null));
+
+                    // Present Alert
+                    src.PresentViewController(okAlertController, true, null);
+                }
             }
         }
 	}
