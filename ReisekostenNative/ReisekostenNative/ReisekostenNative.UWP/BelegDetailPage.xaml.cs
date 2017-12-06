@@ -94,11 +94,11 @@ namespace ReisekostenNative.UWP
         {
             if (ViewModel.Mode == ViewMode.Create)
             {
-                UIService.Instance.CreateBeleg(ViewModel.Username, ViewModel.SelectedBeleg, (x) => { ViewModel.SelectedBeleg.Belegnummer = x.Result; });
+                UIService.Instance.CreateBeleg(ViewModel.SelectedBeleg, (x) => { ViewModel.SelectedBeleg.Belegnummer = x.Result; });
             }
             else
             {
-                UIService.Instance.UpdateBeleg(ViewModel.Username, ViewModel.SelectedBeleg.Belegnummer.Value, ViewModel.SelectedBeleg);
+                UIService.Instance.UpdateBeleg(ViewModel.SelectedBeleg);
             }
             this.Frame.GoBack();
         }
