@@ -60,6 +60,9 @@ namespace ReisekostenNative.iOS
         public Beleg getToSaveBeleg() {
             var toSaveBeleg = new Beleg();
             toSaveBeleg.User = user;
+            toSaveBeleg.Betrag = Convert.ToInt64(betrag.Text);
+            toSaveBeleg.Description = beschreibung.Text;
+            toSaveBeleg.Label = bezeichnung.Text;
             return toSaveBeleg;
         }
 
