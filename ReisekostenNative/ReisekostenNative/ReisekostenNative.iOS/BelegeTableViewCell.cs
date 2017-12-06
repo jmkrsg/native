@@ -16,10 +16,26 @@ namespace ReisekostenNative.iOS
 
         public void setCellData(Beleg newData) {
             betrag.Text = newData.Betrag.ToString();
-            bezeichnung.Text = newData.Description;
-            datum.Text = "test";
-            //image.Image = UIImage.fr;
-            //status.Image = new UIImage();
+            bezeichnung.Text = newData.Label;
+            datum.Text = newData.Date.Value.ToString("dd.MM.yyyy");;
+            string iconname = "navbaritem_plus";
+            if (newData.Status == Beleg.StatusEnum.ABGELEHNT)
+            {
+                iconname = "navbaritem_cancel";
+            }
+            else if (newData.Status == Beleg.StatusEnum.EXPORTIERT)
+            {
+                iconname = "navbaritem_save";
+            }
+            else if (newData.Status == Beleg.StatusEnum.GEBUCHT)
+            {
+                iconname = "navbaritem_cash";
+            }
+            status.Image = UIImage.FromBundle(iconname);
+            if (newData.Thumbnail != null)
+            {
+                image.Image = new UIImage(NSData.FromArray(newData.Thumbnail));
+            }
         }
 	}
 }

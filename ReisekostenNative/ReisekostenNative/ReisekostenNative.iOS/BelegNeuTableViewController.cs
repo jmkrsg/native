@@ -13,6 +13,7 @@ namespace ReisekostenNative.iOS
         bool datumExp = false;
         bool artExp = false;
         bool beschrExp = false;
+        bool belegExp = false;
 
         public BelegNeuTableViewController(IntPtr handle) : base(handle)
         {
@@ -69,7 +70,7 @@ namespace ReisekostenNative.iOS
             else if (section == 6)
             {
                 ret++;
-                if (belegeTabView != null && belegeTabView.hasImage())
+                if (belegExp)
                 {
                     ret++;
                 }
@@ -98,6 +99,10 @@ namespace ReisekostenNative.iOS
                 {
                     beschrExp = !beschrExp;
                 }    
+                else if (indexPath.Section == 6) 
+                {
+                    belegExp = !belegExp;
+                }  
             }
             tableView.ReloadData();
         }

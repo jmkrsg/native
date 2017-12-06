@@ -35,10 +35,6 @@ namespace ReisekostenNative.iOS
             art.ReloadComponent(0);
         }
 
-        public bool hasImage() {
-            return beleg != null && beleg.Image != null;
-        }
-
         public bool hasBeschreibung() {
             return beschreibung != null && beschreibung.Text != null && beschreibung.Text.Length > 0;
         }
@@ -78,6 +74,8 @@ namespace ReisekostenNative.iOS
                 betrag.Text = Convert.ToString(newBeleg.Betrag.Value);
                 beschreibung.Text = newBeleg.Description;
                 bezeichnung.Text = newBeleg.Label;
+                artValue.Text = newBeleg.Type;
+                datumValue.Text = newBeleg.Date.Value.ToString("dd.MM.yyyy");
                 if (newBeleg.Status == Beleg.StatusEnum.ABGELEHNT) 
                 {
                     iconname = "navbaritem_cancel";
@@ -92,6 +90,10 @@ namespace ReisekostenNative.iOS
                 }
             }
             status.Image = UIImage.FromBundle(iconname);
+            if (newBeleg.Thumbnail != null)
+            {
+                beleg.Image = new UIImage(NSData.FromArray(newBeleg.Thumbnail));
+            }
         }
 
         public class ArtenPickerViewModel : UIPickerViewModel
