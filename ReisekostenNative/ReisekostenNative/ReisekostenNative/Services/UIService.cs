@@ -43,7 +43,11 @@ namespace ReisekostenNative.Services
 
         public async void CreateBeleg(string user, Beleg beleg, Action<Task<int>> callback)
         {
-            beleg.Date = DateTime.UtcNow.Date;
+            if (beleg.Date == null)
+            {
+                beleg.Date = DateTime.UtcNow.Date;
+            }
+
             beleg.Status = Beleg.StatusEnum.ERFASST;
 
             client.CreateBeleg(user, beleg).ContinueWith((o) => callback(o));

@@ -36,7 +36,6 @@ namespace ReisekostenNative.Test
             Beleg b = tmp3n.First();
             test.UpdateImage("hugo", b.Belegnummer.Value, new byte[] { 232, 23, 54, 87 });
             tmp3n = await test.GetBelegeByUserAsync("hugo");
-            b = tmp3n.FirstOrDefault(h => h.Thumbnail != null);
         }
     }
 }
