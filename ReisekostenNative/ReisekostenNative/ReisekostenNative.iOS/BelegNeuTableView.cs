@@ -108,7 +108,7 @@ namespace ReisekostenNative.iOS
 
             public override nint GetRowsInComponent(UIPickerView pickerView, nint component)
             {
-                return arten.Capacity;
+                return arten.Count;
             }
 
             public override string GetTitle(UIPickerView pickerView, nint row, nint component)

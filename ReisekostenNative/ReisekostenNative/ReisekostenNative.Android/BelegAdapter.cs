@@ -78,11 +78,26 @@ namespace ReisekostenNative.Droid
                 datum.Text = date.ToString("dd.MM.yyyy");
             }
             else { datum.Text = ""; }
-            bezeichnung.Text = e.Label.ToString();
+            if(e.Label != null)
+            {
+                bezeichnung.Text = e.Label.ToString();
+            }
+            else
+            {
+                bezeichnung.Text = "";
+            }
             if(e.BelegImage != null)
             {
                 Bitmap bmp= BitmapFactory.DecodeByteArray(e.BelegImage, 0, e.BelegImage.Length);
                 image.SetImageBitmap(bmp);
+            } else if (e.Thumbnail != null)
+            {
+                Bitmap bmp = BitmapFactory.DecodeByteArray(e.Thumbnail, 0, e.Thumbnail.Length);
+                image.SetImageBitmap(bmp);
+            }
+            else
+            {
+                image.SetImageBitmap(null);
             }
 
             status.Text = e.Status.ToString();
