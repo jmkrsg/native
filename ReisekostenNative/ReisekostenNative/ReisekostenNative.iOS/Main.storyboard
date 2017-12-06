@@ -74,6 +74,10 @@
                             <constraint firstItem="u57-ib-7Ei" firstAttribute="top" secondItem="DQo-DX-dZ8" secondAttribute="bottom" constant="32" id="vNx-sv-1zl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="benutzer" destination="l2e-Dm-Sos" id="wXV-N9-OVU"/>
+                        <outlet property="passwort" destination="9yV-B6-bPd" id="jNx-Qk-2fK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yvz-k1-CHB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
