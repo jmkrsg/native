@@ -65,14 +65,29 @@ namespace ReisekostenNative
             return connection.DeleteAsync(beleg);
         }
 
-        public Task<Beleg> GetBeleg(int belegnummer)
+        public Task<Beleg> GetBeleg(int belegID)
         {
-            return connection.Table<Beleg>().Where(beleg => beleg.Belegnummer == belegnummer).FirstAsync();
+            return connection.Table<Beleg>().Where(beleg => beleg.BelegID == belegID).FirstAsync();
         }
 
         public Task<List<Beleg>> GetBelege()
         {
             return connection.Table<Beleg>().ToListAsync();
+        }
+
+        public Task<List<Beleg>> GetBelegeByStatus(Beleg.StatusEnum belegStatus)
+        {
+            return connection.Table<Beleg>().Where(beleg => beleg.Status.Equals(belegStatus)).ToListAsync();
+        }
+
+        public List<Task<int>> StoreBelege(IList<Beleg> belege)
+        {
+            var belegIDs = new List<Task<int>>();
+            foreach (Beleg beleg in belege)
+            {
+                belegIDs.Add(StoreBeleg(beleg));
+            }
+            return belegIDs;
         }
     }
 }

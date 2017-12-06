@@ -97,10 +97,17 @@ namespace IO.Swagger.Model
         }
 
         /// <summary>
-        /// Id des Beleges
+        /// Datenbank-ID des Beleges
         /// </summary>
-        /// <value>Id des Beleges</value>
+        /// <value>Datenbank-ID des Beleges</value>
         [PrimaryKey, AutoIncrement]
+        [JsonIgnore]
+        public int? BelegID { get; set; }
+
+        /// <summary>
+        /// Die vom Service vergebene Belegnummer
+        /// </summary>
+        /// <value>Die vom Service vergebene Belegnummer</value>
         [DataMember(Name = "belegnummer", EmitDefaultValue = false)]
         public int? Belegnummer { get; set; }
 
