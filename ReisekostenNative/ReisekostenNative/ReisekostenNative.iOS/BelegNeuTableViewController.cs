@@ -4,6 +4,7 @@ using System;
 
 using Foundation;
 using UIKit;
+using IO.Swagger.Model;
 
 namespace ReisekostenNative.iOS
 {
@@ -16,6 +17,10 @@ namespace ReisekostenNative.iOS
         public BelegNeuTableViewController(IntPtr handle) : base(handle)
         {
 
+        }
+
+        public void setBeleg(Beleg newBeleg) {
+            
         }
 
         public override void ViewDidLoad()
