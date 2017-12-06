@@ -88,12 +88,13 @@ namespace ReisekostenNative.iOS
                 {
                     iconname = "navbaritem_cash";
                 }
+                if (newBeleg.Thumbnail != null)
+                {
+                    beleg.Image = new UIImage(NSData.FromArray(newBeleg.Thumbnail));
+                }
             }
             status.Image = UIImage.FromBundle(iconname);
-            if (newBeleg.Thumbnail != null)
-            {
-                beleg.Image = new UIImage(NSData.FromArray(newBeleg.Thumbnail));
-            }
+
         }
 
         public class ArtenPickerViewModel : UIPickerViewModel
