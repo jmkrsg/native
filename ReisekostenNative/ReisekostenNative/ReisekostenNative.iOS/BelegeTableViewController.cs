@@ -18,6 +18,7 @@ namespace ReisekostenNative.iOS
 		}
 
         List<Beleg> belege = new List<Beleg>();
+        string user = "";
 
         public override void ViewDidLoad()
         {
@@ -33,12 +34,12 @@ namespace ReisekostenNative.iOS
             TableView.AlwaysBounceVertical = false;
             TableView.RefreshControl = new UIRefreshControl();
             TableView.RefreshControl.ValueChanged += refreshTable;
-            UIService.Instance.GetBelege("hugo",(o) => setBelege(o));
+            UIService.Instance.GetBelege(user,(o) => setBelege(o));
         }
 
         private void refreshTable(object sender, EventArgs e)
         {
-            UIService.Instance.GetBelege("hugo", (o) => setBelege(o));
+            UIService.Instance.GetBelege(user, (o) => setBelege(o));
         }
 
         private void setBelege(Task<List<Beleg>> o)
@@ -48,6 +49,10 @@ namespace ReisekostenNative.iOS
                 TableView.ReloadData();
                 TableView.RefreshControl.EndRefreshing();
             });
+        }
+
+        public void setUser(string newUser) {
+            user = newUser;
         }
 
         public override nint NumberOfSections(UITableView tableView)
