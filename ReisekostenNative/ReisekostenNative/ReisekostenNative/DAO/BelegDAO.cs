@@ -57,7 +57,6 @@ namespace ReisekostenNative
         public Task<int> StoreBeleg(Beleg beleg)
         {
             return connection.InsertOrReplaceAsync(beleg);
-
         }
 
         public Task<int> DeleteBeleg(Beleg beleg)
@@ -73,6 +72,11 @@ namespace ReisekostenNative
         public Task<List<Beleg>> GetBelege()
         {
             return connection.Table<Beleg>().ToListAsync();
+        }
+
+        public Task<List<Beleg>> GetBelegeByUser(string user)
+        {
+            return connection.Table<Beleg>().Where(beleg => beleg.User == user).ToListAsync();
         }
 
         public Task<List<Beleg>> GetBelegeByUserAndStatus(string user, Beleg.StatusEnum belegStatus)
