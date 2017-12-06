@@ -39,14 +39,15 @@ namespace ReisekostenNative.iOS
         private void refreshTable(object sender, EventArgs e)
         {
             UIService.Instance.GetBelege("hugo", (o) => setBelege(o));
-            TableView.RefreshControl.EndRefreshing();
         }
 
         private void setBelege(Task<List<Beleg>> o)
         {
             belege = o.Result;
-            TableView.ReloadData();
-            TableView.RefreshControl.EndRefreshing();
+            InvokeOnMainThread(() => {
+                TableView.ReloadData();
+                TableView.RefreshControl.EndRefreshing();
+            });
         }
 
         public override nint NumberOfSections(UITableView tableView)
