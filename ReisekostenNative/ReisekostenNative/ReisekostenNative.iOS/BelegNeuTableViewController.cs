@@ -19,8 +19,8 @@ namespace ReisekostenNative.iOS
 
         }
 
-        public void setBeleg(Beleg newBeleg) {
-            
+        public void setSavedBeleg(Beleg newBeleg) {
+            ((BelegNeuTableView)TableView).setSavedBeleg(newBeleg);
         }
 
         public override void ViewDidLoad()

@@ -17,7 +17,7 @@ namespace ReisekostenNative.Droid
 		{
 			base.OnCreate (bundle);
 
-			SetContentView (Resource.Layout.login);
+            SetContentView (Resource.Layout.login);
 
 
 			Button login = FindViewById<Button> (Resource.Id.bt_login);

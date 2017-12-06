@@ -19,7 +19,7 @@ namespace ReisekostenNative.iOS
             var src = SourceViewController as BelegeTableViewController;
             var dest = DestinationViewController as BelegNeuTableViewController; 
             if (src != null && dest != null) {
-                dest.setBeleg(null);
+                dest.setSavedBeleg(null);
                 src.NavigationController.ShowViewController(dest, null);
 
             }
