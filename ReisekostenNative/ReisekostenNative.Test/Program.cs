@@ -22,6 +22,9 @@ namespace ReisekostenNative.Test
 
         private async static void foo ()
         {
+
+            UIService.Instance.GetBelege("hugo", null);
+
             ReisekostenNative.RESTClient.RESTClient test = new ReisekostenNative.RESTClient.RESTClient();
             List<string> tmp = await test.GetTypesAsync();
             List<string> tmp2 = await test.GetStatiAsync();
