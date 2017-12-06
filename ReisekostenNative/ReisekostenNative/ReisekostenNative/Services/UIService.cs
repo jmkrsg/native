@@ -53,5 +53,10 @@ namespace ReisekostenNative.Services
         {
             this.client.UpdateBeleg(user, belegnummer, beleg);
         }
+
+        public async void GetBelegStati(Action<Task<List<string>>> callback)
+        {
+            this.client.GetStatiAsync().ContinueWith((o) => callback(o));
+        }
     }
 }
