@@ -137,7 +137,14 @@ namespace ReisekostenNative.Droid
 
         private void SaveDone(Task<int> o)
         {
-            Finish();
+            if(o.Result > 300)
+            {
+                Toast.MakeText(this, "Fehler beim Speichern", ToastLength.Long).Show();
+            }
+            else
+            {
+                Finish();
+            }
         }
 
         private bool IsThereAnAppToTakePictures()
@@ -174,7 +181,9 @@ namespace ReisekostenNative.Droid
             {
                 ivPhoto.SetImageBitmap(bitmap);
 
-                //TODO Compress durchführen und die Bytes in beleg setzen
+                System.IO.MemoryStream stream = new System.IO.MemoryStream();
+                bitmap.Compress(Bitmap.CompressFormat.Jpeg, 70, stream);
+                beleg.Thumbnail= stream.ToArray();
 
                 bitmap = null;
             }
