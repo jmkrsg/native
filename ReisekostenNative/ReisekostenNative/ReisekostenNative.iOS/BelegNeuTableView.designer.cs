@@ -24,8 +24,8 @@ namespace ReisekostenNative.iOS
 		[Outlet]
 		UIKit.UITextView beschreibung { get; set; }
 
-        [Outlet]
-        UIKit.UILabel beschreibungValue { get; set; }
+		[Outlet]
+		UIKit.UILabel beschreibungValue { get; set; }
 
 		[Outlet]
 		UIKit.UITextField betrag { get; set; }
@@ -48,11 +48,11 @@ namespace ReisekostenNative.iOS
 		[Action ("belegButtonPerformed:")]
 		partial void belegButtonPerformed (Foundation.NSObject sender);
 
-		[Action ("datumEditingChanged:")]
-		partial void datumEditingChanged (Foundation.NSObject sender);
+		[Action ("beschreibungValueChanged:")]
+		partial void beschreibungValueChanged (Foundation.NSObject sender);
 
-		[Action ("datumEditingEnd:")]
-		partial void datumEditingEnd (Foundation.NSObject sender);
+		[Action ("datumValueChanged:")]
+		partial void datumValueChanged (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -76,10 +76,10 @@ namespace ReisekostenNative.iOS
 				beschreibung = null;
 			}
 
-            if (beschreibungValue != null) {
-                beschreibungValue.Dispose();
-                beschreibungValue = null;
-            }
+			if (beschreibungValue != null) {
+				beschreibungValue.Dispose ();
+				beschreibungValue = null;
+			}
 
 			if (betrag != null) {
 				betrag.Dispose ();

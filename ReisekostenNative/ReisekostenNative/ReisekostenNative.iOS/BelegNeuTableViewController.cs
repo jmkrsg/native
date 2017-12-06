@@ -73,6 +73,7 @@ namespace ReisekostenNative.iOS
 
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
+            tableView.DeselectRow(indexPath, true);
             if (indexPath.Row == 0)
             {
                 if (indexPath.Section == 0)
@@ -89,15 +90,6 @@ namespace ReisekostenNative.iOS
                 }    
             }
             tableView.ReloadData();
-        }
-
-        public override NSIndexPath WillSelectRow(UITableView tableView, NSIndexPath indexPath)
-        {
-            if ((indexPath.Section == 0 || indexPath.Section == 1 || indexPath.Section == 5 || indexPath.Section == 6) && indexPath.Row == 0)
-            {
-                return indexPath;
-            }
-            return null;
         }
 	}
 }
