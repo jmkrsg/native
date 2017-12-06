@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ReisekostenNative.Services
 {
-    public class UIService
+    public class UIService : IUIService
     {
         private static UIService instance;
 
@@ -34,6 +34,11 @@ namespace ReisekostenNative.Services
         public async void GetBelege(string user, Action<Task<List<Beleg>>> callback)
         {
             BelegDAO.Instance.GetBelegeByUser(user).ContinueWith(o => callback(o));
+        }
+
+        public async void GetBelegeFromSvc(string user, Action<Task<List<Beleg>>> callback)
+        {
+            this.client.GetBelegeByUserAsync(user).ContinueWith((o) => callback(o));
         }
 
         public async void GetExported(string user, Action<Task<List<Beleg>>> callback)
