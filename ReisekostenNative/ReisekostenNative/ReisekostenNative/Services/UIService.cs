@@ -40,7 +40,7 @@ namespace ReisekostenNative.Services
 
                 foreach (var beleg in alleBelege)
                 {
-                    if (BelegDAO.Instance.getBelegByBelgnummer(beleg.Belegnummer.Value) == null)
+                    if (BelegDAO.Instance.GetBelegByBelegnummer(beleg.Belegnummer.Value) == null)
                     {
                         BelegDAO.Instance.StoreBeleg(beleg);
                     }

@@ -14,14 +14,14 @@ namespace ReisekostenNative.RESTClient
     {
         Uri baseUri;
 
-		public RESTClient()
+        public RESTClient()
         {
             ConfigurationService configService = new ConfigurationService();
-			// get from config
-			this.baseUri = new Uri(configService.BelegserviceURL);
+            // get from config
+            this.baseUri = new Uri(configService.BelegserviceURL);
         }
 
-		public async Task<List<string>> GetTypesAsync()
+        public async Task<List<string>> GetTypesAsync()
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = this.baseUri;
@@ -97,37 +97,25 @@ namespace ReisekostenNative.RESTClient
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = this.baseUri;
-            try
-            {
-                var json = JsonConvert.SerializeObject(beleg);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var response = await client.PostAsync($"belegerfassung-ui/rest/belege/{user}", content);
-                var responseContent = await response.Content.ReadAsStringAsync();
-                return Convert.ToInt32(responseContent);
-            }
-            catch (Exception ex)
-            {
-                int i = 0;
-                return 0;
-            }
+            var json = JsonConvert.SerializeObject(beleg);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync($"belegerfassung-ui/rest/belege/{user}", content);
+            var responseContent = await response.Content.ReadAsStringAsync();
+            return Convert.ToInt32(responseContent);
+
         }
 
         public async void UpdateBeleg(string user, int belegNummer, Beleg beleg)
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = this.baseUri;
-            try
-            {
-                var json = JsonConvert.SerializeObject(beleg);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var response = await client.PutAsync($"belegerfassung-ui/rest/belege/{user}/{belegNummer}", content);
-            }
-            catch (Exception ex)
-            {
-                int i = 0;
-            }
+            var json = JsonConvert.SerializeObject(beleg);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PutAsync($"belegerfassung-ui/rest/belege/{user}/{belegNummer}", content);
         }
 
         public async Task<byte[]> GetBelegImage(string user, int belegNummer)
