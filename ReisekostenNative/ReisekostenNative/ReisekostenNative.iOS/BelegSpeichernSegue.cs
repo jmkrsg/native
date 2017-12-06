@@ -36,14 +36,17 @@ namespace ReisekostenNative.iOS
 
         private void saveFinished(Task<int> o)
         {
-            var src = SourceViewController as BelegNeuTableViewController;
-            if(src != null && o.Result == 0) {
-                src.NavigationController.PopViewController(true);
-            }
-            else 
-            {
-                showError();
-            }
+            InvokeOnMainThread(() => {
+                var src = SourceViewController as BelegNeuTableViewController;
+                if (src != null && o.Result > 0)
+                {
+                    src.NavigationController.PopViewController(true);
+                }
+                else
+                {
+                    showError();
+                }
+            });
         }
 
         private void showError() {

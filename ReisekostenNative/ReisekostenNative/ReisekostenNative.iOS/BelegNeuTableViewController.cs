@@ -23,6 +23,11 @@ namespace ReisekostenNative.iOS
             ((BelegNeuTableView)TableView).setSavedBeleg(newBeleg);
         }
 
+        public void setUser(string newUser)
+        {
+            ((BelegNeuTableView)TableView).setUser(newUser);
+        }
+
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();

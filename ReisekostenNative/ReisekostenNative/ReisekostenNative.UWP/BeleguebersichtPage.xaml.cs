@@ -35,8 +35,6 @@ namespace ReisekostenNative.UWP
 
         public BelegOverviewModel ViewModel { get; set; }
 
-        //public List<Beleg> BelegeListe { get; set; }
-
         public BeleguebersichtPage()
         {
             this.InitializeComponent();
@@ -67,7 +65,7 @@ namespace ReisekostenNative.UWP
 
         private async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            //LoadBelege();
+            LoadBelege();
         }
 
         private void LoadBelege()
@@ -78,10 +76,6 @@ namespace ReisekostenNative.UWP
         private void GetBelegeCallback(Task<List<Beleg>> belege)
         {
             this.ViewModel.BelegListe = belege.Result;
-            //this.BelegeListe = belege.Result;
-            //RaiseProperty("BelegListe");
-            //RaiseProperty("ViewModel");
-            //RaiseProperty("ViewModel.BelegListe");
             Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => {
                 this.Bindings.Update();
             });
@@ -103,7 +97,7 @@ namespace ReisekostenNative.UWP
 
         private void AppBarToggleButton_Click_Export(object sender, RoutedEventArgs e)
         {
-            //TODO: Daten exportieren ...
+            UIService.Instance.Export(ViewModel.Username, (x) => { ViewModel.BelegListe = x.Result; });
         }
     }
 }

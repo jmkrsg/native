@@ -11,6 +11,8 @@
     <Page.Resources>
         <Converters:DateTimeToDateTimeOffsetConverter
              x:Key="DateTimeToDateTimeOffsetConverter"/>
+        <Converters:LongToStringConverter
+            x:Key="LongToStringConverter" />
     </Page.Resources>
 
     <StackPanel>
@@ -29,7 +31,6 @@
                 <RowDefinition Height="35" />
                 <RowDefinition Height="35" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="45" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10" />
@@ -38,10 +39,10 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="1" Text="Id"></TextBlock>
-            <TextBox Grid.Row="0" Grid.Column="2" Name="Belegnummer" IsReadOnly="True" Text="{x:Bind ViewModel.SelectedBeleg.Belegnummer}"></TextBox>
+            <TextBox Grid.Row="0" Grid.Column="2" Name="Belegnummer" IsReadOnly="True" Text="{x:Bind ViewModel.SelectedBeleg.Belegnummer}" Width="100" HorizontalAlignment="Left" Opacity="0.8"></TextBox>
 
             <TextBlock Grid.Row="1" Grid.Column="1" Text="Bezeichnung"></TextBlock>
-            <TextBox Grid.Row="1" Grid.Column="2" Name="Description" Text="{x:Bind ViewModel.SelectedBeleg.Description, Mode=TwoWay}"></TextBox>
+            <TextBox Grid.Row="1" Grid.Column="2" Name="Description" Text="{x:Bind ViewModel.SelectedBeleg.Label, Mode=TwoWay}"></TextBox>
 
             <TextBlock Grid.Row="2" Grid.Column="1" Text="Belegdatum"></TextBlock>
             <DatePicker Grid.Row="2" Grid.Column="2" Date="{x:Bind ViewModel.SelectedBeleg.Date, Converter={StaticResource DateTimeToDateTimeOffsetConverter}, Mode=TwoWay}" Width="300"/>
@@ -51,11 +52,13 @@
             <ComboBox Grid.Row="3" Grid.Column="2" Name="Belegart" ItemsSource="{x:Bind ViewModel.TypeList}" SelectedItem="{x:Bind ViewModel.SelectedBeleg.Type, Mode=TwoWay}" Width="300"/>
 
             <TextBlock Grid.Row="4" Grid.Column="1" Text="Betrag"/>
-            <TextBox Grid.Row="4" Grid.Column="2" Name="Betrag" Text="{Binding ViewModel.SelectedBeleg.Betrag, Mode=TwoWay}"/>
+            <TextBox Grid.Row="4" Grid.Column="2" Name="Betrag" Text="{Binding ViewModel.SelectedBeleg.Betrag, Converter={StaticResource LongToStringConverter}, Mode=TwoWay}" Width="100" HorizontalAlignment="Left" InputScope="Number"/>
 
             <TextBlock Grid.Row="5" Grid.Column="1" Text="Status"/>
             <TextBox Grid.Row="5" Grid.Column="2" Name="Status" Text="{x:Bind ViewModel.SelectedBeleg.Status}" IsReadOnly="True" Width="300"/>
 
+            <TextBox Grid.Row="6" Grid.Column="1"  Grid.ColumnSpan="2" Header="Beschreibung" TextWrapping="Wrap" Text="{x:Bind ViewModel.SelectedBeleg.Description}"  
+                     AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Visible" MinHeight="100" Height="150" MaxHeight="200"/>
             <!--
             <Button Grid.Row="7" Grid.Column="1" Name="Abbrechen" Content="Abbrechen" 
                     HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="Abbrechen_Click"/>

@@ -49,22 +49,11 @@ namespace ReisekostenNative.UWP
             });
         }
 
-        private void MockViewModel()
-        {
-            ViewModel.StatusList = new List<string>();
-            ViewModel.StatusList.Add("ERFASST");
-            ViewModel.StatusList.Add("EXPORTIERT");
-            ViewModel.StatusList.Add("GEBUCHT");
-            ViewModel.StatusList.Add("ABGELEHNT");
-        }
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
             ViewModel = new BelegDetailModel();
-
-            MockViewModel();
 
             if (e.Parameter is DetailViewParams)
             {
@@ -76,7 +65,8 @@ namespace ReisekostenNative.UWP
                 {
                     ViewModel.SelectedBeleg = new Beleg();
                     ViewModel.SelectedBeleg.Status = Beleg.StatusEnum.ERFASST;
-                    ViewModel.SelectedBeleg.Date = DateTime.Now;            
+                    ViewModel.SelectedBeleg.Date = DateTime.Now;
+                    ViewModel.SelectedBeleg.Betrag = 0;
                 }
             }
             else
