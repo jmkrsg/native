@@ -14,7 +14,11 @@ namespace ReisekostenNative.iOS
 		}
 
         public string getUser() {
-            return "";
+            return benutzer.Text;
+        }
+
+        public bool isDataValid() {
+            return benutzer.Text != null && benutzer.Text.Length > 0;
         }
 	}
 }

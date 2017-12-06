@@ -15,14 +15,26 @@ namespace ReisekostenNative.iOS
 
         public override void Perform()
         {
-
             var src = SourceViewController as LoginViewController;
             var dest = SourceViewController as BelegeTableViewController;
             if (src != null && dest != null)
             {
-                dest.setUser(src.getUser());
+                if(src.isDataValid()) {
+                    dest.setUser(src.getUser());
+                    src.ShowViewController(dest, null);   
+                }
+                else {
+                    //Create Alert
+                    var okAlertController = UIAlertController.Create("Fehler", "Login fehlgeschlagen", UIAlertControllerStyle.Alert);
+
+                    //Add Action
+                    okAlertController.AddAction(UIAlertAction.Create("Ok", UIAlertActionStyle.Default, null));
+
+                    // Present Alert
+                    src.PresentViewController(okAlertController, true, null);
+                }
             }
-            src.ShowViewController(dest, null);
+
         }
     }
 }
