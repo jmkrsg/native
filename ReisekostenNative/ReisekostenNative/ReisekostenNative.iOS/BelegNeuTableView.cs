@@ -21,7 +21,7 @@ namespace ReisekostenNative.iOS
             datumValue.Text = "";
             artValue.Text = "";
             beschreibung.Text = "";
-            beschreibungValue.Text = "";
+            beschreibungValue.Text = "...";
             art.Model = new ArtenPickerViewModel();
             UIService.Instance.GetBelegarten((o) => setArten(o));
         }
@@ -74,14 +74,7 @@ namespace ReisekostenNative.iOS
 
         }
 
-        partial void datumEditingEnd(NSObject sender)
-        {
-            var formatter = new NSDateFormatter();
-            formatter.DateFormat = "dd.MM.yyyy";
-            datumValue.Text = formatter.StringFor(datum.Date);
-        }
-
-        partial void datumEditingChanged(NSObject sender)
+        partial void datumValueChanged(NSObject sender)
         {
             var formatter = new NSDateFormatter();
             formatter.DateFormat = "dd.MM.yyyy";
