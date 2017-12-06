@@ -18,10 +18,12 @@ namespace ReisekostenNative.Droid
     class BelegeAdapter : RecyclerView.Adapter
     {
         List<Beleg> belege;
+        BelegListe parent;
 
-        public BelegeAdapter(List<Beleg> belege)
+        public BelegeAdapter(List<Beleg> belege, BelegListe parent)
         {
             this.belege = belege;
+            this.parent = parent;
         }
 
         public override int ItemCount => belege.Count;
@@ -32,11 +34,11 @@ namespace ReisekostenNative.Droid
             
         }
 
-        public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
+        public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup vg, int viewType)
         {
-            View itemView = LayoutInflater.From(parent.Context).
-                    Inflate(Resource.Layout.beleg_eintrag, parent, false);
-            BelegViewHolder vh = new BelegViewHolder(itemView);
+            View itemView = LayoutInflater.From(vg.Context).
+                    Inflate(Resource.Layout.beleg_eintrag, vg, false);
+            BelegViewHolder vh = new BelegViewHolder(itemView, parent);
             return vh;
         }
     }
@@ -48,16 +50,23 @@ namespace ReisekostenNative.Droid
         TextView art;
         TextView datum;
         TextView bezeichnung;
+        BelegListe parent;
+        Beleg currentBeleg;
 
-        public BelegViewHolder(View itemView) : base(itemView)
+        public BelegViewHolder(View itemView, BelegListe parent) : base(itemView)
         {
             art = itemView.FindViewById<TextView>(Resource.Id.art);
             datum = itemView.FindViewById<TextView>(Resource.Id.datum);
             bezeichnung = itemView.FindViewById<TextView>(Resource.Id.bezeichnung);
+            itemView.Click += delegate
+            {
+                parent.belegClicked(currentBeleg);
+            };
         }
 
         public void bind(Beleg e)
         {
+            currentBeleg = e;
             DateTime date = e.Date.Value;
             art.Text = e.Type.ToString();
             if(date != null)

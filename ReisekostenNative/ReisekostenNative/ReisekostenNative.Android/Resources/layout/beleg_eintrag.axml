@@ -8,29 +8,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <LinearLayout
-              android:padding="5dp"
-            android:orientation="vertical"
+            android:padding="10dp"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+      <LinearLayout
+              android:orientation="vertical"
+              android:layout_weight="1"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="20dp">
-                <TextView
-                    android:id="@+id/datum"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:id="@+id/art"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <TextView
-                android:id="@+id/bezeichnung"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/bezeichnung"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/art"
+            android:textSize="9dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/datum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+
+
+      </LinearLayout>
+      <ImageView
+        android:id="@+id/thumb"
+        android:src="@drawable/ic_photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+    </LinearLayout>
+  </android.support.v7.widget.CardView>
 </FrameLayout>
