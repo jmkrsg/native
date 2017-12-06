@@ -66,7 +66,7 @@ namespace ReisekostenNative.iOS
 
         public override nint RowsInSection(UITableView tableView, nint section)
         {
-            return belege.Capacity;
+            return belege.Count;
         }
 
         public override nfloat GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
@@ -82,7 +82,7 @@ namespace ReisekostenNative.iOS
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
             var cell = tableView.DequeueReusableCell("belege", indexPath);
-            if(cell is BelegeTableViewCell && belege != null && belege.Capacity > indexPath.Row) {
+            if(cell is BelegeTableViewCell) {
                 var belegCell = cell as BelegeTableViewCell;
                 belegCell.setCellData(belege[indexPath.Row]);
             }
