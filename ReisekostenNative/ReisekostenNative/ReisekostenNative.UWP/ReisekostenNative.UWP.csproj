@@ -103,6 +103,7 @@
       <DependentUpon>BeleguebersichtPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converter\DateTimeToDateTimeOffsetConverter.cs" />
+    <Compile Include="Converter\LongToStringConverter.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

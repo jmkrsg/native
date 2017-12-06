@@ -16,7 +16,7 @@
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <StackPanel Margin="40">
-                <TextBlock Text="Belegerfassung" FontSize="24"/>
+                <TextBlock Text="Belegübersicht" FontSize="24" VerticalAlignment="Top"/>
                 <ListView Name="lvBelege" ItemsSource="{x:Bind ViewModel.BelegListe}" ItemClick="ListView_ItemClick" IsItemClickEnabled="True" IsSwipeEnabled="True" ShowsScrollingPlaceholders="True">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -38,7 +38,7 @@
                                 </TextBlock>
 
                                 <TextBlock Grid.Column="1">
-                                    <Run Text="{x:Bind Description}" />
+                                    <Run Text="{x:Bind Label}" />
                                 </TextBlock>
 
                                 <TextBlock Grid.Column="2">
@@ -48,6 +48,7 @@
                                 <TextBlock Grid.Column="3">
                                     <Run Text="{x:Bind Status}" />
                                 </TextBlock>
+                                
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
