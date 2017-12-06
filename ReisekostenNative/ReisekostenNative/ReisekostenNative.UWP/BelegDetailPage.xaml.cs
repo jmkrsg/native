@@ -65,7 +65,6 @@ namespace ReisekostenNative.UWP
                 if (ViewModel.SelectedBeleg == null)
                 {
                     ViewModel.SelectedBeleg = new Beleg();
-                    ViewModel.SelectedBeleg.Status = Beleg.StatusEnum.ERFASST;
                     ViewModel.SelectedBeleg.Date = DateTime.Now;
                     ViewModel.SelectedBeleg.Betrag = 0;
                 }
@@ -83,6 +82,11 @@ namespace ReisekostenNative.UWP
 
         private void Speichern_Click(object sender, RoutedEventArgs e)
         {
+            if (ViewModel.SelectedBeleg.Betrag is null || ViewModel.SelectedBeleg.Betrag == 0)
+            {
+                ViewModel.SelectedBeleg.Betrag = 100;
+            }
+
             if (ViewModel.Mode == ViewMode.Create)
             {
                 UIService.Instance.CreateBeleg(ViewModel.SelectedBeleg, (x) => { ViewModel.SelectedBeleg.Belegnummer = x.Result; });
@@ -101,19 +105,19 @@ namespace ReisekostenNative.UWP
             captureUI.PhotoSettings.CroppedSizeInPixels = new Size(200, 200);
             Photo = await captureUI.CaptureFileAsync(CameraCaptureUIMode.Photo);
             this.pictureButton.Visibility = Visibility.Visible;
-            this.ViewModel.SelectedBeleg.BelegImage = ReadFile(Photo).Result;
+            this.ViewModel.SelectedBeleg.BelegImage = ReadFile(Photo);
             this.Frame.Navigate(typeof(PhotoPage), Photo);
         }
 
-        public async Task<byte[]> ReadFile(StorageFile file)
+        public byte[] ReadFile(StorageFile file)
         {
             byte[] fileBytes = null;
-            using (IRandomAccessStreamWithContentType stream = await file.OpenReadAsync())
+            using (IRandomAccessStreamWithContentType stream = file.OpenReadAsync().GetResults())
             {
                 fileBytes = new byte[stream.Size];
                 using (DataReader reader = new DataReader(stream))
                 {
-                    await reader.LoadAsync((uint)stream.Size);
+                    reader.LoadAsync((uint)stream.Size).GetResults();
                     reader.ReadBytes(fileBytes);
                 }
             }
