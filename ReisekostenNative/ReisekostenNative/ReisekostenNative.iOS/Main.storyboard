@@ -523,7 +523,7 @@
                                                     <rect key="frame" x="122" y="11.5" width="233" height="21"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -727,10 +727,10 @@
                             <outlet property="beschreibung" destination="kLd-Ys-fPL" id="Jef-Ba-58T"/>
                             <outlet property="betrag" destination="byR-Lz-bqS" id="P3L-xl-UBC"/>
                             <outlet property="bezeichnung" destination="SyM-u9-qXD" id="NOp-RZ-owX"/>
-                            <outlet property="dataSource" destination="rfX-eP-7ZX" id="gN3-AW-6Ik"/>
+                            <outlet property="dataSource" destination="rfX-eP-7ZX" id="iAh-Vh-DK6"/>
                             <outlet property="datum" destination="fGZ-ZK-n2c" id="zao-rw-4dH"/>
                             <outlet property="datumValue" destination="1ft-5d-T3p" id="eSb-go-F0v"/>
-                            <outlet property="delegate" destination="rfX-eP-7ZX" id="gXs-3C-YLk"/>
+                            <outlet property="delegate" destination="rfX-eP-7ZX" id="f6O-j5-yMS"/>
                             <outlet property="status" destination="weN-mB-eIE" id="KjG-5w-yDf"/>
                         </connections>
                     </tableView>

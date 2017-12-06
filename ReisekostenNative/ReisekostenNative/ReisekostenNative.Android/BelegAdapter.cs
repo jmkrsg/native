@@ -58,8 +58,13 @@ namespace ReisekostenNative.Droid
 
         public void bind(Beleg e)
         {
+            DateTime date = e.Date.Value;
             art.Text = e.Type.ToString();
-            datum.Text = e.Date.ToString();
+            if(date != null)
+            {
+                datum.Text = date.ToString("dd.MM.yyyy");
+            }
+            else { datum.Text = ""; }
             bezeichnung.Text = e.Description.ToString();
 
         }

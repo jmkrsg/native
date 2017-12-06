@@ -9,8 +9,79 @@ namespace ReisekostenNative.iOS
 {
     public partial class BelegNeuTableViewController : UITableViewController
 	{
+        bool datumExp = false;
+        bool artExp = false;
+
         public BelegNeuTableViewController (IntPtr handle) : base (handle)
 		{
+
 		}
+
+        public override nint RowsInSection(UITableView tableView, nint section)
+        {
+            nint ret = 0;
+            if (section == 0)
+            {
+                ret++;
+                if (datumExp)
+                {
+                    ret++;
+                }
+            }
+            else if (section == 1)
+            {
+                ret++;
+                if (artExp)
+                {
+                    ret++;
+                }
+            }
+            else if (section == 5)
+            {
+                ret++;
+                if (beschreibung != null && beschreibung.Text != null && beschreibung.Text.Length > 0)
+                {
+                    ret++;
+                }
+            }
+            else if (section == 6)
+            {
+                ret++;
+                if (beleg != null && beleg.Image != null)
+                {
+                    ret++;
+                }
+            }
+            else
+            {
+                ret++;
+            }
+            return ret;
+        }
+
+        public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+        {
+            if (indexPath.Row == 0)
+            {
+                if (indexPath.Section == 0)
+                {
+                    datumExp = !datumExp;
+                }
+                else if (indexPath.Section == 1)
+                {
+                    artExp = !artExp;
+                }
+            }
+            tableView.ReloadData();
+        }
+
+        public override NSIndexPath WillSelectRow(UITableView tableView, NSIndexPath indexPath)
+        {
+            if ((indexPath.Section == 0 || indexPath.Section == 1 || indexPath.Section == 5 || indexPath.Section == 6) && indexPath.Row == 0)
+            {
+
+            }
+            return indexPath;
+        }
 	}
 }

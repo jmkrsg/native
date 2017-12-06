@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using SQLite;
 
 namespace IO.Swagger.Model
 {
@@ -71,7 +72,7 @@ namespace IO.Swagger.Model
         /// Initializes a new instance of the <see cref="Beleg" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected Beleg() { }
+        public Beleg() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="Beleg" /> class.
         /// </summary>
@@ -99,6 +100,7 @@ namespace IO.Swagger.Model
         /// Id des Beleges
         /// </summary>
         /// <value>Id des Beleges</value>
+        [PrimaryKey, AutoIncrement]
         [DataMember(Name = "belegnummer", EmitDefaultValue = false)]
         public int? Belegnummer { get; set; }
 

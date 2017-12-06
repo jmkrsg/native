@@ -16,6 +16,10 @@ using Android.Provider;
 using Android.Content.PM;
 using Java.IO;
 using Android.Graphics;
+using ReisekostenNative.Services;
+using System.Threading.Tasks;
+using Android.Database;
+
 
 namespace ReisekostenNative.Droid
 {
@@ -30,6 +34,12 @@ namespace ReisekostenNative.Droid
         File photoDir;
         File photoFile;
         ImageView ivPhoto;
+        string user;
+        Spinner spBelegArten;
+
+        EditText betrag;
+        EditText bezeichnung;
+
 
 
         public void OnDateSet(DatePicker view, int year, int month, int dayOfMonth)
@@ -41,9 +51,14 @@ namespace ReisekostenNative.Droid
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            user = Intent.Extras.GetString("USER");
             beleg = new Beleg(0, "", DateTime.Now, "", 0, Beleg.StatusEnum.ERFASST, null, 0);
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.beleg_erfassen);
+
+            betrag = FindViewById<EditText>(Resource.Id.et_betrag);
+            bezeichnung = FindViewById<EditText>(Resource.Id.et_bezeichnung);
+            spBelegArten = FindViewById<Spinner>(Resource.Id.sp_art);
 
             etDate = FindViewById<EditText>(Resource.Id.et_date);
             etDate.Click += delegate
@@ -58,10 +73,21 @@ namespace ReisekostenNative.Droid
                 takePhoto();
             };
 
+            UIService.Instance.GetBelegarten((o) => setBelegArten(o));
 
 
 
-            }
+
+        }
+
+        private void setBelegArten(Task<List<string>> belegTask)
+        {
+            RunOnUiThread(() =>
+            {
+                ArrayAdapter adapter = new ArrayAdapter(this, Resource.Layout.beleg_art_eintrag, belegTask.Result);
+                spBelegArten.Adapter = adapter;
+            });
+        }
 
         private void takePhoto()
         {
@@ -83,6 +109,35 @@ namespace ReisekostenNative.Droid
             {
                 photoDir.Mkdirs();
             }
+            
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.erstellen_menu, menu);
+
+            return true;
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            if(item.ItemId == Resource.Id.action_save)
+            {
+                beleg.Betrag = Int64.Parse(betrag.Text);
+                beleg.Description = bezeichnung.Text;
+                beleg.Type = spBelegArten.SelectedItem.ToString();
+                
+                UIService.Instance.CreateBeleg(user, beleg, (o) => SaveDone(o));
+
+                return true;
+            }
+
+            return false;
+        }
+
+        private void SaveDone(Task<int> o)
+        {
+            Finish();
         }
 
         private bool IsThereAnAppToTakePictures()
@@ -92,6 +147,8 @@ namespace ReisekostenNative.Droid
                 PackageManager.QueryIntentActivities(intent, PackageInfoFlags.MatchDefaultOnly);
             return availableActivities != null && availableActivities.Count > 0;
         }
+
+        
 
         
 
@@ -153,4 +210,7 @@ namespace ReisekostenNative.Droid
             return resizedBitmap;
         }
     }
+
+   
+
 }

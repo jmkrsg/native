@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
-using Android.Widget;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using IO.Swagger.Model;
-using ReisekostenNative.RESTClient;
 using System.Threading.Tasks;
+using ReisekostenNative.Services;
 
 namespace ReisekostenNative.Droid
 {
@@ -36,12 +32,11 @@ namespace ReisekostenNative.Droid
             View addButton = FindViewById(Resource.Id.fab_add);
             addButton.Click += delegate {
                 Intent intent = new Intent(this, typeof(BelegErfassenActivity));
+                intent.PutExtra("USER", user);
                 StartActivity(intent);
             };
 
-            RESTClient.RESTClient client = new RESTClient.RESTClient();
-            client.GetBelegeByUserAsync(user).ContinueWith((o) => this.Finished(o));
-
+            UIService.Instance.GetBelege(user, (o) => this.Finished(o));
         }
 
         private void Finished (object o)
