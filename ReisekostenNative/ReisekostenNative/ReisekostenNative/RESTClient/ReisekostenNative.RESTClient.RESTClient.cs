@@ -1,5 +1,6 @@
 ﻿using IO.Swagger.Model;
 using Newtonsoft.Json;
+using ReisekostenNative.Models;
 using ReisekostenNative.Services;
 using System;
 using System.Collections.Generic;
@@ -103,7 +104,10 @@ namespace ReisekostenNative.RESTClient
 
             var response = await client.PostAsync($"belegerfassung-ui/rest/belege/{user}", content);
             var responseContent = await response.Content.ReadAsStringAsync();
-            return Convert.ToInt32(responseContent);
+
+            var result = JsonConvert.DeserializeObject<IntWrapper>(responseContent);
+
+            return result.Value.Value;
 
         }
 
