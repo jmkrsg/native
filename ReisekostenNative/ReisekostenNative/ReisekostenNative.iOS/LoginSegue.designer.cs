@@ -9,26 +9,12 @@ using System.CodeDom.Compiler;
 
 namespace ReisekostenNative.iOS
 {
-	[Register ("LoginViewController")]
-	partial class LoginViewController
+    [Register ("LoginSegue")]
+    partial class LoginSegue
 	{
-		[Outlet]
-		UIKit.UITextField benutzer { get; set; }
-
-		[Outlet]
-		UIKit.UITextField passwort { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (benutzer != null) {
-				benutzer.Dispose ();
-				benutzer = null;
-			}
-
-			if (passwort != null) {
-				passwort.Dispose ();
-				passwort = null;
-			}
 		}
 	}
 }

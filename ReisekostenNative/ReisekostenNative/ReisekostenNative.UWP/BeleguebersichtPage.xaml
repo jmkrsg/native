@@ -2,20 +2,22 @@
     x:Class="ReisekostenNative.UWP.BeleguebersichtPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ReisekostenNative.UWP.Model"
+    xmlns:local="using:IO.Swagger.Model"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <StackPanel>
         <CommandBar VerticalAlignment="Top" HorizontalAlignment="Right">
-            <AppBarToggleButton Icon="Add" Label="neuen Beleg hinzufügen" Click="AppBarToggleButton_Click"/>
+            <AppBarToggleButton Icon="Add" Label="neuen Beleg hinzufügen" Click="AppBarToggleButton_Click_Add"/>
+            <AppBarToggleButton Icon="Refresh" Label="aktualisieren" Click="AppBarToggleButton_Click_Refresh"/>
+            <AppBarToggleButton Icon="Upload" Label="Export" Click="AppBarToggleButton_Click_Export"/>
         </CommandBar>
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <StackPanel Margin="40">
                 <TextBlock Text="Belegerfassung" FontSize="24"/>
-                <ListView ItemsSource="{x:Bind ViewModel.BelegListe}" ItemClick="ListView_ItemClick" IsItemClickEnabled="True" IsSwipeEnabled="True" ShowsScrollingPlaceholders="True">
+                <ListView Name="lvBelege" ItemsSource="{x:Bind ViewModel.BelegListe}" ItemClick="ListView_ItemClick" IsItemClickEnabled="True" IsSwipeEnabled="True" ShowsScrollingPlaceholders="True">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapGrid MaximumRowsOrColumns="6" Orientation="Horizontal" />
@@ -32,11 +34,11 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="0">
-                                    <Run Text="{x:Bind Id}" />
+                                    <Run Text="{x:Bind Belegnummer}" />
                                 </TextBlock>
 
                                 <TextBlock Grid.Column="1">
-                                    <Run Text="{x:Bind Bezeichnung}" />
+                                    <Run Text="{x:Bind Description}" />
                                 </TextBlock>
 
                                 <TextBlock Grid.Column="2">

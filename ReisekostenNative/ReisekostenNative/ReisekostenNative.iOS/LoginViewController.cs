@@ -12,5 +12,9 @@ namespace ReisekostenNative.iOS
 		public LoginViewController (IntPtr handle) : base (handle)
 		{
 		}
+
+        public string getUser() {
+            return "";
+        }
 	}
 }

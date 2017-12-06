@@ -3,9 +3,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
-  <item android:id="@+id/action_save"
+  <item android:id="@+id/action_upload"
          android:title="Save"
-         android:icon="@drawable/ic_save"
+         android:icon="@drawable/ic_upload"
          app:showAsAction="ifRoom"/>
 
 </menu>

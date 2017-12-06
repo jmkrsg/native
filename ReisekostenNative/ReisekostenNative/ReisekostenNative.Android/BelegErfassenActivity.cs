@@ -52,7 +52,7 @@ namespace ReisekostenNative.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             user = Intent.Extras.GetString("USER");
-            beleg = new Beleg(0, "", DateTime.Now, "", 0, Beleg.StatusEnum.ERFASST, null, 0);
+            beleg = new Beleg(0, "", DateTime.Now, "", 0, Beleg.StatusEnum.ERFASST, null, null, 0, user);
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.beleg_erfassen);
 
@@ -126,8 +126,9 @@ namespace ReisekostenNative.Droid
                 beleg.Betrag = Int64.Parse(betrag.Text);
                 beleg.Description = bezeichnung.Text;
                 beleg.Type = spBelegArten.SelectedItem.ToString();
+                beleg.User = user;
                 
-                UIService.Instance.CreateBeleg(user, beleg, (o) => SaveDone(o));
+                UIService.Instance.CreateBeleg(beleg, (o) => SaveDone(o));
 
                 return true;
             }
