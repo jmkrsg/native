@@ -161,7 +161,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Belege" id="qRF-AL-n3W">
-                        <barButtonItem key="leftBarButtonItem" image="navbaritem_logout" id="HLP-Iu-Har"/>
+                        <barButtonItem key="leftBarButtonItem" image="navbaritem_logout" id="HLP-Iu-Har">
+                            <connections>
+                                <segue destination="ZWI-iF-Vq7" kind="custom" customClass="LogoutSegue" id="cLl-3g-O0F"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="navbaritem_plus" id="IAN-0S-zwW">
                                 <connections>
@@ -427,8 +431,8 @@
                                                         <!--2017-12-05 15:19:41 +0000-->
                                                     </date>
                                                     <connections>
-                                                        <action selector="datumEditingChanged:" destination="pmt-wc-5qG" eventType="editingChanged" id="uch-Jo-Vf0"/>
-                                                        <action selector="datumEditingEnd:" destination="pmt-wc-5qG" eventType="editingDidEnd" id="6ID-jU-ENZ"/>
+                                                        <action selector="datumEditingChanged:" destination="pmt-wc-5qG" eventType="editingChanged" id="T8h-Lh-EV7"/>
+                                                        <action selector="datumEditingEnd:" destination="pmt-wc-5qG" eventType="editingDidEnd" id="p2M-ll-BsS"/>
                                                     </connections>
                                                 </datePicker>
                                             </subviews>
@@ -666,7 +670,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beleg:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FB-AE-gxn">
-                                                    <rect key="frame" x="20" y="12" width="110" height="21"/>
+                                                    <rect key="frame" x="20" y="12.5" width="110" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="110" id="HK3-FK-jBd"/>
                                                     </constraints>
@@ -675,7 +679,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2h-Vq-O2R">
-                                                    <rect key="frame" x="229" y="12" width="126" height="21"/>
+                                                    <rect key="frame" x="229" y="12.5" width="126" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="DBp-ms-UTe"/>
                                                     </constraints>
