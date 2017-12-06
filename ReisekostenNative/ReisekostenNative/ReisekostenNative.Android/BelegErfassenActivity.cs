@@ -124,7 +124,7 @@ namespace ReisekostenNative.Droid
             if(item.ItemId == Resource.Id.action_save)
             {
                 beleg.Betrag = Int64.Parse(betrag.Text);
-                beleg.Description = bezeichnung.Text;
+                beleg.Label = bezeichnung.Text;
                 beleg.Type = spBelegArten.SelectedItem.ToString();
                 beleg.User = user;
                 
@@ -184,7 +184,7 @@ namespace ReisekostenNative.Droid
 
                 System.IO.MemoryStream stream = new System.IO.MemoryStream();
                 bitmap.Compress(Bitmap.CompressFormat.Jpeg, 70, stream);
-                beleg.Thumbnail= stream.ToArray();
+                beleg.BelegImage= stream.ToArray();
 
                 bitmap = null;
             }
