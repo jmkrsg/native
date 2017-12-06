@@ -20,6 +20,8 @@ namespace ReisekostenNative.UWP.Model
 
         public ViewMode Mode { get; set; }
 
+        public string Username { get; set; }
+
         public List<string> StatusList { get; set; }
 
         public List<string> TypeList { get; set; }

@@ -5,7 +5,13 @@
     xmlns:local="using:ReisekostenNative.UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Converters="using:ReisekostenNative.UWP.Converter"
     mc:Ignorable="d">
+
+    <Page.Resources>
+        <Converters:DateTimeToDateTimeOffsetConverter
+             x:Key="DateTimeToDateTimeOffsetConverter"/>
+    </Page.Resources>
 
     <StackPanel>
         <CommandBar VerticalAlignment="Top" HorizontalAlignment="Right">
@@ -14,7 +20,7 @@
             <AppBarToggleButton Name="pictureButton" Icon="Pictures" Label="Foto vom Beleg anzeigen" Click="AppBarToggleButton_Click" Visibility="Collapsed"/>
         </CommandBar>
 
-        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="450">
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="450" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="35" />
                 <RowDefinition Height="35" />
@@ -28,26 +34,27 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10" />
                 <ColumnDefinition Width="200" />
-                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="300" />
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="1" Text="Id"></TextBlock>
-            <TextBox Grid.Row="0" Grid.Column="2" Name="Id" IsReadOnly="True" Text="{x:Bind ViewModel.SelectedBeleg.Belegnummer}"></TextBox>
+            <TextBox Grid.Row="0" Grid.Column="2" Name="Belegnummer" IsReadOnly="True" Text="{x:Bind ViewModel.SelectedBeleg.Belegnummer}"></TextBox>
 
             <TextBlock Grid.Row="1" Grid.Column="1" Text="Bezeichnung"></TextBlock>
-            <TextBox Grid.Row="1" Grid.Column="2" Name="Bezeichnung" Text="{x:Bind ViewModel.SelectedBeleg.Description}"></TextBox>
+            <TextBox Grid.Row="1" Grid.Column="2" Name="Description" Text="{x:Bind ViewModel.SelectedBeleg.Description, Mode=TwoWay}"></TextBox>
 
             <TextBlock Grid.Row="2" Grid.Column="1" Text="Belegdatum"></TextBlock>
-            <CalendarDatePicker Grid.Row="2" Grid.Column="2" Name="Belegdatum"></CalendarDatePicker>
+            <DatePicker Grid.Row="2" Grid.Column="2" Date="{x:Bind ViewModel.SelectedBeleg.Date, Converter={StaticResource DateTimeToDateTimeOffsetConverter}, Mode=TwoWay}" Width="300"/>
+            <!--<CalendarDatePicker Grid.Row="2" Grid.Column="2" Name="Belegdatum" Date="{x:Bind ViewModel.SelectedBeleg.Date}"></CalendarDatePicker>-->
 
             <TextBlock Grid.Row="3" Grid.Column="1" Text="Belegart"></TextBlock>
-            <ComboBox Grid.Row="3" Grid.Column="2" Name="Belegart" ItemsSource="{x:Bind ViewModel.TypeList}" Width="250"/>
+            <ComboBox Grid.Row="3" Grid.Column="2" Name="Belegart" ItemsSource="{x:Bind ViewModel.TypeList}" SelectedItem="{x:Bind ViewModel.SelectedBeleg.Type, Mode=TwoWay}" Width="300"/>
 
             <TextBlock Grid.Row="4" Grid.Column="1" Text="Betrag"/>
-            <TextBox Grid.Row="4" Grid.Column="2" Name="Betrag"/>
+            <TextBox Grid.Row="4" Grid.Column="2" Name="Betrag" Text="{Binding ViewModel.SelectedBeleg.Betrag, Mode=TwoWay}"/>
 
             <TextBlock Grid.Row="5" Grid.Column="1" Text="Status"/>
-            <ComboBox Grid.Row="5" Grid.Column="2" Name="Status" ItemsSource="{x:Bind ViewModel.StatusList}" Width="250"/>
+            <TextBox Grid.Row="5" Grid.Column="2" Name="Status" Text="{x:Bind ViewModel.SelectedBeleg.Status}" IsReadOnly="True" Width="300"/>
 
             <!--
             <Button Grid.Row="7" Grid.Column="1" Name="Abbrechen" Content="Abbrechen" 

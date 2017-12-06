@@ -1,6 +1,7 @@
 ﻿using IO.Swagger.Model;
 using ReisekostenNative.Services;
 using ReisekostenNative.UWP.Model;
+using ReisekostenNative.UWP.ViewParams;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -65,18 +66,23 @@ namespace ReisekostenNative.UWP
 
             MockViewModel();
 
-            if (e.Parameter != null)
+            if (e.Parameter is DetailViewParams)
             {
-                ViewModel.SelectedBeleg = (Beleg)e.Parameter;
-                ViewModel.Mode = ViewMode.Edit;
+                DetailViewParams p = e.Parameter as DetailViewParams;
+                ViewModel.SelectedBeleg = p.Beleg;
+                ViewModel.Mode = p.Mode;
+                ViewModel.Username = p.Username;
+                if (ViewModel.SelectedBeleg == null)
+                {
+                    ViewModel.SelectedBeleg = new Beleg();
+                    ViewModel.SelectedBeleg.Status = Beleg.StatusEnum.ERFASST;
+                    ViewModel.SelectedBeleg.Date = DateTime.Now;            
+                }
             }
             else
             {
-                ViewModel.SelectedBeleg = new Beleg();
-                ViewModel.Mode = ViewMode.Create;
+                this.Frame.GoBack();
             }
-
-
         }
 
         private void Abbrechen_Click(object sender, RoutedEventArgs e)
@@ -86,6 +92,14 @@ namespace ReisekostenNative.UWP
 
         private void Speichern_Click(object sender, RoutedEventArgs e)
         {
+            if (ViewModel.Mode == ViewMode.Create)
+            {
+                UIService.Instance.CreateBeleg(ViewModel.Username, ViewModel.SelectedBeleg, (x) => { ViewModel.SelectedBeleg.Belegnummer = x.Result; });
+            }
+            else
+            {
+                UIService.Instance.UpdateBeleg(ViewModel.Username, ViewModel.SelectedBeleg.Belegnummer.Value, ViewModel.SelectedBeleg);
+            }
             this.Frame.GoBack();
         }
 

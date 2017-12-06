@@ -17,6 +17,7 @@ using ReisekostenNative.Services;
 using IO.Swagger.Model;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using ReisekostenNative.UWP.ViewParams;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -47,13 +48,21 @@ namespace ReisekostenNative.UWP
 
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
+            DetailViewParams viewParams = new DetailViewParams();
+            viewParams.Username = this.Username;
+            viewParams.Beleg = e.ClickedItem as Beleg;
+            viewParams.Mode = ViewMode.Edit;
+
             // navigate to detailPage and edit given item
-            this.Frame.Navigate(typeof(BelegDetailPage), e.ClickedItem);
+            this.Frame.Navigate(typeof(BelegDetailPage), viewParams);
         }
 
         private void AppBarToggleButton_Click_Add(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(BelegDetailPage), null);
+            DetailViewParams viewParams = new DetailViewParams();
+            viewParams.Username = this.Username;
+            viewParams.Mode = ViewMode.Create;
+            this.Frame.Navigate(typeof(BelegDetailPage), viewParams);
         }
 
         private async void MainPage_Loaded(object sender, RoutedEventArgs e)
