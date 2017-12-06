@@ -89,6 +89,9 @@ namespace ReisekostenNative.iOS
         {
             tableView.DeselectRow(indexPath, true);
             // Details öffnen
+            var viewController = Storyboard.InstantiateViewController("BelegNeu") as BelegNeuTableViewController;
+            viewController.setBeleg(belege[indexPath.Row]);
+            NavigationController.ShowViewController(viewController, null);
         }
 	}
 }
