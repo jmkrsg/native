@@ -73,7 +73,25 @@ namespace ReisekostenNative.iOS
 
         public void setSavedBeleg(Beleg newBeleg)
         {
-
+            string iconname = "navbaritem_plus";
+            if(newBeleg != null) {
+                betrag.Text = Convert.ToString(newBeleg.Betrag.Value);
+                beschreibung.Text = newBeleg.Description;
+                bezeichnung.Text = newBeleg.Label;
+                if (newBeleg.Status == Beleg.StatusEnum.ABGELEHNT) 
+                {
+                    iconname = "navbaritem_cancel";
+                }
+                else if (newBeleg.Status == Beleg.StatusEnum.EXPORTIERT)
+                {
+                    iconname = "navbaritem_save";
+                }
+                else if (newBeleg.Status == Beleg.StatusEnum.GEBUCHT)
+                {
+                    iconname = "navbaritem_cash";
+                }
+            }
+            status.Image = UIImage.FromBundle(iconname);
         }
 
         public class ArtenPickerViewModel : UIPickerViewModel
