@@ -245,6 +245,7 @@
     <ImageAsset Include="Resources\Assets.xcassets\navbaritem_settings.imageset\navbaritem_settings%403x.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\navbaritem_cash.imageset\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -301,6 +302,10 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\.DS_Store" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Assets.xcassets\.imageset\" />
+    <Folder Include="Resources\Assets.xcassets\navbaritem_cash.imageset\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
