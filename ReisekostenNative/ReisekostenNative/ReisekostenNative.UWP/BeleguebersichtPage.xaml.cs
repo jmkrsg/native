@@ -67,7 +67,7 @@ namespace ReisekostenNative.UWP
 
         private async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadBelege();
+            //LoadBelege();
         }
 
         private void LoadBelege()
