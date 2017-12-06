@@ -36,6 +36,8 @@ namespace ReisekostenNative.Test
             List<Beleg> tmp3n = await test.GetBelegeByUserAsync("hugo");
             Beleg b = tmp3n.First();
             test.UpdateImage("hugo", b.Belegnummer.Value, new byte[] { 232, 23, 54, 87 });
+            b.Description = "put-test";
+            test.UpdateBeleg("hugo", b.Belegnummer.Value, b);
             tmp3n = await test.GetBelegeByUserAsync("hugo");
         }
 
