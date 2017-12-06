@@ -55,6 +55,10 @@ namespace ReisekostenNative.iOS
             user = newUser;
         }
 
+        public string getUser() {
+            return user;
+        }
+
         public override nint NumberOfSections(UITableView tableView)
         {
             return 0;
@@ -91,6 +95,7 @@ namespace ReisekostenNative.iOS
             // Details öffnen
             var viewController = Storyboard.InstantiateViewController("BelegNeu") as BelegNeuTableViewController;
             viewController.setSavedBeleg(belege[indexPath.Row]);
+            viewController.setUser(user);
             NavigationController.ShowViewController(viewController, null);
         }
 	}

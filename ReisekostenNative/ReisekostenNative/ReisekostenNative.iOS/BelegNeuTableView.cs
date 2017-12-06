@@ -17,6 +17,8 @@ namespace ReisekostenNative.iOS
         {
         }
 
+        string user = "";
+
         public void initTableView() {
             datum.MaximumDate = new NSDate();
             datumValue.Text = "";
@@ -57,8 +59,13 @@ namespace ReisekostenNative.iOS
 
         public Beleg getToSaveBeleg() {
             var toSaveBeleg = new Beleg();
-            toSaveBeleg.User = "test";
+            toSaveBeleg.User = user;
             return toSaveBeleg;
+        }
+
+        public void setUser(string newUser)
+        {
+            user = newUser;
         }
 
         public void setSavedBeleg(Beleg newBeleg)
