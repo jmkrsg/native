@@ -84,7 +84,7 @@ namespace IO.Swagger.Model
         /// <param name="Status">Status des Beleges (required).</param>
         /// <param name="Thumbnail">Thumbnail-Darstellung des Beleges.</param>
         /// <param name="BelegSize">Groesse des Beleges.</param>
-        public Beleg(int? Belegnummer = default(int?), string Description = default(string), DateTime? Date = default(DateTime?), string Type = default(string), long? Betrag = default(long?), StatusEnum? Status = default(StatusEnum?), byte[] Thumbnail = default(byte[]), long? BelegSize = default(long?))
+        public Beleg(int? Belegnummer = default(int?), string Description = default(string), DateTime? Date = default(DateTime?), string Type = default(string), long? Betrag = default(long?), StatusEnum? Status = default(StatusEnum?), byte[] Thumbnail = default(byte[]), byte[] BelegImage = default(byte[]), long? BelegSize = default(long?))
         {
             this.Belegnummer = Belegnummer;
             this.Description = Description;
@@ -93,6 +93,7 @@ namespace IO.Swagger.Model
             this.Betrag = Betrag;
             this.Status = Status;
             this.Thumbnail = Thumbnail;
+            this.BelegImage = BelegImage;
             this.BelegSize = BelegSize;
         }
 
@@ -146,6 +147,13 @@ namespace IO.Swagger.Model
         /// <value>Thumbnail-Darstellung des Beleges</value>
         [DataMember(Name = "thumbnail", EmitDefaultValue = false)]
         public byte[] Thumbnail { get; set; }
+
+        /// <summary>
+        /// Beleg-Bild
+        /// </summary>
+        /// <value>Beleg-Bild</value>
+        [JsonIgnore]
+        public byte[] BelegImage { get; set; }
 
         /// <summary>
         /// Groesse des Beleges
