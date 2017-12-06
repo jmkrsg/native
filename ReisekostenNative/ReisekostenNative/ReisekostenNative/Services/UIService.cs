@@ -77,7 +77,7 @@ namespace ReisekostenNative.Services
                      beleg.Belegnummer = this.client.CreateBeleg(user, beleg).Result;
 
                      // TODO: um thumbnail-rückgabe erweitern
-                     this.client.UpdateImage(user, beleg.Belegnummer.Value, beleg.BelegImage);
+                     beleg.Thumbnail = this.client.UpdateImage(user, beleg.Belegnummer.Value, beleg.BelegImage).Result;
                      BelegDAO.Instance.StoreBeleg(beleg);
                  }
 
