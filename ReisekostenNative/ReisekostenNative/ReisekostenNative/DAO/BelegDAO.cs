@@ -58,6 +58,11 @@ namespace ReisekostenNative
             return connection.DeleteAsync(beleg);
         }
 
+        public Task<Beleg> getBelegByBelgnummer(int belegnummer)
+        {
+            return connection.Table<Beleg>().Where(beleg => beleg.Belegnummer == belegnummer).FirstAsync();
+        }
+
         public Task<Beleg> GetBeleg(int belegID)
         {
             return connection.Table<Beleg>().Where(beleg => beleg.BelegID == belegID).FirstAsync();
