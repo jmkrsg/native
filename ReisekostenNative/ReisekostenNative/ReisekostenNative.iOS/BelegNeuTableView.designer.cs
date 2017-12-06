@@ -45,12 +45,6 @@ namespace ReisekostenNative.iOS
 		[Outlet]
 		UIKit.UIImageView status { get; set; }
 
-		[Action ("artEditingChanged:")]
-		partial void artEditingChanged (Foundation.NSObject sender);
-
-		[Action ("artEditingEnd:")]
-		partial void artEditingEnd (Foundation.NSObject sender);
-
 		[Action ("belegButtonPerformed:")]
 		partial void belegButtonPerformed (Foundation.NSObject sender);
 
