@@ -30,7 +30,7 @@ namespace ReisekostenNative.iOS
         public void initTableView()
         {
             TableView.RowHeight = UITableView.AutomaticDimension;
-            TableView.EstimatedRowHeight = 20;
+            TableView.EstimatedRowHeight = 92;
             TableView.AlwaysBounceVertical = false;
             TableView.RefreshControl = new UIRefreshControl();
             TableView.RefreshControl.ValueChanged += refreshTable;
@@ -71,18 +71,18 @@ namespace ReisekostenNative.iOS
 
         public override nfloat GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
         {
-            return UITableView.AutomaticDimension;
+            return 92;
         }
 
         public override nfloat EstimatedHeight(UITableView tableView, NSIndexPath indexPath)
         {
-            return UITableView.AutomaticDimension;
+            return 92;
         }
 
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
             var cell = tableView.DequeueReusableCell("belege", indexPath);
-            if(cell is BelegeTableViewCell) {
+            if(cell is BelegeTableViewCell && belege != null && belege.Capacity > indexPath.Row) {
                 var belegCell = cell as BelegeTableViewCell;
                 belegCell.setCellData(belege[indexPath.Row]);
             }
