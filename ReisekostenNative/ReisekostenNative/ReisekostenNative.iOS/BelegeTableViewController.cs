@@ -61,7 +61,7 @@ namespace ReisekostenNative.iOS
 
         public override nint NumberOfSections(UITableView tableView)
         {
-            return 0;
+            return 1;
         }
 
         public override nint RowsInSection(UITableView tableView, nint section)
