@@ -11,6 +11,8 @@
         <StackPanel Orientation="Vertical" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Image Source="Assets/Icon.png" Stretch="None" />
             <TextBox Opacity="0" Height="20"/>
+            <TextBlock Text="RSG Belegerfassung" FontSize="24" />
+            <TextBox Opacity="0" Height="20"/>
             <TextBox Name="Username" HorizontalAlignment="Center" VerticalAlignment="Top" Width="200" PlaceholderText="Username"/>
             <PasswordBox Name="Password" HorizontalAlignment="Center" VerticalAlignment="Top" Width="200" PlaceholderText="Password" InputScope="Password" KeyDown="Password_KeyDown"/>
             <TextBox Opacity="0" Height="20"/>        
