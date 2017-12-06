@@ -1,4 +1,6 @@
 ﻿using IO.Swagger.Model;
+using ReisekostenNative.DAO;
+using ReisekostenNative.Models;
 using ReisekostenNative.Services;
 using System;
 using System.Collections.Generic;
@@ -44,10 +46,12 @@ namespace ReisekostenNative.Test
         public static void DBTest()
         {
             Beleg b = new Beleg(1, "test", DateTime.Now, "Hotel", 100, Beleg.StatusEnum.ERFASST);
-
             var id = BelegDAO.Instance.StoreBeleg(b).Result;
-
             var loaded = BelegDAO.Instance.GetBeleg(id).Result;
+
+            BelegArt ba = new BelegArt("Hotel");
+            var baID = BelegArtenDAO.Instance.StoreBelegArt(ba);
+            var baL = BelegArtenDAO.Instance.GetBelegArt("Hotel").Result.Name;
 
         }
     }
