@@ -21,7 +21,7 @@ namespace ReisekostenNative.iOS
             datumValue.Text = "";
             artValue.Text = "";
             beschreibung.Text = "";
-            beschreibungValue.Text = "...";
+            beschreibungValue.Text = "";
             art.Model = new ArtenPickerViewModel();
             UIService.Instance.GetBelegarten((o) => setArten(o));
         }
