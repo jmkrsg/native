@@ -619,14 +619,23 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beschreibung:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaS-GL-ysd">
-                                                    <rect key="frame" x="20" y="12" width="335" height="21"/>
+                                                    <rect key="frame" x="20" y="12" width="120" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="roG-9E-tJX"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="05.12.2017" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ke4-gM-XXv">
+                                                    <rect key="frame" x="79" y="11" width="217" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="VaS-GL-ysd" secondAttribute="trailing" constant="20" symbolic="YES" id="5TU-Gj-voK"/>
                                                 <constraint firstItem="VaS-GL-ysd" firstAttribute="centerY" secondItem="kZf-9b-0cq" secondAttribute="centerY" id="WoF-EQ-6BG"/>
                                                 <constraint firstItem="VaS-GL-ysd" firstAttribute="leading" secondItem="kZf-9b-0cq" secondAttribute="leading" constant="20" symbolic="YES" id="sup-PV-DML"/>
                                             </constraints>
