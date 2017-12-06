@@ -75,9 +75,9 @@ namespace ReisekostenNative
             return connection.Table<Beleg>().ToListAsync();
         }
 
-        public Task<List<Beleg>> GetBelegeByStatus(Beleg.StatusEnum belegStatus)
+        public Task<List<Beleg>> GetBelegeByUserAndStatus(string user, Beleg.StatusEnum belegStatus)
         {
-            return connection.Table<Beleg>().Where(beleg => beleg.Status.Equals(belegStatus)).ToListAsync();
+            return connection.Table<Beleg>().Where(beleg => beleg.User == user && beleg.Status.Equals(belegStatus)).ToListAsync();
         }
 
         public List<Task<int>> StoreBelege(IList<Beleg> belege)

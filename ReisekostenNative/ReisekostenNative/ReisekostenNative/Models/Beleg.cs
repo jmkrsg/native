@@ -27,7 +27,7 @@ namespace IO.Swagger.Model
     /// Beleg
     /// </summary>
     [DataContract]
-    public partial class Beleg : IEquatable<Beleg>
+    public partial class Beleg
     {
         /// <summary>
         /// Status des Beleges
@@ -84,7 +84,7 @@ namespace IO.Swagger.Model
         /// <param name="Status">Status des Beleges (required).</param>
         /// <param name="Thumbnail">Thumbnail-Darstellung des Beleges.</param>
         /// <param name="BelegSize">Groesse des Beleges.</param>
-        public Beleg(int? Belegnummer = default(int?), string Description = default(string), DateTime? Date = default(DateTime?), string Type = default(string), long? Betrag = default(long?), StatusEnum? Status = default(StatusEnum?), byte[] Thumbnail = default(byte[]), byte[] BelegImage = default(byte[]), long? BelegSize = default(long?))
+        public Beleg(int? Belegnummer = default(int?), string Description = default(string), DateTime? Date = default(DateTime?), string Type = default(string), long? Betrag = default(long?), StatusEnum? Status = default(StatusEnum?), byte[] Thumbnail = default(byte[]), byte[] BelegImage = default(byte[]), long? BelegSize = default(long?), string User = null)
         {
             this.Belegnummer = Belegnummer;
             this.Description = Description;
@@ -95,6 +95,7 @@ namespace IO.Swagger.Model
             this.Thumbnail = Thumbnail;
             this.BelegImage = BelegImage;
             this.BelegSize = BelegSize;
+            this.User = User;
         }
 
         /// <summary>
@@ -162,25 +163,8 @@ namespace IO.Swagger.Model
         [DataMember(Name = "belegSize", EmitDefaultValue = false)]
         public long? BelegSize { get; set; }
 
-        /// <summary>
-        /// Returns the string presentation of the object
-        /// </summary>
-        /// <returns>String presentation of the object</returns>
-        public override string ToString()
-        {
-            var sb = new StringBuilder();
-            sb.Append("class Beleg {\n");
-            sb.Append("  Belegnummer: ").Append(Belegnummer).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Date: ").Append(Date).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Betrag: ").Append(Betrag).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Thumbnail: ").Append(Thumbnail).Append("\n");
-            sb.Append("  BelegSize: ").Append(BelegSize).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
-        }
+        [JsonIgnore]
+        public string User { get; set; }
 
         /// <summary>
         /// Returns the JSON string presentation of the object
@@ -189,102 +173,6 @@ namespace IO.Swagger.Model
         public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="obj">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
-        {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Beleg);
-        }
-
-        /// <summary>
-        /// Returns true if Beleg instances are equal
-        /// </summary>
-        /// <param name="other">Instance of Beleg to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Beleg other)
-        {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
-                return false;
-
-            return
-                (
-                    this.Belegnummer == other.Belegnummer ||
-                    this.Belegnummer != null &&
-                    this.Belegnummer.Equals(other.Belegnummer)
-                ) &&
-                (
-                    this.Description == other.Description ||
-                    this.Description != null &&
-                    this.Description.Equals(other.Description)
-                ) &&
-                (
-                    this.Date == other.Date ||
-                    this.Date != null &&
-                    this.Date.Equals(other.Date)
-                ) &&
-                (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
-                ) &&
-                (
-                    this.Betrag == other.Betrag ||
-                    this.Betrag != null &&
-                    this.Betrag.Equals(other.Betrag)
-                ) &&
-                (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
-                ) &&
-                (
-                    this.Thumbnail == other.Thumbnail ||
-                    this.Thumbnail != null &&
-                    this.Thumbnail.Equals(other.Thumbnail)
-                ) &&
-                (
-                    this.BelegSize == other.BelegSize ||
-                    this.BelegSize != null &&
-                    this.BelegSize.Equals(other.BelegSize)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            // credit: http://stackoverflow.com/a/263416/677735
-            unchecked // Overflow is fine, just wrap
-            {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
-                if (this.Belegnummer != null)
-                    hash = hash * 59 + this.Belegnummer.GetHashCode();
-                if (this.Description != null)
-                    hash = hash * 59 + this.Description.GetHashCode();
-                if (this.Date != null)
-                    hash = hash * 59 + this.Date.GetHashCode();
-                if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
-                if (this.Betrag != null)
-                    hash = hash * 59 + this.Betrag.GetHashCode();
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
-                if (this.Thumbnail != null)
-                    hash = hash * 59 + this.Thumbnail.GetHashCode();
-                if (this.BelegSize != null)
-                    hash = hash * 59 + this.BelegSize.GetHashCode();
-                return hash;
-            }
         }
     }
 
