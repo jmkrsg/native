@@ -46,7 +46,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="a0N-n6-bjY" kind="show" id="pF3-dh-RRi"/>
+                                    <segue destination="a0N-n6-bjY" kind="show" customClass="LoginSegue" id="pF3-dh-RRi"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Belegerfassung" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u57-ib-7Ei">
@@ -169,7 +169,7 @@
                         <rightBarButtonItems>
                             <barButtonItem image="navbaritem_plus" id="IAN-0S-zwW">
                                 <connections>
-                                    <segue destination="rfX-eP-7ZX" kind="show" id="Zag-RA-77Z"/>
+                                    <segue destination="rfX-eP-7ZX" kind="show" customClass="BelegOeffnenSegue" id="Zag-RA-77Z"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="edit" id="i3L-Fz-JQM"/>
