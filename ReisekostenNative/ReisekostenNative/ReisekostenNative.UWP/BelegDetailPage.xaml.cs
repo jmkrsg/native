@@ -65,7 +65,8 @@ namespace ReisekostenNative.UWP
                 {
                     ViewModel.SelectedBeleg = new Beleg();
                     ViewModel.SelectedBeleg.Status = Beleg.StatusEnum.ERFASST;
-                    ViewModel.SelectedBeleg.Date = DateTime.Now;            
+                    ViewModel.SelectedBeleg.Date = DateTime.Now;
+                    ViewModel.SelectedBeleg.Betrag = 0;
                 }
             }
             else
