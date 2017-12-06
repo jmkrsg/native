@@ -47,7 +47,7 @@ namespace ReisekostenNative.Services
                     }
                 }
 
-                List<Beleg> belegeToAdd = belegeFromDB.Where(b => b.Belegnummer == 0).ToList();
+                List<Beleg> belegeToAdd = belegeFromDB.Where(b => b.Belegnummer == 0)?.ToList();
 
                 foreach (var item in belegeToAdd)
                 {
