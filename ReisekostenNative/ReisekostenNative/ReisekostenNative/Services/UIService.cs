@@ -41,7 +41,7 @@ namespace ReisekostenNative.Services
             this.client.GetBelegeByUserAsync(user).ContinueWith(o => callback(o));
         }
 
-        public async void CreateBeleg(string user, Beleg beleg, Action<Task<int>> callback)
+        public async void CreateBeleg(Beleg beleg, Action<Task<int>> callback)
         {
             if (beleg.Date == null)
             {
@@ -50,12 +50,12 @@ namespace ReisekostenNative.Services
 
             beleg.Status = Beleg.StatusEnum.ERFASST;
 
-            client.CreateBeleg(user, beleg).ContinueWith((o) => callback(o));
+            BelegDAO.Instance.StoreBeleg(beleg).ContinueWith((o) => callback(o));
         }
 
-        public async void UpdateBeleg(string user, int belegnummer, Beleg beleg)
+        public async void UpdateBeleg(Beleg beleg)
         {
-            this.client.UpdateBeleg(user, belegnummer, beleg);
+            BelegDAO.Instance.StoreBeleg(beleg);            
         }
 
         public async void GetBelegStati(Action<Task<List<string>>> callback)
