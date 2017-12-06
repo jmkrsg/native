@@ -33,7 +33,21 @@ namespace ReisekostenNative.Services
 
         public async void GetBelege(string user, Action<Task<List<Beleg>>> callback)
         {
-            BelegDAO.Instance.GetBelegeByUser(user).ContinueWith(o => callback(o));
+            await Task.Factory.StartNew(() =>
+            {
+                List<Beleg> alleBelege = this.client.GetBelegeByUserAsync(user).Result;
+                List<Beleg> belegeFromDB = BelegDAO.Instance.GetBelegeByUser(user).Result;
+
+                foreach (var beleg in alleBelege)
+                {
+                    if (BelegDAO.Instance.getBelegByBelgnummer(beleg.Belegnummer.Value) == null)
+                    {
+                        BelegDAO.Instance.StoreBeleg(beleg);
+                    }
+                }
+
+                return alleBelege;
+            }).ContinueWith((o) => callback(o));
         }
 
         public async void GetBelegeFromSvc(string user, Action<Task<List<Beleg>>> callback)
