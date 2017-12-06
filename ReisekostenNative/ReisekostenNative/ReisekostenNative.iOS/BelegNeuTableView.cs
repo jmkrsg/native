@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Foundation;
 using UIKit;
+using IO.Swagger.Model;
 using ReisekostenNative.Services;
 
 namespace ReisekostenNative.iOS
@@ -52,6 +53,17 @@ namespace ReisekostenNative.iOS
         private bool isOK(UITextField textField)
         {
             return textField != null && textField.Text != null && textField.Text.Length > 0;
+        }
+
+        public Beleg getToSaveBeleg() {
+            var toSaveBeleg = new Beleg();
+            toSaveBeleg.User = "test";
+            return toSaveBeleg;
+        }
+
+        public void setSavedBeleg(Beleg newBeleg)
+        {
+
         }
 
         public class ArtenPickerViewModel : UIPickerViewModel

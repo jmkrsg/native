@@ -24,7 +24,7 @@ namespace ReisekostenNative.iOS
             if (src != null) {
                 var tabView = src.TableView as BelegNeuTableView;
                 if (tabView != null && tabView.isDataValid()) {
-                    var beleg = src.getBeleg();
+                    var beleg = tabView.getToSaveBeleg();
                     UIService.Instance.CreateBeleg(beleg,(o) => saveFinished(o));
                 }
                 else
