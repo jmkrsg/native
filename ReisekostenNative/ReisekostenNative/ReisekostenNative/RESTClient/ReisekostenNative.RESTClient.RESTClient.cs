@@ -147,7 +147,7 @@ namespace ReisekostenNative.RESTClient
             }
         }
 
-        public async void UpdateImage(string user, int belegNummer, byte[] image)
+        public async Task<byte[]> UpdateImage(string user, int belegNummer, byte[] image)
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = this.baseUri;
@@ -156,10 +156,13 @@ namespace ReisekostenNative.RESTClient
                 var content = new ByteArrayContent(image);
 
                 var response = await client.PutAsync($"belegerfassung-ui/rest/belege/{user}/{belegNummer}/beleg", content);
+                var thumbnail = await response.Content.ReadAsByteArrayAsync();
+                return thumbnail;
             }
             catch (Exception ex)
             {
                 int i = 0;
+                return null;
             }
         }
 
