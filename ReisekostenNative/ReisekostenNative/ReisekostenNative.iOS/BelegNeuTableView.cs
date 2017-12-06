@@ -74,24 +74,18 @@ namespace ReisekostenNative.iOS
 
         }
 
-        partial void artEditingEnd(NSObject sender)
-        {
-
-        }
-
-        partial void artEditingChanged(NSObject sender)
-        {
-
-        }
-
         partial void datumEditingEnd(NSObject sender)
         {
-
+            var formatter = new NSDateFormatter();
+            formatter.DateFormat = "dd.MM.yyyy";
+            datumValue.Text = formatter.StringFor(datum.Date);
         }
 
         partial void datumEditingChanged(NSObject sender)
         {
-
+            var formatter = new NSDateFormatter();
+            formatter.DateFormat = "dd.MM.yyyy";
+            datumValue.Text = formatter.StringFor(datum.Date);
         }
 
         partial void belegButtonPerformed(NSObject sender)
