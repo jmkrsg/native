@@ -53,12 +53,12 @@
             <ComboBox Grid.Row="3" Grid.Column="2" Name="Belegart" ItemsSource="{x:Bind ViewModel.TypeList}" SelectedItem="{x:Bind ViewModel.SelectedBeleg.Type, Mode=TwoWay}" Width="300"/>
 
             <TextBlock Grid.Row="4" Grid.Column="1" Text="Betrag"/>
-            <TextBox Grid.Row="4" Grid.Column="2" Name="Betrag" Text="{Binding ViewModel.SelectedBeleg.Betrag, Converter={StaticResource LongToStringConverter}, Mode=TwoWay}" Width="100" HorizontalAlignment="Left" InputScope="Number"/>
+            <TextBox Grid.Row="4" Grid.Column="2" Name="Betrag" Text="{Binding ViewModel.SelectedBeleg.Betrag, Mode=TwoWay}" Width="100" HorizontalAlignment="Left" InputScope="Number"/>
 
             <TextBlock Grid.Row="5" Grid.Column="1" Text="Status"/>
             <TextBox Grid.Row="5" Grid.Column="2" Name="Status" Text="{x:Bind ViewModel.SelectedBeleg.Status}" IsReadOnly="True" Width="300"/>
 
-            <TextBox Grid.Row="6" Grid.Column="1"  Grid.ColumnSpan="2" Header="Beschreibung" TextWrapping="Wrap" Text="{x:Bind ViewModel.SelectedBeleg.Description}"  
+            <TextBox Grid.Row="6" Grid.Column="1"  Grid.ColumnSpan="2" Header="Beschreibung" TextWrapping="Wrap" Text="{x:Bind ViewModel.SelectedBeleg.Description, Mode=TwoWay}"  
                      AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Visible" MinHeight="100" Height="150" MaxHeight="200"/>
             <!--
             <Button Grid.Row="7" Grid.Column="1" Name="Abbrechen" Content="Abbrechen" 
