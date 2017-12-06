@@ -57,10 +57,10 @@ namespace ReisekostenNative.iOS
 
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
-            var cell = tableView.DequeueReusableCell("beleg", indexPath);
+            var cell = tableView.DequeueReusableCell("belege", indexPath);
             if(cell is BelegeTableViewCell) {
                 var belegCell = cell as BelegeTableViewCell;
-                //belegCell 
+                // belegCell
             }
             return cell;
         }
