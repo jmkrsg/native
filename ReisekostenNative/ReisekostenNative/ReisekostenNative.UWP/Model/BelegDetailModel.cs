@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IO.Swagger.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,8 @@ namespace ReisekostenNative.UWP.Model
         public Beleg SelectedBeleg { get; set; }
 
         public ViewMode Mode { get; set; }
+
+        public string Username { get; set; }
 
         public List<string> StatusList { get; set; }
 

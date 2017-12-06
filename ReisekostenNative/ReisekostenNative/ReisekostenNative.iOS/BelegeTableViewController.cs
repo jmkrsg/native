@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Foundation;
 using UIKit;
+using IO.Swagger.Model;
 using ReisekostenNative.Services;
 
 namespace ReisekostenNative.iOS
@@ -16,7 +17,8 @@ namespace ReisekostenNative.iOS
 		{
 		}
 
-        List<string> belege = new List<string>();
+        List<Beleg> belege = new List<Beleg>();
+        string user = "";
 
         public override void ViewDidLoad()
         {
@@ -27,12 +29,30 @@ namespace ReisekostenNative.iOS
 
         public void initTableView()
         {
-           // UIService.Instance.GetBelege((o) => setBelege(o));
+            TableView.RowHeight = UITableView.AutomaticDimension;
+            TableView.EstimatedRowHeight = 20;
+            TableView.AlwaysBounceVertical = false;
+            TableView.RefreshControl = new UIRefreshControl();
+            TableView.RefreshControl.ValueChanged += refreshTable;
+            UIService.Instance.GetBelege(user,(o) => setBelege(o));
         }
 
-        private void setBelege(Task<List<string>> o)
+        private void refreshTable(object sender, EventArgs e)
+        {
+            UIService.Instance.GetBelege(user, (o) => setBelege(o));
+        }
+
+        private void setBelege(Task<List<Beleg>> o)
         {
             belege = o.Result;
+            InvokeOnMainThread(() => {
+                TableView.ReloadData();
+                TableView.RefreshControl.EndRefreshing();
+            });
+        }
+
+        public void setUser(string newUser) {
+            user = newUser;
         }
 
         public override nint NumberOfSections(UITableView tableView)
@@ -60,7 +80,7 @@ namespace ReisekostenNative.iOS
             var cell = tableView.DequeueReusableCell("belege", indexPath);
             if(cell is BelegeTableViewCell) {
                 var belegCell = cell as BelegeTableViewCell;
-                // belegCell
+                belegCell.setCellData(belege[indexPath.Row]);
             }
             return cell;
         }

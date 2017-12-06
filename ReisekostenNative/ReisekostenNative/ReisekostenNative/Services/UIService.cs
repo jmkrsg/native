@@ -33,12 +33,12 @@ namespace ReisekostenNative.Services
 
         public async void GetBelege(string user, Action<Task<List<Beleg>>> callback)
         {
-            client.GetBelegeByUserAsync(user).ContinueWith((o) => callback(o));
+            BelegDAO.Instance.GetBelegeByUser(user).ContinueWith(o => callback(o));
         }
 
         public async void GetExported(string user, Action<Task<List<Beleg>>> callback)
         {
-            this.client.GetBelegeByUserAsync(user).ContinueWith(o => callback(o));
+            BelegDAO.Instance.GetBelegeByUserAndStatus(user, Beleg.StatusEnum.EXPORTIERT).ContinueWith(o => callback(o));
         }
 
         public async void CreateBeleg(Beleg beleg, Action<Task<int>> callback)

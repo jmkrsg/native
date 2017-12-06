@@ -102,17 +102,17 @@
     <Compile Include="BeleguebersichtPage.xaml.cs">
       <DependentUpon>BeleguebersichtPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Help\BelegGenerator.cs" />
+    <Compile Include="Converter\DateTimeToDateTimeOffsetConverter.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Beleg.cs" />
     <Compile Include="Model\BelegDetailModel.cs" />
     <Compile Include="Model\BelegOverviewModel.cs" />
     <Compile Include="PhotoPage.xaml.cs">
       <DependentUpon>PhotoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewParams\DetailViewParams.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
