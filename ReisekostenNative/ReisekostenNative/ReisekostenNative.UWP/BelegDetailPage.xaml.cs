@@ -1,4 +1,6 @@
-﻿using ReisekostenNative.UWP.Model;
+﻿using IO.Swagger.Model;
+using ReisekostenNative.Services;
+using ReisekostenNative.UWP.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -35,6 +37,15 @@ namespace ReisekostenNative.UWP
         public BelegDetailPage()
         {
             this.InitializeComponent();
+            this.Loaded += BelegDetailPage_Loaded;
+        }
+
+        private void BelegDetailPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            UIService.Instance.GetBelegarten((o) => {
+                ViewModel.TypeList = o.Result as List<string>;
+                Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => { Bindings.Update(); });
+            });
         }
 
         private void MockViewModel()
@@ -44,17 +55,12 @@ namespace ReisekostenNative.UWP
             ViewModel.StatusList.Add("EXPORTIERT");
             ViewModel.StatusList.Add("GEBUCHT");
             ViewModel.StatusList.Add("ABGELEHNT");
-
-            ViewModel.TypeList = new List<string>();
-            ViewModel.TypeList.Add("Gastronomie");
-            ViewModel.TypeList.Add("Hotel");
-            ViewModel.TypeList.Add("Transport");
-            ViewModel.TypeList.Add("Sonstiges");
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+
             ViewModel = new BelegDetailModel();
 
             MockViewModel();
@@ -69,6 +75,8 @@ namespace ReisekostenNative.UWP
                 ViewModel.SelectedBeleg = new Beleg();
                 ViewModel.Mode = ViewMode.Create;
             }
+
+
         }
 
         private void Abbrechen_Click(object sender, RoutedEventArgs e)

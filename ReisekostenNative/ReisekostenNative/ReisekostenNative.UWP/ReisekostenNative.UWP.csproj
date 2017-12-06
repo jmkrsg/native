@@ -102,11 +102,9 @@
     <Compile Include="BeleguebersichtPage.xaml.cs">
       <DependentUpon>BeleguebersichtPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Help\BelegGenerator.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Beleg.cs" />
     <Compile Include="Model\BelegDetailModel.cs" />
     <Compile Include="Model\BelegOverviewModel.cs" />
     <Compile Include="PhotoPage.xaml.cs">

@@ -10,6 +10,7 @@
     <StackPanel>
         <CommandBar VerticalAlignment="Top" HorizontalAlignment="Right">
             <AppBarToggleButton Icon="Camera" Label="Foto vom Beleg hinzufügen" Click="AddImage_ClickAsync"/>
+            <AppBarToggleButton Icon="Save" Label="Speichern" Click="Speichern_Click"/>
             <AppBarToggleButton Name="pictureButton" Icon="Pictures" Label="Foto vom Beleg anzeigen" Click="AppBarToggleButton_Click" Visibility="Collapsed"/>
         </CommandBar>
 
@@ -31,10 +32,10 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="1" Text="Id"></TextBlock>
-            <TextBox Grid.Row="0" Grid.Column="2" Name="Id" IsReadOnly="True" Text="{x:Bind ViewModel.SelectedBeleg.Id}"></TextBox>
+            <TextBox Grid.Row="0" Grid.Column="2" Name="Id" IsReadOnly="True" Text="{x:Bind ViewModel.SelectedBeleg.Belegnummer}"></TextBox>
 
             <TextBlock Grid.Row="1" Grid.Column="1" Text="Bezeichnung"></TextBlock>
-            <TextBox Grid.Row="1" Grid.Column="2" Name="Bezeichnung" Text="{x:Bind ViewModel.SelectedBeleg.Bezeichnung}"></TextBox>
+            <TextBox Grid.Row="1" Grid.Column="2" Name="Bezeichnung" Text="{x:Bind ViewModel.SelectedBeleg.Description}"></TextBox>
 
             <TextBlock Grid.Row="2" Grid.Column="1" Text="Belegdatum"></TextBlock>
             <CalendarDatePicker Grid.Row="2" Grid.Column="2" Name="Belegdatum"></CalendarDatePicker>
@@ -48,10 +49,12 @@
             <TextBlock Grid.Row="5" Grid.Column="1" Text="Status"/>
             <ComboBox Grid.Row="5" Grid.Column="2" Name="Status" ItemsSource="{x:Bind ViewModel.StatusList}" Width="250"/>
 
+            <!--
             <Button Grid.Row="7" Grid.Column="1" Name="Abbrechen" Content="Abbrechen" 
                     HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="Abbrechen_Click"/>
             <Button Grid.Row="7" Grid.Column="2" Name="Speichern" Content="Speichern" 
                     HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="Speichern_Click"/>
+            -->
 
         </Grid>
     </StackPanel>
