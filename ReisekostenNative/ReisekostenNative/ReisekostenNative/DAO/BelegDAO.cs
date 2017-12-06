@@ -36,14 +36,8 @@ namespace ReisekostenNative
         private string createDatabase()
         {
             try
-            {
-           
-
+            {         
                 connection = new SQLiteAsyncConnection(path);
-                if (FileSystem.Current.LocalStorage.CheckExistsAsync(path).Result == ExistenceCheckResult.NotFound)
-                { 
-                   
-                }
 
                 connection.CreateTableAsync<Beleg>();
                 return "Database created";
