@@ -78,7 +78,7 @@ namespace ReisekostenNative.DAO
             return connection.DeleteAsync(belegArt);
         }
 
-        public Task<BelegArt> GetBeleg(string name)
+        public Task<BelegArt> GetBelegArt(string name)
         {
             return connection.Table<BelegArt>().Where(belegArt => belegArt.Name == name).FirstAsync();
         }
