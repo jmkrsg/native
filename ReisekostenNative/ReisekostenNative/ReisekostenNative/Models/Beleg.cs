@@ -166,6 +166,9 @@ namespace IO.Swagger.Model
         [JsonIgnore]
         public string User { get; set; }
 
+        [DataMember(Name = "label")]
+        public string Label { get; set; }
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>

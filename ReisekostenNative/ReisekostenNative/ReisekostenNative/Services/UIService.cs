@@ -68,21 +68,34 @@ namespace ReisekostenNative.Services
 
         public async void Export(string user, Action<Task<List<Beleg>>> callback)
         {
-            Task.Factory.StartNew(() =>
-            {
-                List<Beleg> belege = BelegDAO.Instance.GetBelegeByUserAndStatus(user, Beleg.StatusEnum.ERFASST).Result.ToList();
-                foreach (var beleg in belege)
-                {
-                    beleg.Status = Beleg.StatusEnum.EXPORTIERT;
-                    beleg.Belegnummer = this.client.CreateBeleg(user, beleg).Result;
+            await Task.Factory.StartNew(() =>
+             {
+                 List<Beleg> belege = BelegDAO.Instance.GetBelegeByUserAndStatus(user, Beleg.StatusEnum.ERFASST).Result.ToList();
+                 foreach (var beleg in belege)
+                 {
+                     beleg.Status = Beleg.StatusEnum.EXPORTIERT;
+                     beleg.Belegnummer = this.client.CreateBeleg(user, beleg).Result;
 
-                    // TODO: um thumbnail-rückgabe erweitern
-                    this.client.UpdateImage(user, beleg.Belegnummer.Value, beleg.BelegImage);
-                    BelegDAO.Instance.StoreBeleg(beleg);
-                }
+                     // TODO: um thumbnail-rückgabe erweitern
+                     this.client.UpdateImage(user, beleg.Belegnummer.Value, beleg.BelegImage);
+                     BelegDAO.Instance.StoreBeleg(beleg);
+                 }
 
-                return belege;
-            }).ContinueWith((o) => callback(o));
+                 return belege;
+             }).ContinueWith((o) => callback(o));
+
+            ////List<Beleg> belege = BelegDAO.Instance.GetBelegeByUserAndStatus(user, Beleg.StatusEnum.ERFASST).Result.ToList();
+            ////foreach (var beleg in belege)
+            ////{
+            ////    beleg.Status = Beleg.StatusEnum.EXPORTIERT;
+            ////    beleg.Belegnummer = this.client.CreateBeleg(user, beleg).Result;
+
+            ////    // TODO: um thumbnail-rückgabe erweitern
+            ////    this.client.UpdateImage(user, beleg.Belegnummer.Value, beleg.BelegImage);
+            ////    await BelegDAO.Instance.StoreBeleg(beleg);
+            ////}
+
+            ////return belege;
         }
     }
 }
