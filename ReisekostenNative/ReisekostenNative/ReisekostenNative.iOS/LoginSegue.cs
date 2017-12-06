@@ -19,11 +19,13 @@ namespace ReisekostenNative.iOS
             var dest = DestinationViewController as UINavigationController;
             if (src != null && dest != null && dest.ViewControllers[0] != null)
             {
-                if(src.isDataValid()) {
+                if (src.isDataValid())
+                {
                     ((BelegeTableViewController)dest.ViewControllers[0]).setUser(src.getUser());
-                    src.ShowViewController(dest, null);   
+                    src.ShowViewController(dest, null);
                 }
-                else {
+                else
+                {
                     //Create Alert
                     var okAlertController = UIAlertController.Create("Fehler", "Login fehlgeschlagen", UIAlertControllerStyle.Alert);
 
@@ -34,7 +36,6 @@ namespace ReisekostenNative.iOS
                     src.PresentViewController(okAlertController, true, null);
                 }
             }
-
         }
     }
 }
