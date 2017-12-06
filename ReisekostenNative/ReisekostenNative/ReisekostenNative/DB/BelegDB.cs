@@ -2,23 +2,40 @@
 using SQLite;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace ReisekostenNative
 {
     class BelegDB
     {
+        private static BelegDB instance;
+        private SQLiteAsyncConnection connection;
+
         private string path;
+
+        public static BelegDB Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new BelegDB();
+                }
+                return instance;
+            }
+        }
 
         public BelegDB()
         {
-            this.path = Path.Combine(ConfigurationService.Instance.Datadirectory, "/belegDB.db");
+            this.path = Path.Combine(ConfigurationService.Instance.Datadirectory, "/belegDB.db3");
+            createDatabase();
         }
 
         private string createDatabase()
         {
             try
             {
-                var connection = new SQLiteAsyncConnection(path);
+                connection = new SQLiteAsyncConnection(path);
                 connection.CreateTableAsync<BelegDAO>();
                 return "Database created";
             }
@@ -28,18 +45,24 @@ namespace ReisekostenNative
             }
         }
 
-        private string insertBeleg(BelegDAO beleg)
+        public Task<int> StoreBeleg(BelegDAO beleg)
         {
-            try
-            {
-                var db = new SQLiteAsyncConnection(path);
-                db.InsertAsync(beleg);
-                return "Single data file inserted";
-            }
-            catch (SQLiteException ex)
-            {
-                return ex.Message;
-            }
+            return connection.InsertOrReplaceAsync(beleg);
+        }
+
+        public Task<int> DeleteBeleg(BelegDAO beleg)
+        {
+            return connection.DeleteAsync(beleg);
+        }
+
+        public Task<BelegDAO> GetBeleg(int belegnummer)
+        {
+            return connection.Table<BelegDAO>().Where(beleg => beleg.Belegnummer == belegnummer).FirstAsync();
+        }
+
+        public Task<List<BelegDAO>> GetBelege()
+        {
+            return connection.Table<BelegDAO>().ToListAsync();
         }
     }
 }
