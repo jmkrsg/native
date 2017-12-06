@@ -28,13 +28,25 @@ namespace ReisekostenNative.iOS
 
         public void initTableView()
         {
+            TableView.RowHeight = UITableView.AutomaticDimension;
+            TableView.EstimatedRowHeight = 20;
+            TableView.AlwaysBounceVertical = false;
+            TableView.RefreshControl = new UIRefreshControl();
+            TableView.RefreshControl.ValueChanged += refreshTable;
             UIService.Instance.GetBelege("hugo",(o) => setBelege(o));
+        }
+
+        private void refreshTable(object sender, EventArgs e)
+        {
+            UIService.Instance.GetBelege("hugo", (o) => setBelege(o));
+            TableView.RefreshControl.EndRefreshing();
         }
 
         private void setBelege(Task<List<Beleg>> o)
         {
             belege = o.Result;
             TableView.ReloadData();
+            TableView.RefreshControl.EndRefreshing();
         }
 
         public override nint NumberOfSections(UITableView tableView)
