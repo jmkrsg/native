@@ -4,6 +4,7 @@ using System;
 
 using Foundation;
 using UIKit;
+using IO.Swagger.Model;
 
 namespace ReisekostenNative.iOS
 {
@@ -12,5 +13,13 @@ namespace ReisekostenNative.iOS
 		public BelegeTableViewCell (IntPtr handle) : base (handle)
 		{
 		}
+
+        public void setCellData(Beleg newData) {
+            betrag.Text = newData.Betrag.ToString();
+            bezeichnung.Text = newData.Description;
+            datum.Text = "test";
+            //image.Image = UIImage.fr;
+            //status.Image = new UIImage();
+        }
 	}
 }

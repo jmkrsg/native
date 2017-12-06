@@ -88,7 +88,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="92" id="sG6-as-wrd" customClass="BelegeTableViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="belege" rowHeight="92" id="sG6-as-wrd" customClass="BelegeTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="375" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sG6-as-wrd" id="r1M-FI-nPb">
@@ -425,14 +425,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fGZ-ZK-n2c">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fGZ-ZK-n2c">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="534179981.18769002">
                                                         <!--2017-12-05 15:19:41 +0000-->
                                                     </date>
                                                     <connections>
-                                                        <action selector="datumEditingChanged:" destination="pmt-wc-5qG" eventType="editingChanged" id="T8h-Lh-EV7"/>
-                                                        <action selector="datumEditingEnd:" destination="pmt-wc-5qG" eventType="editingDidEnd" id="p2M-ll-BsS"/>
+                                                        <action selector="datumValueChanged:" destination="pmt-wc-5qG" eventType="valueChanged" id="l9A-X0-Ncn"/>
                                                     </connections>
                                                 </datePicker>
                                             </subviews>
@@ -523,7 +522,7 @@
                                                     <rect key="frame" x="122" y="11.5" width="233" height="21"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -619,15 +618,26 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beschreibung:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaS-GL-ysd">
-                                                    <rect key="frame" x="20" y="12" width="335" height="21"/>
+                                                    <rect key="frame" x="20" y="12" width="120" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="roG-9E-tJX"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ke4-gM-XXv">
+                                                    <rect key="frame" x="148" y="11" width="207" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="VaS-GL-ysd" secondAttribute="trailing" constant="20" symbolic="YES" id="5TU-Gj-voK"/>
+                                                <constraint firstAttribute="trailing" secondItem="ke4-gM-XXv" secondAttribute="trailing" constant="20" symbolic="YES" id="Feg-M1-k74"/>
                                                 <constraint firstItem="VaS-GL-ysd" firstAttribute="centerY" secondItem="kZf-9b-0cq" secondAttribute="centerY" id="WoF-EQ-6BG"/>
+                                                <constraint firstItem="ke4-gM-XXv" firstAttribute="leading" secondItem="VaS-GL-ysd" secondAttribute="trailing" constant="8" symbolic="YES" id="YLr-mI-BHN"/>
+                                                <constraint firstItem="ke4-gM-XXv" firstAttribute="centerY" secondItem="kZf-9b-0cq" secondAttribute="centerY" id="awt-Gh-l0M"/>
                                                 <constraint firstItem="VaS-GL-ysd" firstAttribute="leading" secondItem="kZf-9b-0cq" secondAttribute="leading" constant="20" symbolic="YES" id="sup-PV-DML"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -645,9 +655,6 @@
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <connections>
-                                                        <outlet property="textDragDelegate" destination="fGZ-ZK-n2c" id="keF-wI-Tbu"/>
-                                                    </connections>
                                                 </textView>
                                             </subviews>
                                             <constraints>
@@ -725,12 +732,13 @@
                             <outlet property="artValue" destination="Mfk-1v-OVo" id="ONk-xz-4n1"/>
                             <outlet property="beleg" destination="6EJ-XV-7f9" id="h6T-RW-RIc"/>
                             <outlet property="beschreibung" destination="kLd-Ys-fPL" id="Jef-Ba-58T"/>
+                            <outlet property="beschreibungValue" destination="ke4-gM-XXv" id="Ce8-nK-f7z"/>
                             <outlet property="betrag" destination="byR-Lz-bqS" id="P3L-xl-UBC"/>
                             <outlet property="bezeichnung" destination="SyM-u9-qXD" id="NOp-RZ-owX"/>
-                            <outlet property="dataSource" destination="rfX-eP-7ZX" id="gN3-AW-6Ik"/>
+                            <outlet property="dataSource" destination="rfX-eP-7ZX" id="iAh-Vh-DK6"/>
                             <outlet property="datum" destination="fGZ-ZK-n2c" id="zao-rw-4dH"/>
                             <outlet property="datumValue" destination="1ft-5d-T3p" id="eSb-go-F0v"/>
-                            <outlet property="delegate" destination="rfX-eP-7ZX" id="gXs-3C-YLk"/>
+                            <outlet property="delegate" destination="rfX-eP-7ZX" id="f6O-j5-yMS"/>
                             <outlet property="status" destination="weN-mB-eIE" id="KjG-5w-yDf"/>
                         </connections>
                     </tableView>

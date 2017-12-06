@@ -278,6 +278,14 @@
     <Compile Include="LogoutSegue.designer.cs">
       <DependentUpon>LogoutSegue.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginSegue.cs" />
+    <Compile Include="LoginSegue.designer.cs">
+      <DependentUpon>LoginSegue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BelegOeffnenSegue.cs" />
+    <Compile Include="BelegOeffnenSegue.designer.cs">
+      <DependentUpon>BelegOeffnenSegue.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\.DS_Store" />

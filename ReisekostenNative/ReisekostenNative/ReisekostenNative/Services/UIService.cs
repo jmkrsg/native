@@ -33,25 +33,56 @@ namespace ReisekostenNative.Services
 
         public async void GetBelege(string user, Action<Task<List<Beleg>>> callback)
         {
-            client.GetBelegeByUserAsync(user).ContinueWith((o) => callback(o));
+            BelegDAO.Instance.GetBelegeByUser(user).ContinueWith(o => callback(o));
         }
 
         public async void GetExported(string user, Action<Task<List<Beleg>>> callback)
         {
-            this.client.GetBelegeByUserAsync(user).ContinueWith(o => callback(o));
+            BelegDAO.Instance.GetBelegeByUserAndStatus(user, Beleg.StatusEnum.EXPORTIERT).ContinueWith(o => callback(o));
         }
 
-        public async void CreateBeleg(string user, Beleg beleg, Action<Task<int>> callback)
+        public async void CreateBeleg(Beleg beleg, Action<Task<int>> callback)
         {
-            beleg.Date = DateTime.UtcNow.Date;
+            if (beleg.Date == null)
+            {
+                beleg.Date = DateTime.UtcNow.Date;
+            }
+
             beleg.Status = Beleg.StatusEnum.ERFASST;
 
-            client.CreateBeleg(user, beleg).ContinueWith((o) => callback(o));
+            BelegDAO.Instance.StoreBeleg(beleg).ContinueWith((o) => callback(o));
         }
 
-        public async void UpdateBeleg(string user, int belegnummer, Beleg beleg)
+        public async void UpdateBeleg(Beleg beleg)
         {
-            this.client.UpdateBeleg(user, belegnummer, beleg);
+            if (beleg.Status == Beleg.StatusEnum.ERFASST)
+            {
+                BelegDAO.Instance.StoreBeleg(beleg);
+            }
+        }
+
+        public async void GetBelegStati(Action<Task<List<string>>> callback)
+        {
+            this.client.GetStatiAsync().ContinueWith((o) => callback(o));
+        }
+
+        public async void Export(string user, Action<Task<List<Beleg>>> callback)
+        {
+            Task.Factory.StartNew(() =>
+            {
+                List<Beleg> belege = BelegDAO.Instance.GetBelegeByUserAndStatus(user, Beleg.StatusEnum.ERFASST).Result.ToList();
+                foreach (var beleg in belege)
+                {
+                    beleg.Status = Beleg.StatusEnum.EXPORTIERT;
+                    beleg.Belegnummer = this.client.CreateBeleg(user, beleg).Result;
+
+                    // TODO: um thumbnail-rückgabe erweitern
+                    this.client.UpdateImage(user, beleg.Belegnummer.Value, beleg.BelegImage);
+                    BelegDAO.Instance.StoreBeleg(beleg);
+                }
+
+                return belege;
+            }).ContinueWith((o) => callback(o));
         }
     }
 }

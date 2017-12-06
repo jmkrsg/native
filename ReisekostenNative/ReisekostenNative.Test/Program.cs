@@ -12,6 +12,7 @@ namespace ReisekostenNative.Test
     {
         static void Main(string[] args)
         {
+            //DBTest();
             foo();
 
             Console.ReadLine();
@@ -35,8 +36,19 @@ namespace ReisekostenNative.Test
             List<Beleg> tmp3n = await test.GetBelegeByUserAsync("hugo");
             Beleg b = tmp3n.First();
             test.UpdateImage("hugo", b.Belegnummer.Value, new byte[] { 232, 23, 54, 87 });
+            b.Description = "put-test";
+            test.UpdateBeleg("hugo", b.Belegnummer.Value, b);
             tmp3n = await test.GetBelegeByUserAsync("hugo");
-            b = tmp3n.FirstOrDefault(h => h.Thumbnail != null);
+        }
+
+        public static void DBTest()
+        {
+            Beleg b = new Beleg(1, "test", DateTime.Now, "Hotel", 100, Beleg.StatusEnum.ERFASST);
+
+            var id = BelegDAO.Instance.StoreBeleg(b).Result;
+
+            var loaded = BelegDAO.Instance.GetBeleg(id).Result;
+
         }
     }
 }
