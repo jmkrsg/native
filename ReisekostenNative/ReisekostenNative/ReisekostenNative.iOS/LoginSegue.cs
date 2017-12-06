@@ -16,11 +16,11 @@ namespace ReisekostenNative.iOS
         public override void Perform()
         {
             var src = SourceViewController as LoginViewController;
-            var dest = SourceViewController as BelegeTableViewController;
-            if (src != null && dest != null)
+            var dest = DestinationViewController as UINavigationController;
+            if (src != null && dest != null && dest.ViewControllers[0] != null)
             {
                 if(src.isDataValid()) {
-                    dest.setUser(src.getUser());
+                    ((BelegeTableViewController)dest.ViewControllers[0]).setUser(src.getUser());
                     src.ShowViewController(dest, null);   
                 }
                 else {
