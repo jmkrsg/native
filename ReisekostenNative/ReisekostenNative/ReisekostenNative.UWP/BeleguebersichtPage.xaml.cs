@@ -87,6 +87,7 @@ namespace ReisekostenNative.UWP
             if (e.Parameter != null)
             {
                 Username = e.Parameter as string;
+                ViewModel.Username = Username;
             }
         }
 
