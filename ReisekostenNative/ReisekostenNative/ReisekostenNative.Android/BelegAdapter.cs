@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V7.Widget;
 using IO.Swagger.Model;
-
+using Android.Graphics;
 
 namespace ReisekostenNative.Droid
 {
@@ -50,6 +50,8 @@ namespace ReisekostenNative.Droid
         TextView art;
         TextView datum;
         TextView bezeichnung;
+        TextView status;
+        ImageView image;
         BelegListe parent;
         Beleg currentBeleg;
 
@@ -58,6 +60,8 @@ namespace ReisekostenNative.Droid
             art = itemView.FindViewById<TextView>(Resource.Id.art);
             datum = itemView.FindViewById<TextView>(Resource.Id.datum);
             bezeichnung = itemView.FindViewById<TextView>(Resource.Id.bezeichnung);
+            image= itemView.FindViewById<ImageView>(Resource.Id.thumb);
+            status = itemView.FindViewById<TextView>(Resource.Id.status);
             itemView.Click += delegate
             {
                 parent.belegClicked(currentBeleg);
@@ -74,8 +78,14 @@ namespace ReisekostenNative.Droid
                 datum.Text = date.ToString("dd.MM.yyyy");
             }
             else { datum.Text = ""; }
-            bezeichnung.Text = e.Description.ToString();
+            bezeichnung.Text = e.Label.ToString();
+            if(e.BelegImage != null)
+            {
+                Bitmap bmp= BitmapFactory.DecodeByteArray(e.BelegImage, 0, e.BelegImage.Length);
+                image.SetImageBitmap(bmp);
+            }
 
+            status.Text = e.Status.ToString();
         }
     }
 }
