@@ -24,6 +24,9 @@ namespace ReisekostenNative.iOS
 		[Outlet]
 		UIKit.UITextView beschreibung { get; set; }
 
+        [Outlet]
+        UIKit.UILabel beschreibungValue { get; set; }
+
 		[Outlet]
 		UIKit.UITextField betrag { get; set; }
 
@@ -78,6 +81,11 @@ namespace ReisekostenNative.iOS
 				beschreibung.Dispose ();
 				beschreibung = null;
 			}
+
+            if (beschreibungValue != null) {
+                beschreibungValue.Dispose();
+                beschreibungValue = null;
+            }
 
 			if (betrag != null) {
 				betrag.Dispose ();
